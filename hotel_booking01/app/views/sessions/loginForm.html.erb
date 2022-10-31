@@ -1,0 +1,11 @@
+<%= render 'users/nav' %>
+<%= form_with scope:"session", url: "/login", method: 'post' do |form| %>
+ 
+  <%= form.label :query, "E-Mail Address:"   %>
+  <%= form.email_field :email  %><br>
+
+  <%= form.label :query, "Password:"  %>
+  <%= form.password_field :password  %><br>
+
+  <%= form.submit "Login"  %>
+<% end %>

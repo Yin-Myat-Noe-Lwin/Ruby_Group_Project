@@ -1,6 +1,25 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    root "home#homePage"
+
+    resources :users
+
+    get '/login' => 'sessions#loginForm'
+
+    post '/login' => "sessions#login"
+
+    get '/logout' => "sessions#logout"
+
+    get '/dashboard' => 'admins#dashboard'
+
+    get '/showUsers' => 'admins#showUsers'
+
+    resources :room_types
+
+    resources :rooms
+
+    resources :food_types
+
+    resources :foods
+
 end

@@ -1,0 +1,9 @@
+<% @rooms.each do |room| %>
+  <%= image_tag(room.room_img, :alt => "img"  ) %>	
+  <p><%= room.room_num %></p>
+  <p><%= room.status %></p>
+  <p><%= room.room_type.name %></p>
+  <%= link_to 'View', room_path(room)  %>
+  <%= link_to 'Edit', edit_room_path(room)  %>
+  <%= button_to 'Delete', room_path(room), method: 'delete'  %>
+<% end %>

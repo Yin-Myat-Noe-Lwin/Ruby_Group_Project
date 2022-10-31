@@ -1,0 +1,25 @@
+<ul>
+
+<li><%= current_user.name %></li>
+
+<li><%= link_to "Users", showUsers_path  %></li>
+
+<li><%= link_to "New Room Type", new_room_type_path  %></li>
+
+<li><%= link_to "Room Types", room_types_path  %></li>
+
+<li><%= link_to "New Room", new_room_path  %></li>
+
+<li><%= link_to "Rooms", rooms_path  %></li>
+
+<li><%= link_to "New Food Type", new_food_type_path  %></li>
+
+<li><%= link_to "Food Types", food_types_path  %></li>
+
+<li><%= link_to "New Food", new_food_path  %></li>
+
+<li><%= link_to "Foods", foods_path  %></li>
+    
+<li><%= link_to "Logout", logout_path , method: :delete  %></li>
+
+</ul>
