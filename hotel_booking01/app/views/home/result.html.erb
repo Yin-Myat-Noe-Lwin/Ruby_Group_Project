@@ -1,0 +1,15 @@
+<% flash.each do |type, msg| %>
+
+  <%= msg %>
+  
+<% end %>
+<% if @avails.nil? %>
+<%= "" %>
+<% else %>
+
+<% @avails.each do |avail| %>
+  <%= image_tag(avail.room_img, :alt => "img"  ) %>
+  <p><%= avail.room_num %></p>
+  <%= link_to 'Book now' , new_booking_path(:room_id=>avail.id,:check_in=>@input_check_in, :check_out=>@input_check_out, :num_of_ppl=>@input_num_of_ppl) %><br>
+<% end %>
+<% end %>

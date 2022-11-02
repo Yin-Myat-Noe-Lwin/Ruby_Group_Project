@@ -90,6 +90,15 @@ def destroy
   RoomService.destroyRoom(@room)
 end
 
+def search
+end
+
+def showResults
+  redirect_to reservations_path
+end
+
+private
+
   def room_params
 
     params.require(:room).permit(:room_num, :status, :room_img, :room_type_id)

@@ -1,2 +1,21 @@
 <%= render 'users/nav' %>
-<h1>Home Page</h1>
+
+<h2>Check Available Rooms</h2>
+
+<% flash.each do |type, msg| %>
+
+  <%= msg %>
+  
+<% end %>
+
+<%= render 'search' %>
+
+<h2>Available Room Types</h2>
+
+<% @room_types.each do |room_type| %>
+  <%= link_to 'View Rooms', view_room_path(room_type) %><br>
+  <%= image_tag(room_type.room_type_img, :alt => "img"  ) %>	
+  <h3><%= room_type.name %></h3>
+  <h3><%= room_type.max_capacity %> can stay.</h3>
+
+<% end %>

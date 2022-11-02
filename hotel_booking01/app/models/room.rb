@@ -2,6 +2,8 @@ class Room < ApplicationRecord
 
   belongs_to :room_type
 
+  has_one :reservation , dependent: :destroy
+
   validates_presence_of :room_num
 
   validates_uniqueness_of :room_num, :case_sensitive => false

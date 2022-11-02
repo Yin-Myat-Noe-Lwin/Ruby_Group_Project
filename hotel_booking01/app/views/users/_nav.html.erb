@@ -2,12 +2,13 @@
 
 <li><%= link_to "Home", root_path  %></li>
 
+<li><%= link_to "User Reviews", reviews_path  %></li>
+
 <% if logged_in? %>
 
 <li><%= current_user.name %></li>
-
-<li>
 <% if current_user.user_type == '1' %>
+<li><%= link_to "My Reservations", myReservations_path  %></li>
 <%= "USER" %>
 <% else %>
 <%= "ADMIN" %>

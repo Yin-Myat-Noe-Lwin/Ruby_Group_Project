@@ -22,4 +22,10 @@ class AdminsController < ApplicationController
 
   end
 
+  def showReservations
+
+    @reservations = ReservationService.getAllReservations
+  
+  end
+
 end

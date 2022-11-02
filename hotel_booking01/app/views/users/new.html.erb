@@ -1,4 +1,6 @@
-<h1>Sign up now</h1>
+<%= render 'users/nav' %>
+
+<h2>Sign up now</h2>
 
 <% if  @user.errors.full_messages.any? %>
   <% @user.errors.full_messages.each do |error_message| %>
@@ -6,12 +8,12 @@
   <% end %>
 <% end %>
 
-<%= render 'users/nav' %>
 <%= form_with  model: @user do |form| %>
+
   <%= form.label :query, "Name"  %><br>
   <%= form.text_field :name   %><br>
 
-  <%= form.label :query, "E-Mail Address"    %><br>
+  <%= form.label :query, "E-Mail Address" %><br>
   <%= form.email_field :email  %><br>
 
   <%= form.label :query, "Password" %><br>

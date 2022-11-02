@@ -27,5 +27,17 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
   
   validates_presence_of :profile
+
+  before_create { generate_token(:remember_token)}
+
+  def generate_token(column)
+
+    begin 
+
+      self[column] = SecureRandom.urlsafe_base64
+
+    end while User.exists?(column => self[column])
+    
+  end
   
 end

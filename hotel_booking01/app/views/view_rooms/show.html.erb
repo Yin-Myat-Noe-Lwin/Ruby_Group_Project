@@ -1,0 +1,17 @@
+<% @room_type.rooms.each do |room| %>
+
+  <% if room.status == '1' %>
+    <%= image_tag(room.room_img, :alt => "img" , class: 'booked'  ) %>
+  <% else %>	
+    <%= image_tag(room.room_img, :alt => "img"  ) %>
+  <% end %>
+
+  <h3>Room no:<%= room.room_num %></h3>
+  <% if room.status == '0' %>
+    <h3><%= 'Available' %></h3>
+    <%= link_to 'Book now' , new_reservation_path(:room_id=>room.id) %><br>
+  <% else %>
+    <h3><%= 'Booked' %></h3>
+  <% end %>
+
+<% end %>

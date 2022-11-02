@@ -1,0 +1,8 @@
+<% @myReservations.each do |myReservation| %>
+  <%= image_tag(myReservation.room.room_img, :alt => "img"  ) %>
+  <p>Start Date:<%= myReservation.check_in %></p>
+  <p>End Date:<%= myReservation.check_out %></p>
+  <p>Number of People:<%= myReservation.num_of_ppl %></p>
+  <p>Room Number:<%= myReservation.room.room_num %></p>
+  <%= button_to 'Cancel Booking' , reservation_path(myReservation) , method: 'delete'  %>
+<% end %>

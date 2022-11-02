@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_31_103130) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_02_021524) do
   create_table "food_types", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_103130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.integer "rating"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -62,15 +63,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_103130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "room_type_id"
+    t.bigint "reservation_id"
+    t.index ["reservation_id"], name: "index_rooms_on_reservation_id"
     t.index ["room_type_id"], name: "index_rooms_on_room_type_id"
   end
 
   create_table "tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "remember_token"
     t.string "password_reset_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.datetime "reset_password_sent_at"
     t.index ["user_id"], name: "index_tokens_on_user_id"
   end
 
@@ -83,12 +86,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_31_103130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_confirmation"
+    t.string "remember_token"
   end
 
   add_foreign_key "foods", "food_types"
   add_foreign_key "reservations", "rooms"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "users"
+  add_foreign_key "rooms", "reservations"
   add_foreign_key "rooms", "room_types"
   add_foreign_key "tokens", "users"
 end

@@ -1,7 +1,11 @@
 <% @rooms.each do |room| %>
   <%= image_tag(room.room_img, :alt => "img"  ) %>	
   <p><%= room.room_num %></p>
-  <p><%= room.status %></p>
+  <% if room.status == '0' %>
+  <%= "Available" %>
+  <% else %>
+  <%= "Booked" %>
+  <% end %>
   <p><%= room.room_type.name %></p>
   <%= link_to 'View', room_path(room)  %>
   <%= link_to 'Edit', edit_room_path(room)  %>

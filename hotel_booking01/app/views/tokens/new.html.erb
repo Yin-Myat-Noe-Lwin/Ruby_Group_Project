@@ -1,0 +1,15 @@
+<%= render 'users/nav' %>
+
+<% flash.each do |type, msg| %>
+
+  <%= msg %>
+  
+<% end %>
+
+<%= form_with  model: @token do |form| %>
+  <%= form.label :query, "Email"  %><br>
+  <%= form.text_field :email   %><br>
+
+  <%= form.submit "Reset"   %>
+ 
+<% end %>
