@@ -1,0 +1,378 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: 'Julius Sans One';
+  font-weight: 400;
+  src: url('../fonts/JuliusSansOne-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Arial';
+  font-weight: 400;
+  src: url('../fonts/Arial.ttf');
+}
+
+@font-face {
+  font-family: 'MyriadPro-Regular';
+  font-weight: 400;
+  src: url('../fonts/MyriadPro-Regular.ttf');
+}
+
+body {
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 1920px;
+}
+
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+a {
+  display: block;
+  color: #141414;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:hover {
+  transition: 0.8s;
+  -webkit-transition: 0.8s;
+  opacity: 0.8;
+}
+
+img {
+  max-width: 100%;
+}
+
+.pc {
+  display: block;
+}
+
+.sp {
+  display: none;
+}
+
+.l-container {
+  width: 98%;
+  margin: 0 auto;
+  max-width: 1360px;
+}
+
+.l-inner {
+  width: 98%;
+  margin: 0 auto;
+  max-width: 1110px;
+}
+
+/* Common Button */
+.common-btn {
+  width: 140px;
+  padding: 8px 5px;
+  border: 1px solid transparent;
+  background-color: #FF8364;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.common-btn:hover {
+  border: 1px solid #FF8364;
+  background-color: #FFFFFF;
+  color: #FF8364;
+}
+
+/* Common Title */
+.cmn-ttl {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Mainvisual Section */
+.sec-mv {
+  padding: 10px 0 157px;
+  background-image: url('img_mv.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sec-mv header .header-logo {
+  float: left;
+}
+
+.sec-mv header .gnav {
+  float: right;
+}
+
+.sec-mv header .gnav ul {
+  float: left;
+}
+
+.sec-mv header .gnav ul li {
+  float: left;
+  margin: 21px 61px 8px 0;
+  letter-spacing: -0.1px;
+  list-style-type: none;
+  font-family: 'MyriadPro-Regular';
+  text-transform: uppercase;
+  border-bottom: 1px solid transparent;
+}
+
+.sec-mv header .gnav ul li a {
+  padding-bottom: 7px;
+}
+
+.sec-mv header .common-btn {
+  float: left;
+  width: 120px;
+  margin-top: 13px;
+  font-size: 14px;
+}
+
+.sec-mv header .menu-toggle {
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  letter-spacing: 3px;
+  text-transform: none;
+  min-width: 200px;
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: rgb(193, 190, 190);}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.sec-mv .mv-form-blk{
+  position: absolute;
+  top: 65%;
+  left:20%;
+  padding: 20px 20px 30px;
+  border: 2px solid #ebebeb;
+  border-radius: 5px;
+  width:60%;
+  background-color: #ffffffaa ;
+  
+}
+
+.sec-mv .mv-form-blk .label p{
+  float : left;
+  padding-left:7%;
+  padding-right: 15%;
+}
+.sec-mv .mv-form-blk .formstyle{
+  padding-left:10%;
+  margin-right: 5%;
+}
+
+/* Welcome blog Section */
+.sec-blog{
+  padding: 60px  0px;
+}
+.sec-blog .txt-blk{
+  float: left;
+  width:60%;
+}
+.sec-blog .txt-blk .cmn-ttl{
+  text-align:left;
+  padding-left: 15%;
+}
+.sec-blog .txt-blk p{
+  padding:10px 100px;
+  line-height: 1.8;
+}
+.sec-blog .img-blk{
+  float: right;
+  width:40%;
+  position: relative;
+  padding-top: 30px;
+}
+.sec-blog .img-blk img{
+  
+  width : 300px;
+  height: 250px;
+}
+.sec-blog .img-blk .img02{
+  position : absolute;
+  width : 180px;
+  height : 170px;
+  top : 55%;
+  right : 20%;
+  border:2px solid #fff;
+  border-radius: 50%;
+}
+/* Room Section */
+.sec-room{
+  padding:20px 100px;
+}
+.sec-room .txt-blk p{
+  text-align: center;
+  padding:5px 250px 20px 250px;
+  line-height: 1.8;
+}
+
+.sec-room .room-blk .img-blk{
+  width: 500px;
+  height: 200px;
+  padding-bottom: 10px;
+}
+/* Section Menu */
+.sec-menu{
+  padding: 50px 0 50px;
+  background-image: url('menu_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:#fff;
+}
+.sec-menu .txt-blk p{
+  text-align: center;
+  padding:5px 250px 20px 250px;
+  line-height: 1.8;
+}
+
+.sec-menu .menu-blk .tab {
+  overflow: hidden;
+  
+  color: #fff;
+}
+
+.sec-menu .menu-blk .tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 20px;
+  color: #fff;
+}
+
+.sec-menu .menu-blk .tab button:hover {
+  border-bottom: 3px solid #FF8364;
+}
+
+.sec-menu .menu-blk .tab button.active {
+  border-bottom: 3px solid #FF8364;
+}
+
+.sec-menu .menu-blk .tabcontent {
+  display: none;
+  padding: 6px 12px;
+  
+  border-top: none;
+}
+
+
+/* Section Footer */
+.sec-footer {
+  padding: 50px 0px;
+  background-color: #A6ADB4;
+}
+
+.sec-footer .logo-blk {
+  float: left;
+  padding-right: 32px;
+}
+
+.sec-footer .footer-nav-blk {
+  float: left;
+}
+
+.sec-footer .footer-nav-blk ul {
+  float: left;
+  padding-right: 37px;
+  color: #CBD0D3;
+  font-family: 'Helvetica-Bold';
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sec-footer .footer-nav-blk ul li {
+  line-height: 2;
+}
+
+.sec-footer .footer-nav-blk ul li a {
+  color: #CBD0D3;
+}
+
+.sec-footer .mail-blk {
+  position: relative;
+  float: left;
+  padding-right: 5%;
+  padding-left: 15%;
+
+}
+
+::placeholder {
+  color: #CBD0D3;
+}
+
+.sec-footer .mail-blk img {
+  position: absolute;
+  top: 15px;
+  right: 15%;
+
+}
+
+.sec-footer .mail-blk input {
+  width: 262px;
+  padding: 12px 0px 12px 20px;
+  border: 1px solid #CBD0D3;
+  background-color: #A6ADB4;
+  font-family: 'Helvetica';
+  font-size: 13px;
+  font-weight: 400;
+
+  border-radius: 5px;
+
+}
+
+.sec-footer .mail-blk p {
+  padding-top: 20px;
+  color: #CBD0D3;
+  font-family: 'Helvetica';
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.sec-footer .media-logo-blk {
+  float: right;
+
+}
+
+.sec-footer .media-logo-blk img {
+  padding-right: 30px;
+}
+
+.sec-footer .media-logo-blk img:last-child {
+  padding-right: 0px;
+}

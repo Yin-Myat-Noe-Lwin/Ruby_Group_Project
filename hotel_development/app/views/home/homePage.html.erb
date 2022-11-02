@@ -1,0 +1,141 @@
+<section class="sec-mv">
+  <header>
+    <%= render "nav" %>
+  </header>
+  <div class="mv-blk">
+    <div class="l-inner">
+    <h2 class="mv-ttl">Hotel life is the simplest, <br class="pc" />  yet the best.</h2>
+    <p class="mv-txt">So when its time to finally get your children that very first <br class="pc" /> telescope, you want to make sure it’s just the right thing.</p>
+    <a href="#" class="common-btn" id="reserve">Reserve Now</a>
+    </div>
+  </div>
+  <div class = "mv-form-blk">
+    <div class="l-inner">
+    <%= form_with do |form| %>
+      <div class = "label clearfix">
+        <p>CheckIn</p>
+        <p>CheckOut</p>
+        <p>Room Type</p>
+      </div>
+      <div>
+      <%= form.date_field :CheckIn,class: 'formstyle' %> 
+      <%= form.date_field :CheckOut,class: 'formstyle' %> 
+      <%= form.select :roomtype, ["Single Rooms","Double Rooms","Family Rooms"], include_blank: true,class: 'formstyle' %>
+      <%= form.submit 'Check Availability'%>
+      </div>
+      
+    <% end %>
+    </div>
+  </div>
+</section><!-- /.sec-mv -->
+<section class = "sec-blog">
+  <div class="l-inner clearfix">
+      <div class = "txt-blk">
+        <h2 class = "cmn-ttl">Welcome!</h2>
+        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+      </div>
+      <div class = "img-blk">
+        <%= image_tag "img_blog01.jpg"  %>
+        <%= image_tag "img_blog02.jpg",class: 'img02' %>
+      </div>
+  </div>
+</section><!-- /.sec-welcome-blog -->
+<section class = "sec-room">
+  <div class = "l-inner">
+      <div class = "txt-blk">
+      <h3 class = "cmn-ttl"> Rooms & Suites </h3>
+      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+      </div>
+  
+  <div class="owl-carousel room-blk">
+    <div class="item">
+      <%= image_tag "single_room.jpeg" , class: 'img-blk' %>
+      <h4>Single Room</h4>
+      <span>90$ / per night</span>
+      <a href="#" class="common-btn" id="reserve">View Detail</a>
+    </div>
+    <div class="item">
+      <%= image_tag "double_room.jpg" , class: 'img-blk' %>
+      <h4>Double Room</h4>
+      <span>90$ / per night</span>
+      <a href="#" class="common-btn" id="reserve">View Detail</a>
+    </div>
+    <div class="item">
+      <%= image_tag "family_room.jpg" , class: 'img-blk' %>
+      <h4>Family Room</h4>
+      <span>90$ / per night</span>
+      <a href="#" class="common-btn" id="reserve">View Detail</a>
+    </div>
+    <div class="item">
+      <%= image_tag "suite.jpg" , class: 'img-blk' %>
+      <h4>Suite Room</h4>
+      <span>90$ / per night</span>
+      <a href="#" class="common-btn" id="reserve">View Detail</a>
+    </div>
+    <div class="item">
+      <%= image_tag "luxe.jpg" , class: 'img-blk' %>
+      <h4>Luxe Room</h4>
+      <span>90$ / per night</span>
+      <a href="#" class="common-btn" id="reserve">View Detail</a>
+    </div>
+    <div class="item">
+      <%= image_tag "deluxe.jpeg" , class: 'img-blk' %>
+      <h4>Deluxe Room</h4>
+      <span>90$ / per night</span>
+      <a href="#" class="common-btn" id="reserve">View Detail</a>
+    </div>
+</div>
+</div>
+</section><!-- /.sec-room -->
+<section class = "sec-menu">
+<div class = "l-inner">
+      <div class = "txt-blk">
+      <h3 class = "cmn-ttl"> Restaurant Menus </h3>
+      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+      </div>
+      <div class = "menu-blk">
+      <div class="tab">
+        <button class="tablinks" onclick="openMenu(event, 'Main')" id="defaultOpen">Main</button>
+        <button class="tablinks" onclick="openMenu(event, 'Desserts')">Desserts</button>
+        <button class="tablinks" onclick="openMenu(event, 'Drinks')">Drinks</button>
+      </div>
+
+      <div id="Main" class="tabcontent">
+      <span>$32.00</span>
+      <h3>Menu Name</h3>
+      <p>Menu Description</p>
+      </div>
+
+      <div id="Desserts" class="tabcontent">
+      <h3>Paris</h3>
+      <p>Paris is the capital of France.</p> 
+      </div>
+
+      <div id="Drinks" class="tabcontent">
+      <h3>Tokyo</h3>
+      <p>Tokyo is the capital of Japan.</p>
+      </div>
+      </div>
+</div>
+</section><!-- /.sec-menu -->
+
+
+<%= render "footer" %>
+
+<script>
+function openMenu(evt, menuName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+</script>
