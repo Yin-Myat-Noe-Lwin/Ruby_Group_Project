@@ -27,6 +27,8 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'jquery-rails'
+
 #mysql2 gem
 gem 'mysql2', '~> 0.5.2'
 
@@ -73,3 +75,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'owlcarousel-rails'
