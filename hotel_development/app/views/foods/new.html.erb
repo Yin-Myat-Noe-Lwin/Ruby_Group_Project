@@ -1,0 +1,27 @@
+<h1>Create food</h1>
+
+<%= render 'admins/adminnav' %>
+
+<% if  @food.errors.full_messages.any? %>
+  <% @food.errors.full_messages.each do |error_message| %>
+    <div> <ul><li><%= error_message  %></li></ul></div>
+  <% end %>
+<% end %>
+
+<%= form_with  model: @food do |form| %>
+
+  <%= form.label :query, "Food Name"  %><br>
+  <%= form.text_field :name   %><br>
+
+  <%= form.label :query, "Food Price"    %><br>
+  <%= form.text_field :price  %><br>
+
+  <%= form.label :query, "Description"  %><br>
+  <%= form.text_field :description  %><br>
+
+  <%= form.label :query, "Food Type"  %><br>
+  <%= form.collection_select(:food_type_id, FoodType.all, :id, :name) %>
+  
+  <%= form.submit "Create"   %>
+ 
+<% end %>

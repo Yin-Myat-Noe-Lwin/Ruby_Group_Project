@@ -1,0 +1,5 @@
+<% @reservations.each do |reservation| %>
+  <p><%= reservation.check_in %></p>
+  <p><%= reservation.check_out %></p>
+  <p><%= reservation.user.name %></p>
+<% end %>

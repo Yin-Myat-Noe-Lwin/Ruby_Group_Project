@@ -1,0 +1,19 @@
+<%= render 'users/nav' %>
+
+<% flash.each do |type, msg| %>
+
+  <%= msg %>
+  
+<% end %>
+
+<%= form_with  model: @token do |form| %>
+
+  <%= form.label :query, "Password" %><br>
+  <%= form.password_field :password  %><br>
+
+  <%= form.label :query, "Password Confirmation"  %><br>
+  <%= form.password_field :password_confirmation  %><br>
+  
+  <%= form.submit "Update Password"   %>
+ 
+<% end %>

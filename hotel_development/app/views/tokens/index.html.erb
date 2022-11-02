@@ -1,0 +1,7 @@
+<% @tokens.each do |token| %>
+  
+  <p><%= token.user_id %></p>
+  <p><%= token.password_reset_token %></p>
+  <p><%= token.reset_password_sent_at %></p>
+  
+<% end %>

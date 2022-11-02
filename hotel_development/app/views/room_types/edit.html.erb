@@ -1,0 +1,27 @@
+<h1>Edit room type</h1>
+
+<%= render 'admins/adminnav' %>
+
+<% if  @room_type.errors.full_messages.any? %>
+  <% @room_type.errors.full_messages.each do |error_message| %>
+    <div> <ul><li><%= error_message  %></li></ul></div>
+  <% end %>
+<% end %>
+
+<%= form_with  model: @room_type do |form| %>
+
+  <%= form.label :query, "Room Type Name"  %><br>
+  <%= form.text_field :name   %><br>
+
+  <%= form.label :query, "Maximum Capacity"    %><br>
+  <%= form.text_field :max_capacity  %><br>
+
+  <%= form.label :query, "Old Photo"    %><br>
+  <%= image_tag(@room_type.room_type_img, :alt => "img"  ) %><br>
+
+  <%= form.label :query, "New Room Type Image"  %><br>
+  <%= form.file_field :room_type_img , accept:'image/*'  %><br><br>
+
+  <%= form.submit "Update"   %>
+ 
+<% end %>

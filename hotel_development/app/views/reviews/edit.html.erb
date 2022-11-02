@@ -1,0 +1,21 @@
+<h1>Edit your review</h1>
+
+<%= render 'users/nav' %>
+
+<% if  @review.errors.full_messages.any? %>
+  <% @review.errors.full_messages.each do |error_message| %>
+    <div> <ul><li><%= error_message  %></li></ul></div>
+  <% end %>
+<% end %>
+
+<%= form_with  model: @review do |form| %>
+
+  <%= form.label :query, "Review"  %><br>
+  <%= form.text_field :comment   %><br>
+
+  <%= form.label :query, "Rating"  %><br>
+  <%= form.number_field :rating, min:0, max:5 %><br>
+
+  <%= form.submit "Update"   %>
+ 
+<% end %>

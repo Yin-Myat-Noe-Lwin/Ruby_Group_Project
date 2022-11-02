@@ -11,20 +11,7 @@
   </div>
   <div class = "mv-form-blk">
     <div class="l-inner">
-    <%= form_with do |form| %>
-      <div class = "label clearfix">
-        <p>CheckIn</p>
-        <p>CheckOut</p>
-        <p>Room Type</p>
-      </div>
-      <div>
-      <%= form.date_field :CheckIn,class: 'formstyle' %> 
-      <%= form.date_field :CheckOut,class: 'formstyle' %> 
-      <%= form.select :roomtype, ["Single Rooms","Double Rooms","Family Rooms"], include_blank: true,class: 'formstyle' %>
-      <%= form.submit 'Check Availability'%>
-      </div>
-      
-    <% end %>
+      <%= render "search" %>
     </div>
   </div>
 </section><!-- /.sec-mv -->
@@ -46,15 +33,14 @@
       <h3 class = "cmn-ttl"> Rooms & Suites </h3>
       <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
       </div>
-  
-  <div class="owl-carousel room-blk">
-    <div class="item">
+      <div class="owl-carousel room-blk">
+      <div class="item">
       <%= image_tag "single_room.jpeg" , class: 'img-blk' %>
       <h4>Single Room</h4>
       <span>90$ / per night</span>
       <a href="#" class="common-btn" id="reserve">View Detail</a>
-    </div>
-    <div class="item">
+      </div>
+      <div class="item">
       <%= image_tag "double_room.jpg" , class: 'img-blk' %>
       <h4>Double Room</h4>
       <span>90$ / per night</span>
@@ -84,7 +70,8 @@
       <span>90$ / per night</span>
       <a href="#" class="common-btn" id="reserve">View Detail</a>
     </div>
-</div>
+      </div>
+
 </div>
 </section><!-- /.sec-room -->
 <section class = "sec-menu">

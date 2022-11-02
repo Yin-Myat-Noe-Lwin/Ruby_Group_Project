@@ -1,0 +1,5 @@
+<% @reservations.each do |reservation| %>
+  
+ <%= reservation.user.name %>
+  <%= button_to 'Delete', reservation_path(reservation), method: 'delete'  %>
+<% end %>
