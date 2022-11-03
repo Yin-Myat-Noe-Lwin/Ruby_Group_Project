@@ -1,5 +1,4 @@
-
-  <div class="l-container clearfix">
+<div class="l-container clearfix">
     <h1 class="header-logo">
       <a href="#">
         <p><span>R<span> Hotel</p>
@@ -7,7 +6,7 @@
     </h1>
     <nav class="gnav clearfix">
       <ul class="clearfix">
-        <li><%= link_to 'Home'%></li>
+        <li><%= link_to 'Home' , root_path %></li>
         <li>
         <div class="dropdown">
           <%= link_to 'Rooms' %>
@@ -18,11 +17,22 @@
           </div>
         </div>
         </li>
-        <li><%= link_to 'Review'%></li>
-        <li><%= link_to 'Contact Us'%></li>
-        <li><%= link_to 'SignUp'%></li>
-        <li><%= link_to 'LogIn'%></li>
+        <li><%= link_to 'Review' , reviews_path %></li>
+        <% if logged_in? %>
+        <li><%= current_user.name %></li>
+          <% if current_user.user_type == '1' %>
+          <li><%= link_to "My Reservations", myReservations_path  %></li>
+          <li><%= "USER" %></li>
+          <li><%= link_to "Contact us",  new_contact_path  %></li>
+          <% else %>
+          <%= "ADMIN" %>
+          <% end %>
+          </li>
+        <li><%= link_to "Logout", logout_path , method: :delete  %></li>
+        <% else %>
+        <li><%= link_to 'SignUp' , new_user_path %></li>
+        <li><%= link_to 'LogIn' , login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
-

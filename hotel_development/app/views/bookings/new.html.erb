@@ -1,6 +1,5 @@
+<%= render 'home/nav' %>
 <h1>Reserve a Room</h1>
-
-<%= render 'users/nav' %>
 
 <% if  @reservation.errors.full_messages.any? %>
   <% @reservation.errors.full_messages.each do |error_message| %>

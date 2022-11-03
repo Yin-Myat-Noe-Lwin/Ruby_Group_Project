@@ -1,6 +1,6 @@
-<h1>Write your review</h1>
+<%= render 'home/nav' %>
 
-<%= render 'users/nav' %>
+<h1>Write your review</h1>
 
 <% if  @review.errors.full_messages.any? %>
   <% @review.errors.full_messages.each do |error_message| %>
@@ -13,9 +13,18 @@
   <%= form.label :query, "Review"  %><br>
   <%= form.text_field :comment   %><br>
 
-  <%= form.label :query, "Rating"  %><br>
-  <%= form.number_field :rating, min:0, max:5 %><br>
+  <div id="rating-form">
+  <label>Rating</label>
+</div>
 
   <%= form.submit "Write"   %>
  
 <% end %>
+
+<!-- JS script for Raty -->
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

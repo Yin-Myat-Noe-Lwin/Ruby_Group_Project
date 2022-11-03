@@ -13,14 +13,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <link rel="stylesheet" href="room.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="common.css">
+
+    <%= stylesheet_link_tag    'common' %>
+
+    <%= stylesheet_link_tag    'style' %>
     
-    
-    
+    <%= stylesheet_link_tag    'room' %>
 
     <%= javascript_importmap_tags %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 

@@ -6,6 +6,4 @@ class Review < ApplicationRecord
 
   validates :comment, :length => { :in => 1..200}
 
-  validates_presence_of :rating
-
 end
