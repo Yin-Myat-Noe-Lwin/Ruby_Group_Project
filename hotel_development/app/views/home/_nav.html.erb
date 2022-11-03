@@ -1,19 +1,25 @@
 <div class="l-container clearfix">
     <h1 class="header-logo">
       <a href="#">
-        <p><span>R<span> Hotel</p>
+        <p> <%= link_to 'R Hotel', root_path%></p>
       </a>
     </h1>
     <nav class="gnav clearfix">
       <ul class="clearfix">
+<<<<<<< HEAD
         <li><%= link_to 'Home' , root_path %></li>
+=======
+        <li><%= link_to 'Home', root_path%></li>
+>>>>>>> 99fe626887fdbea7cdb3ff30d6a504f80e87d141
         <li>
         <div class="dropdown">
           <%= link_to 'Rooms' %>
           <div class="dropdown-content">
             <%= link_to 'Single Rooms', single_rooms_path() %>
-            <%= link_to 'Double Rooms' %>
-            <%= link_to 'Family Rooms' %>
+            <%= link_to 'Double Rooms', double_rooms_path() %>
+            <%= link_to 'Luxury Rooms', luxury_rooms_path() %>
+            <%= link_to 'Deluxe Rooms', deluxe_rooms_path() %>
+            <%= link_to 'Special Rooms', special_rooms_path() %>
           </div>
         </div>
         </li>

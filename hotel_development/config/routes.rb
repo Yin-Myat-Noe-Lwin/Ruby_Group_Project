@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
     resources :view_rooms
     resources :single_rooms
+    resources :double_rooms
+    resources :luxury_rooms
+    resources :deluxe_rooms
+    resources :special_rooms
     
 
     get '/myReservations' => "reservations#myReservations"

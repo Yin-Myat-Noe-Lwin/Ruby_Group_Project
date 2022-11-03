@@ -32,9 +32,29 @@ class RoomTypeRepository
 
     end
 
-    def getRoomType
+    def getRoomTypeSingle
 
       @room_type = RoomType.find_by max_capacity: 1
+
+    end
+    def getRoomTypeDouble
+
+      @room_type = RoomType.find_by max_capacity: 2
+
+    end
+    def getRoomTypeLuxury
+
+      @room_type = RoomType.find_by name: "Luxury Room"
+
+    end
+    def getRoomTypeDeluxe
+
+      @room_type = RoomType.find_by name: "Deluxe Room"
+
+    end
+    def getRoomTypeSpecial
+
+      @room_type = RoomType.find_by name: "Special Room"
 
     end
 

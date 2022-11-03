@@ -126,6 +126,50 @@
   border-top: none;
 }
 
+/* Room Page*/
+/* Main visual Section */
+
+.sec-room-mv {
+  padding: 10px 0 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sec-room-mv .mv-blk h2{
+  padding-top: 5%;
+}
+
+.sec-singleroom-bg{
+  background-image: url('img_single_bg.jpg');
+}
+.sec-doubleroom-bg{
+  background-image: url('img_double_bg.jpg');
+}
+.sec-luxuryroom-bg{
+  background-image: url('img_luxury_bg.jpg');
+}
+.sec-deluxeroom-bg{
+  background-image: url('img_deluxe_bg.jpg');
+}
+.sec-specialroom-bg{
+  background-image: url('img_special_bg.jpg');
+}
+
+
+/* Room Section */
 .sec-room {
   padding-top: 10%;
+}
+.sec-room .room .booked{
+
+  opacity: 0.5;
+  background-color: #ff0303;
+
+}
+.sec-room .room{
+  float : left;
+  padding-left:5%;
+}
+.sec-room .room img{
+  width: 280px;
+  height: 200px;
 }

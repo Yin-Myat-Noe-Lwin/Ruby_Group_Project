@@ -38,37 +38,31 @@
       <%= image_tag "single_room.jpeg" , class: 'img-blk' %>
       <h4>Single Room</h4>
       <span>90$ / per night</span>
-      <a href="#" class="common-btn" id="reserve">View Detail</a>
+      <%= link_to 'View Details', single_rooms_path(), class: 'common-btn' %>
       </div>
       <div class="item">
       <%= image_tag "double_room.jpg" , class: 'img-blk' %>
       <h4>Double Room</h4>
       <span>90$ / per night</span>
-      <a href="#" class="common-btn" id="reserve">View Detail</a>
+      <%= link_to 'View Details', double_rooms_path(), class: 'common-btn' %>
     </div>
     <div class="item">
       <%= image_tag "family_room.jpg" , class: 'img-blk' %>
-      <h4>Family Room</h4>
+      <h4>Special Room</h4>
       <span>90$ / per night</span>
-      <a href="#" class="common-btn" id="reserve">View Detail</a>
-    </div>
-    <div class="item">
-      <%= image_tag "suite.jpg" , class: 'img-blk' %>
-      <h4>Suite Room</h4>
-      <span>90$ / per night</span>
-      <a href="#" class="common-btn" id="reserve">View Detail</a>
+      <%= link_to 'View Details', special_rooms_path(), class: 'common-btn' %>
     </div>
     <div class="item">
       <%= image_tag "luxe.jpg" , class: 'img-blk' %>
       <h4>Luxe Room</h4>
       <span>90$ / per night</span>
-      <a href="#" class="common-btn" id="reserve">View Detail</a>
+      <%= link_to 'View Details', luxury_rooms_path(), class: 'common-btn' %>
     </div>
     <div class="item">
       <%= image_tag "deluxe.jpeg" , class: 'img-blk' %>
       <h4>Deluxe Room</h4>
       <span>90$ / per night</span>
-      <a href="#" class="common-btn" id="reserve">View Detail</a>
+      <%= link_to 'View Details', deluxe_rooms_path(), class: 'common-btn' %>
     </div>
       </div>
 

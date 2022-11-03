@@ -2,7 +2,7 @@ class SingleRoomsController < ApplicationController
 
   def index
 
-    @room_type= RoomTypeService.getRoomType
+    @room_type= RoomTypeService.getRoomTypeSingle
 
   end
   
