@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get '/result' => "home#result"
 
     resources :view_rooms
+    resources :single_rooms
+    
 
     get '/myReservations' => "reservations#myReservations"
 

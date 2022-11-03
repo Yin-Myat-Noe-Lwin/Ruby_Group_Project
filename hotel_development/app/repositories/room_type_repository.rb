@@ -32,6 +32,12 @@ class RoomTypeRepository
 
     end
 
+    def getRoomType
+
+      @room_type = RoomType.find_by max_capacity: 1
+
+    end
+
   end
 
 end

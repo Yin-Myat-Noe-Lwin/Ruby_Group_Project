@@ -1,0 +1,34 @@
+/* Mainvisual Section */
+
+.sec-room-mv {
+  padding: 10px 0 10px;
+  background-image: url('../images/rooms/img_single_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sec-room-mv .mv-form-blk{
+  position: absolute;
+  top: 65%;
+  left:20%;
+  padding: 20px 20px 30px;
+  border: 2px solid #ebebeb;
+  border-radius: 5px;
+  width:60%;
+  background-color: #ffffffaa ;
+  
+}
+
+.sec-room-mv .mv-form-blk .label p{
+  float : left;
+  padding-left:7%;
+  padding-right: 15%;
+}
+.sec-room-mv .mv-form-blk .formstyle{
+  padding-left:10%;
+  margin-right: 5%;
+}
+
+/* Room Section */
+.sec-room {
+  padding-top: 10%;
+}

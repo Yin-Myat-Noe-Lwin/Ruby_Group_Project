@@ -31,6 +31,12 @@ class RoomTypeService
       RoomTypeRepository.destroyRoomType(room_type)
 
     end
+    
+    def getRoomType
+
+      @room_type = RoomTypeRepository.getRoomType
+
+    end
 
   end
 
