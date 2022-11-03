@@ -10,6 +10,7 @@
 <% if current_user.user_type == '1' %>
 <li><%= link_to "My Reservations", myReservations_path  %></li>
 <%= "USER" %>
+<li><%= link_to "Contact us", new_contact_path  %></li>
 <% else %>
 <%= "ADMIN" %>
 <% end %>

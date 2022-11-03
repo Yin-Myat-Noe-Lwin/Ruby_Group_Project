@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
     post '/login' => "sessions#login"
 
-    get '/logout' => "sessions#logout"
+    delete '/logout' => "sessions#logout"
 
     get '/dashboard' => 'admins#dashboard'
 
@@ -39,5 +39,9 @@ Rails.application.routes.draw do
     resources :reviews
 
     resources :tokens
+
+    match '/contacts',     to: 'contacts#new',    via: 'get'
+    
+    resources "contacts", only: [:new, :create]
 
 end

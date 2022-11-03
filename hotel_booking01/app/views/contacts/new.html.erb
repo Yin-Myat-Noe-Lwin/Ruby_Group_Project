@@ -1,0 +1,28 @@
+<%= render 'users/nav' %>
+
+<h1>Contact Form</h1>
+
+<% flash.each do |type, msg| %>
+
+  <%= msg %>
+  
+<% end %>
+
+<%= form_with  model: @contact do |form| %>
+
+  <%= form.label :query, "Name"  %><br>
+  <%= form.text_field :name   %><br>
+
+  <%= form.label :query, "Email"    %><br>
+  <%= form.text_field :email  %><br>
+
+  <%= form.label :query, "Message"  %><br>
+  <%= form.text_field :message  %><br>
+
+  <div class= "hidden">
+  <%= form.text_field :nickname, :hint => 'Leave this field blank!' %>
+</div>
+
+  <%= form.submit "Send Message"   %>
+ 
+<% end %>

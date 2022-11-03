@@ -13,9 +13,18 @@
   <%= form.label :query, "Review"  %><br>
   <%= form.text_field :comment   %><br>
 
-  <%= form.label :query, "Rating"  %><br>
-  <%= form.number_field :rating, min:0, max:5 %><br>
+  <div id="rating-form">
+    <label>Rating</label>
+  </div>
 
   <%= form.submit "Write"   %>
  
 <% end %>
+
+<!-- JS script for Raty -->
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

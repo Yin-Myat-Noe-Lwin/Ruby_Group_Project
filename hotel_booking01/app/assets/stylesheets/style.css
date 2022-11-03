@@ -2,9 +2,6 @@
   width:50px
 }
 
-img {
-  width:200px;
-}
 
 .booked{
 
@@ -29,3 +26,5 @@ li {
 li a{
   text-decoration: none;
 }
+
+.hidden { display: none; }

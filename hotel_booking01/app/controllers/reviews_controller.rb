@@ -50,6 +50,10 @@ class ReviewsController < ApplicationController
 
     @reviews = ReviewService.getAllReviews
 
+    if @reviews.count > 0
+      @average_review = @reviews.sum('rating') / @reviews.count
+    end
+
   end
   
   def edit
