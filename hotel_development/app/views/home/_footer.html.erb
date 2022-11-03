@@ -3,34 +3,32 @@
   <div class="logo-blk ">
     <h4>
       <a href="#">
-        <p>R Hotel</p>
+        <p><%= link_to 'R Hotel', root_path %></p>
       </a>
     </h4>
   </div>
   <div class="footer-nav-blk clearfix">
     <ul>
-      <li><a href="index.html">Home</a></li>
+      <li><%= link_to 'Home', root_path %></a></li>
       <li><a href="discovery.html">Review</a></li>
       <li>LogIn</li>
       <li>LogOut</li>
     </ul>
     <ul>
-      <li>Single Rooms</li>
-      <li>Double Rooms</li>
-      <li>Family Rooms</li>
-      <li>Suite Rooms</li>
+      <li><%= link_to 'Single Rooms', single_rooms_path() %></li>
+      <li><%= link_to 'Double Rooms', double_rooms_path() %></li>
+      <li><%= link_to 'Luxe Rooms', luxury_rooms_path() %></li>
+      <li><%= link_to 'Special Rooms', special_rooms_path() %></li>
     </ul>
     <ul>
-      <li>Luxe Rooms</li>
-      <li>Deluxe Rooms</li>
-     
+      <li><%= link_to 'Deluxe Rooms', deluxe_rooms_path() %></li>
     </ul>
 
   </div>
 
   <div class="mail-blk">
     <input type="text" id="mail" name="mail" placeholder="Email">
-    <img src="img/common/img_mail.png" alt="mail">
+    <%= image_tag "img_mail.png"%>
     <p>Stay in touch with us for the freshest products!</p>
   </div>
   <div class="media-logo-blk">

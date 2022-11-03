@@ -32,9 +32,29 @@ class RoomTypeService
 
     end
     
-    def getRoomType
+    def getRoomTypeSingle
 
-      @room_type = RoomTypeRepository.getRoomType
+      @room_type = RoomTypeRepository.getRoomTypeSingle
+
+    end
+    def getRoomTypeDouble
+
+      @room_type = RoomTypeRepository.getRoomTypeDouble
+
+    end
+    def getRoomTypeLuxury
+
+      @room_type = RoomTypeRepository.getRoomTypeLuxury
+
+    end
+    def getRoomTypeDeluxe
+
+      @room_type = RoomTypeRepository.getRoomTypeDeluxe
+
+    end
+    def getRoomTypeSpecial
+
+      @room_type = RoomTypeRepository.getRoomTypeSpecial
 
     end
 
