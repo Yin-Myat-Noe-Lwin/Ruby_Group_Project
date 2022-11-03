@@ -1,3 +1,4 @@
+<li><%= link_to "New Room", new_room_path  %></li>
 <% @rooms.each do |room| %>
   <%= image_tag(room.room_img, :alt => "img"  ) %>	
   <p><%= room.room_num %></p>

@@ -1,3 +1,4 @@
+<li><%= link_to "New Food Type", new_food_type_path  %></li>
 <% @food_types.each do |food_type| %>
   <p><%= food_type.name %></p>
   <%= link_to 'View', food_type_path(food_type)  %>

@@ -1,4 +1,6 @@
-<%= render 'home/nav' %>
+<header>
+    <%= render "home/nav" %>
+</header>
 
 <h1>Contact Form</h1>
 
@@ -16,9 +18,9 @@
   <%= form.label :query, "Message"  %><br>
   <%= form.text_field :message  %><br>
 
-  <div class= "hidden">
-  <%= form.text_field :nickname, :hint => 'Leave this field blank!' %>
-</div>
+
+  <%= form.hidden_field :nickname, :hint => 'Leave this field blank!' %>
+
 
   <%= form.submit "Send Message"   %>
  

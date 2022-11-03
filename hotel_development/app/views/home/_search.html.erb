@@ -1,3 +1,9 @@
+<% flash.each do |type, msg| %>
+
+  <%= msg %>
+  
+<% end %>
+
 <%= form_with  do |form|  %>
 
   <%= form.label :query, "Check in"  %>

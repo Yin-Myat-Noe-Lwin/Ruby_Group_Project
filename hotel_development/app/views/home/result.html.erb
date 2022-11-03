@@ -1,8 +1,12 @@
+<header>
+    <%= render "nav" %>
+  </header>
 <% flash.each do |type, msg| %>
 
   <%= msg %>
   
 <% end %>
+
 <% if @avails.nil? %>
 <%= "" %>
 <% else %>

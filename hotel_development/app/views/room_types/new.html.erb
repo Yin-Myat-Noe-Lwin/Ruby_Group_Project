@@ -1,7 +1,5 @@
-<h1>Create room type</h1>
-
 <%= render 'admins/adminnav' %>
-
+<h1>Create room type</h1>
 <% if  @room_type.errors.full_messages.any? %>
   <% @room_type.errors.full_messages.each do |error_message| %>
     <div> <ul><li><%= error_message  %></li></ul></div>

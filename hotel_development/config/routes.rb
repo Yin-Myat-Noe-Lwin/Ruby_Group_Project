@@ -7,13 +7,17 @@ Rails.application.routes.draw do
     get '/result' => "home#result"
 
     resources :view_rooms
+
     resources :single_rooms
+
     resources :double_rooms
+
     resources :luxury_rooms
+
     resources :deluxe_rooms
+
     resources :special_rooms
     
-
     get '/myReservations' => "reservations#myReservations"
 
     resources :reservations
@@ -26,7 +30,7 @@ Rails.application.routes.draw do
 
     post '/login' => "sessions#login"
 
-    delete '/logout' => "sessions#logout"
+    get '/logout' => "sessions#logout"
 
     get '/dashboard' => 'admins#dashboard'
 
