@@ -75,7 +75,7 @@ Rails.application.configure do
     authentication: :plain,
     enable_starttls_auto: true,
     user_name: 'yinmyatnoelwin1@gmail.com',
-    password: 'mkjchrskaliveswf'
+    password: 'jvrtsvtcomphkoib'
     
   }
 
