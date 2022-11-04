@@ -36,7 +36,7 @@ class TokensController < ApplicationController
 
       flash.notice = "Please enter valid email"
 
-      render 'new'
+      render 'sessions/loginForm'
 
     end
 
