@@ -1,6 +1,8 @@
+<%= render 'admins/adminnav' %>
 <% @food_types.each do |food_type| %>
   <p><%= food_type.name %></p>
   <%= link_to 'View', food_type_path(food_type)  %>
   <%= link_to 'Edit', edit_food_type_path(food_type)  %>
   <%= button_to 'Delete', food_type_path(food_type), method: 'delete'  %>
 <% end %>
+</section>
