@@ -14,6 +14,12 @@
 <section class= "sec-room">
 <div class = "l-inner clearfix">
 
+<% flash.each do |type, msg| %>
+
+  <%= msg %>
+  
+<% end %>
+
 <% @room_type.rooms.each do |room| %>
   <div class= "room">
   <% if room.status == '1' %>

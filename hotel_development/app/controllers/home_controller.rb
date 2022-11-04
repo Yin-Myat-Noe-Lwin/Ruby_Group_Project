@@ -42,15 +42,15 @@ class HomeController < ApplicationController
 
       @rooms = Room.where(room_type_id: @chosen_room_type.id)
 
-      @avails = @rooms.where(status: '0')
+      @room_type = @rooms.where(status: '0')
 
-      render 'result'
+      render 'single_rooms/index'
 
       else
 
         flash.notice = "No available room"
 
-        render 'result'
+        render 'single_rooms/index'
 
       end
 

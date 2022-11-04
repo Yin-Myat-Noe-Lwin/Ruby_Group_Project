@@ -5,6 +5,9 @@ class SingleRoomsController < ApplicationController
     @room_type= RoomTypeService.getRoomTypeSingle
 
   end
+  def create
+    
+  end
   
 
 
