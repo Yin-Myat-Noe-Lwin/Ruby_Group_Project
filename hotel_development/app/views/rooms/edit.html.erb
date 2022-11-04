@@ -1,0 +1,30 @@
+<h1>Edit room</h1>
+
+<%= render 'admins/adminnav' %>
+
+<% if  @room.errors.full_messages.any? %>
+  <% @room.errors.full_messages.each do |error_message| %>
+    <div> <ul><li><%= error_message  %></li></ul></div>
+  <% end %>
+<% end %>
+
+<%= form_with  model: @room do |form| %>
+
+  <%= form.label :query, "Room Number"  %><br>
+  <%= form.text_field :room_num   %><br>
+
+  <%= form.label :query, "Room Status"    %><br>
+  <%= form.text_field :status  %><br>
+
+  <%= form.label :query, "Old Photo"    %><br>
+  <%= image_tag(@room.room_img, :alt => "img"  ) %><br>
+
+  <%= form.label :query, "Room Image"  %><br>
+  <%= form.file_field :room_img , accept:'image/*'  %><br><br>
+
+  <%= form.label :query, "Room Type"  %><br>
+  <%= form.collection_select(:room_type_id, RoomType.all, :id, :name) %>
+  
+  <%= form.submit "Update"   %>
+ 
+<% end %>

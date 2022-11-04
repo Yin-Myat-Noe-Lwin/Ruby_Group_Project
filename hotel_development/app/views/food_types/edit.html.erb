@@ -1,0 +1,18 @@
+<h1>Edit food type</h1>
+
+<%= render 'admins/adminnav' %>
+
+<% if  @food_type.errors.full_messages.any? %>
+  <% @food_type.errors.full_messages.each do |error_message| %>
+    <div> <ul><li><%= error_message  %></li></ul></div>
+  <% end %>
+<% end %>
+
+<%= form_with  model: @food_type do |form| %>
+
+  <%= form.label :query, "Food Type Name"  %><br>
+  <%= form.text_field :name   %><br>
+
+  <%= form.submit "Update"   %>
+ 
+<% end %>

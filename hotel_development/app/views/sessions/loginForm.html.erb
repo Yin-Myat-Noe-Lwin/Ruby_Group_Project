@@ -1,0 +1,28 @@
+<header>
+    <%= render "home/nav" %>
+</header>
+
+<h2>Login</h2>
+
+<% flash.each do |type, msg| %>
+
+  <%= msg %>
+  
+<% end %>
+
+<%= form_with scope:"session", url: "/login", method: 'post' do |form| %>
+ 
+  <%= form.label :query, "E-Mail Address:"   %>
+  <%= form.email_field :email  %><br>
+
+  <%= form.label :query, "Password:"  %>
+  <%= form.password_field :password  %><br>
+
+  <%= form.check_box :remember_me %> 
+  <%= form.label :query, "Remember me" %>
+
+  <%= form.submit "Login"  %>
+  <%= link_to "forgotten password?", new_token_path  %><br>
+  
+<% end %>
+

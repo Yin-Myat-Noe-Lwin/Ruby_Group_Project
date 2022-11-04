@@ -1,0 +1,40 @@
+<div class="l-container clearfix">
+    <h1 class="header-logo">
+      <a href="#">
+        <p> <%= link_to 'R Hotel', root_path%></p>
+      </a>
+    </h1>
+    <nav class="gnav clearfix">
+      <ul class="clearfix">
+      <li><%= link_to 'Home' , root_path %></li>
+        <li>
+        <div class="dropdown">
+          <%= link_to 'Rooms' %>
+          <div class="dropdown-content">
+            <%= link_to 'Single Rooms', single_rooms_path() %>
+            <%= link_to 'Double Rooms', double_rooms_path() %>
+            <%= link_to 'Luxury Rooms', luxury_rooms_path() %>
+            <%= link_to 'Deluxe Rooms', deluxe_rooms_path() %>
+            <%= link_to 'Special Rooms', special_rooms_path() %>
+          </div>
+        </div>
+        </li>
+        <li><%= link_to 'Review' , reviews_path %></li>
+        <% if logged_in? %>
+        <li><%= current_user.name %></li>
+          <% if current_user.user_type == '1' %>
+          <li><%= link_to "My Reservations", myReservations_path  %></li>
+          <li><%= "USER" %></li>
+          <li><%= link_to "Contact us",  new_contact_path  %></li>
+          <% else %>
+          <%= "ADMIN" %>
+          <% end %>
+          </li>
+        <li><%= link_to "Logout", logout_path , method: :delete  %></li>
+        <% else %>
+        <li><%= link_to 'SignUp' , new_user_path %></li>
+        <li><%= link_to 'LogIn' , login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>

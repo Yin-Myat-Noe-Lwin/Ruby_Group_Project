@@ -1,0 +1,32 @@
+<header>
+    <%= render "home/nav" %>
+</header>
+
+<h1>Write your review</h1>
+
+<% if  @review.errors.full_messages.any? %>
+  <% @review.errors.full_messages.each do |error_message| %>
+    <div> <ul><li><%= error_message  %></li></ul></div>
+  <% end %>
+<% end %>
+
+<%= form_with  model: @review do |form| %>
+
+  <%= form.label :query, "Review"  %><br>
+  <%= form.text_field :comment   %><br>
+
+  <div id="rating-form">
+  <label>Rating</label>
+</div>
+
+  <%= form.submit "Write"   %>
+ 
+<% end %>
+
+<!-- JS script for Raty -->
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

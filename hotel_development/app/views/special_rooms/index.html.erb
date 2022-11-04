@@ -1,0 +1,40 @@
+<section class="sec-room-mv sec-specialroom-bg">
+  <header>
+    <%= render "home/nav" %>
+  </header>
+  <div class="mv-blk">
+    <div class="l-inner">
+    <h2 class="cmn-ttl">Special Rooms</h2>
+
+    </div>
+  </div>
+
+</section><!-- /.sec-mv -->
+
+<section class= "sec-room">
+<div class = "l-inner clearfix">
+
+<% @room_type.rooms.each do |room| %>
+  <div class= "room">
+  <% if room.status == '1' %>
+    <%= image_tag(room.room_img, :alt => "img" , class: 'booked'  ) %>
+  <% else %>	
+    <%= image_tag(room.room_img, :alt => "img"  ) %>
+  <% end %>
+
+  <p>Room no :<%= room.room_num %></p>
+  <p>Size : </p>
+  <p>Capacity : <%= @room_type.max_capacity %></p>
+  <p>Services : </p>
+  <% if room.status == '0' %>
+    <%= link_to 'Book now' , new_reservation_path(:room_id=>room.id), class: 'common-btn'  %><br>
+  <% else %>
+    <h3 class= "common-btn booked"><%= 'Booked' %></h3>
+  <% end %>
+  </div>
+<% end %>
+
+</div>
+</section><!-- /.sec-room -->
+
+<%= render "home/footer" %>

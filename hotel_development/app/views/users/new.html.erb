@@ -1,0 +1,49 @@
+<section class = "sec-sign">
+<div>
+
+<header>
+    <%= render "home/nav" %>
+</header>
+
+<div class = 'l-inner clearfix'>
+<div class = "txt-blk">
+<h2 class= 'cmn-ttl'>One of us?</h2>
+<p>If you already has an account, just sign in.<br/> We've missed you!</p>
+
+<%= link_to 'LogIn' , login_path , class: 'button'%>
+</div>
+<% if  @user.errors.full_messages.any? %>
+  <% @user.errors.full_messages.each do |error_message| %>
+    <div> <ul><li><%= error_message  %></li></ul></div>
+  <% end %>
+<% end %>
+<div class = "form">
+<div class = "align">
+<%= form_with  model: @user do |form| %>
+
+  <%= form.label :query, "Name"  %><br>
+  <%= form.text_field :name   %><br>
+
+  <%= form.label :query, "E-Mail Address" %><br>
+  <%= form.email_field :email  %><br>
+
+  <%= form.label :query, "Password" %><br>
+  <%= form.password_field :password  %><br>
+
+  <%= form.label :query, "Password Confirmation"  %><br>
+  <%= form.password_field :password_confirmation  %><br>
+  
+  <%= form.label :query, "Type" %><br>
+  <%= form.select :user_type, [["User", "1"], ["Admin", "0"]]  %><br>
+
+  <%= form.label :query, "Profile"  %><br>
+  <%= form.file_field :profile , accept:'image/*'  %><br><br>
+
+  <%= form.submit "Register"   %>
+ 
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</section>

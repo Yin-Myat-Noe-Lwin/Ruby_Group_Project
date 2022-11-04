@@ -1,0 +1,55 @@
+<section class = "sec-review">
+<header>
+    <%= render "home/nav" %>
+</header>
+<div class = "l-inner">
+<div class = "average">
+<h3 class= 'cmn-ttl'>Read what our customers say</h3>
+
+<h4>Average Review</h4>
+<% if @reviews.count > 0 %>
+<div class="average-review" data-score = "<%= @average_review %>"></div>
+<p>( <%= @reviews.count %> review)</p>
+<% else %>
+<p>No review</p>
+<% end %>
+<%= link_to "Write your review", new_review_path , class: 'common-btn'  %>
+</div>
+<div class = "clearfix">
+<div class = 'each-review'>
+<% @reviews.each do |review| %>
+  <%= image_tag(review.user.profile, :alt => "img"  ) %>	
+  <p><%= review.user.name %></p>
+  <p><%= review.comment %></p>
+  <div class="review-rating" data-score = "<%= review.rating %>"></div>
+  
+ 
+  <% if  logged_in? && current_user.id == review.user_id %>
+  <%= link_to 'Edit', edit_review_path(review)  %>
+  <%= button_to 'Delete', review_path(review), method: 'delete'  %>
+  <% end %>
+<% end %>
+</div>
+
+
+</div>
+</div>
+</section>
+<%= render "home/footer" %>
+<script>
+$('.review-rating').raty({
+readOnly: true,
+score: function() {
+return $(this).attr('data-score');
+},
+path: '/assets/'
+});
+
+$('.average-review').raty({
+readOnly: true,
+score: function() {
+return $(this).attr('data-score');
+},
+path: '/assets/'
+});
+</script>
