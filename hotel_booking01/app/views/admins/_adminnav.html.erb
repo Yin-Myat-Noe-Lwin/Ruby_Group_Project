@@ -1,38 +1,87 @@
 <div class="sidebar">
-  <div class="logo-details">
-  <span class="logo_name">RHotel</span>
+    <div class="logo-details">
+      <i class='bx bx-buildings'></i>
+      <span class="logo_name">RHotel</span>
+    </div>
+      <ul class="nav-links">
+        <li>
+        <%= link_to "<i class='bx bx-grid-alt' ></i> <span class='links_name'>Dashboard</span>".html_safe, dashboard_path %>
+        </li>
+        <li>
+        <%= link_to "<i class='bx bx-user' ></i> <span class='links_name'>Users</span>".html_safe, showUsers_path %>
+        </li>
+        <li>
+        <%= link_to "<i class='bx bx-bookmark' ></i> <span class='links_name'>Reservations</span>".html_safe, showReservations_path %>
+        </li>
+        <li>
+        <%= link_to "<i class='bx bx-door-open' ></i> <span class='links_name'>Room Types</span>".html_safe %>
+       
+        </li>
+        <li>
+        <%= link_to "<i class='bx bx-door-open' ></i> <span class='links_name'>Rooms</span>".html_safe, rooms_path %>
+        </li>
+        <li>
+        <%= link_to "<i class='bx bx-food-menu' ></i> <span class='links_name'>Food Types</span>".html_safe, food_types_path %>
+        </li>
+        <li>
+        <%= link_to "<i class='bx bx-food-tag' ></i> <span class='links_name'>Foods</span>".html_safe, foods_path %>
+        </li>
+       
+      </ul>
   </div>
-  <ul class="nav-links">
-  <li><%= link_to "Dashboard", dashboard_path %></li>
-  <li><%= link_to "Users", showUsers_path  %></li>
-  <li><%= link_to "New Room Type", new_room_type_path  %></li>
-  <li><%= link_to "Room Types", room_types_path  %></li>
-  <li><%= link_to "New Room", new_room_path  %></li>
-  <li><%= link_to "Rooms", rooms_path  %></li>
-  <li><%= link_to "New Food Type", new_food_type_path  %></li>
-  <li><%= link_to "Food Types", food_types_path  %></li>
-  <li><%= link_to "New Food", new_food_path  %></li>
-  <li><%= link_to "Foods", foods_path  %></li>
-  <li><%= link_to "Reservations", showReservations_path  %></li>
-  <li><%= link_to "Logout", logout_path , method: :delete  %></li>
-  </ul>
-</div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+      </div>
+    
+      <div class="profile-details">
+      <%= image_tag(current_user.profile, :alt => "img"  ) %>	
+        <span class="admin_name"><%= current_user.name %></span>
+        <i  onclick="myFunction()"  class="bx bx-chevron-down" id="dropbtn" ></i>
+        <div id="myDropdown" class="dropdown-content">
+        <%= link_to "Logout", logout_path , method: :delete  %>
+      </div>
+    </div>
+      </div>
+    </nav>
 
-<section class="home-section">
-<nav>
-<div class="sidebar-button">
-<button class="sidebarBtn">Click me</button>
-<span class="dashboard">Dashboard</span>
-</div>
-<div class="profile-details">
-<%= image_tag(current_user.profile, :alt => "img"  ) %>	
-<span class="admin_name"><%= current_user.name %></span>
-</div>
-</nav>
+ 
+
+  <script>
+   let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".sidebarBtn");
+sidebarBtn.onclick = function() {
+  sidebar.classList.toggle("active");
+  if(sidebar.classList.contains("active")){
+  sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+}else
+  sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+}
 
 
-<script>
-$(".sidebarBtn").click(function(){
-  $(".sidebar").toggleClass("active");
-});
-</script>
+function myFunction() {
+  let myDropDown = document.getElementById("myDropdown");
+  myDropDown.classList.toggle("show");
+  let dropbtn = document.getElementById("dropbtn");
+  if(myDropDown.classList.contains("show")){
+    dropbtn.classList.replace("bx-chevron-down" ,"bx-chevron-up");
+  }else
+    dropbtn.classList.replace("bx-chevron-up", "bx-chevron-down");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('#dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+ </script>
+
+ 
