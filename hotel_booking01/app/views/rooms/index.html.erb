@@ -1,13 +1,32 @@
-<% @rooms.each do |room| %>
-  <%= image_tag(room.room_img, :alt => "img"  ) %>	
-  <p><%= room.room_num %></p>
-  <% if room.status == '0' %>
-  <%= "Available" %>
-  <% else %>
-  <%= "Booked" %>
-  <% end %>
-  <p><%= room.room_type.name %></p>
-  <%= link_to 'View', room_path(room)  %>
-  <%= link_to 'Edit', edit_room_path(room)  %>
-  <%= button_to 'Delete', room_path(room), method: 'delete'  %>
-<% end %>
+<%= render 'admins/adminnav' %>
+<div class="home-content">
+<h1 class="title">Rooms</h1>
+<table id="room">
+    <thead>
+       <tr>
+          <th>Room Number</th>
+          <th>Status</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+         <% @rooms.each do |room| %>
+           <tr>
+             <td><%= room.room_num %></td>
+             <td><%= room.status %></td>
+             <td><%= image_tag(room.room_img, :alt => "img" , class: 'profile' ) %></td>
+            </tr>
+         <% end %>
+       </tbody>
+</table>
+
+</div>
+</section>
+
+<script>
+
+$(document).ready(function() {
+  $("#room").dataTable();
+});
+
+</script>

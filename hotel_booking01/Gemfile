@@ -36,6 +36,12 @@ gem "jbuilder"
 #mysql2 gem
 gem 'mysql2', '~> 0.5.2'
 
+gem 'jquery-datatables'
+
+gem 'sassc-rails'
+
+gem 'turbolinks', '~> 2.5', '>= 2.5.3'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

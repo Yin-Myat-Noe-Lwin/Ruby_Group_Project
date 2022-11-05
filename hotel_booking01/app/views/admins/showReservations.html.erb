@@ -1,5 +1,34 @@
-<% @reservations.each do |reservation| %>
-  <p><%= reservation.check_in %></p>
-  <p><%= reservation.check_out %></p>
-  <p><%= reservation.user.name %></p>
-<% end %>
+<%= render 'adminnav' %>
+<div class="home-content">
+<h1 class="title">Reservations</h1>
+<table id="reserve">
+    <thead>
+       <tr>
+          <th>Name</th>
+          <th>Room Number</th>
+          <th>Checkin</th>
+          <th>Checkout</th>
+        </tr>
+      </thead>
+      <tbody>
+         <% @reservations.each do |reservation| %>
+           <tr>
+             <td><%= reservation.user.name %></td>
+             <td><%= reservation.room.room_num %></td>
+             <td><%= reservation.check_in %></td>
+             <td><%= reservation.check_in %></td>
+            </tr>
+         <% end %>
+       </tbody>
+</table>
+
+</div>
+</section>
+
+<script>
+
+$(document).ready(function() {
+  $("#reserve").dataTable();
+});
+
+</script>

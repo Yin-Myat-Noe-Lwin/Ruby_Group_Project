@@ -1,6 +1,51 @@
 <%= render 'adminnav' %>
-<% @users.each do |user| %>
-  <%= image_tag(user.profile, :alt => "img"  ) %>	
-  <p><%= user.name %></p>
-  <%= button_to 'Delete', user_path(user), method: 'delete'  %>
-<% end %>
+<div class="home-content">
+<h1 class="title">Users</h1>
+<table id="example" class="cell-border compact stripe ">
+    <thead>
+       <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Profile Image</th>
+        </tr>
+      </thead>
+      <tbody>
+         <% @users.each do |user| %>
+           <tr>
+             <td><%= user.name %></td>
+             <td><%= user.email %></td>
+             <td><%= image_tag(user.profile, :alt => "img" , class: 'profile' ) %></td>
+            </tr>
+         <% end %>
+       </tbody>
+</table>
+
+</div>
+</section>
+
+<script>
+
+$(document).ready(function() {
+  $("#example").dataTable( 
+    {
+    columnDefs: [
+      {
+          targets: -3,
+          className: 'dt-body-center'
+      },
+      {
+        targets: -2,
+        className: 'dt-body-center'
+    },
+    {
+      targets: -1,
+      className: 'dt-body-center'
+  }
+    ]
+  }
+  
+  );
+  
+});
+
+</script>

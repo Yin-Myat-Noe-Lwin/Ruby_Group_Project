@@ -1,10 +1,34 @@
-<% @foods.each do |food| %>
-  
-  <p><%= food.name %></p>
-  <p><%= food.price %></p>
-  <p><%= food.description %></p>
-  <p><%= food.food_type.name %></p>
-  <%= link_to 'View', food_path(food)  %>
-  <%= link_to 'Edit', edit_food_path(food)  %>
-  <%= button_to 'Delete', food_path(food), method: 'delete'  %>
-<% end %>
+<%= render 'admins/adminnav' %>
+<div class="home-content">
+<h1 class="title">Foods</h1>
+<table id="food">
+    <thead>
+       <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Food Type</th>
+        </tr>
+      </thead>
+      <tbody>
+         <% @foods.each do |food| %>
+           <tr>
+             <td><%= food.name %></td>
+             <td><%= food.price %></td>
+             <td><%= food.description   %></td>
+             <td><%= food.food_type.name   %></td>
+            </tr>
+         <% end %>
+       </tbody>
+</table>
+
+</div>
+</section>
+
+<script>
+
+$(document).ready(function() {
+  $("#food").dataTable();
+});
+
+</script>
