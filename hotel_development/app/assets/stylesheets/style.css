@@ -558,13 +558,14 @@ background: white;
   height: 10px;
   border-radius: 50%;
   display: inline-block;
-  background: #ccc;
+  border: 1px solid gray;
+  background: white;
   margin: 0 3px;
 
 }
 .owl-dots button.owl-dot.active {
 
-  background-color: #777777;
+  background-color:  #FEAE00 ;
 
 }
 .owl-dots button.owl-dot:focus {
