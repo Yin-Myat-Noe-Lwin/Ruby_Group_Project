@@ -1,0 +1,22 @@
+
+<%= form_with  model: @food_type , local: false do |form| %>
+
+  <div class="form-gp">
+    <%= form.label :query, "Food Type Name"  %><br>
+    <%= form.text_field :name   %><br>
+    <span id = "ft-name-block"></span>
+  </div>
+
+  <%= form.label :query, "Food Type Image"  %><br>
+  <%= form.file_field :food_type_img , accept:'image/*'  %><br><br>
+  <span id = "ft-img-block"></span>
+  
+  </div>
+
+	<div class="nw-ft-footer">
+		<div class="nw-ft-btn-grp">
+      <%= form.submit "Create"  , class: 'btn btn_confirm' %>
+    </div>
+	</div>
+ 
+<% end %>

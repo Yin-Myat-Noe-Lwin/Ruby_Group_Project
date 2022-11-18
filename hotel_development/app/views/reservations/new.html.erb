@@ -1,0 +1,79 @@
+<section class = 'sec-reservation'>
+
+  <header>
+    <%= render "home/nav" %>
+  </header>
+
+  <div class = 'l-inner'>
+
+    <h2 class = 'cmn-ttl'>Booking Form</h2>
+
+    <div class = 'blk-form '>
+
+      <% flash.each do |type, msg| %>
+
+        <% if type= alert %>
+
+          <div class="rs-form-alert error-msg">
+            <strong><%= msg %> <i class='bx bx-x move-icon2' ></i> </strong>
+          </div>
+
+        <% else %>
+
+          <div class="rs-form-alert ok-msg">
+            <strong><%= msg %><i class='bx bx-x move-icon2' ></i></strong>
+          </div>
+      
+        <% end %>
+
+      <% end %><br>
+
+      <%= form_with  model: @reservation  do |form| %>
+
+        <div class="form-reserve">
+          <%= form.label :query, "Check in"  %><br>
+          <%= form.date_field :check_in   %><br>
+        </div>
+
+        <div class="form-reserve">
+          <%= form.label :query, "Check out"  %><br>
+          <%= form.date_field :check_out  %><br>
+        </div>
+
+        <div class="form-reserve">
+          <%= form.select(:num_of_ppl,  [ ['1', 1], ['2', 2] ,  ['3', 3 ] , ['4', 4]   , ['5', 5] ] , prompt: 'Number of People' ) %>
+        </div>
+
+        <%= form.hidden_field :room_id, :value => params[:room_id] %>
+
+        <%= form.submit "Book now!!" , id: 'book-btn' , class: 'common-btn'  %>
+  
+      <% end %>
+
+    </div>
+
+  </div>
+
+</section>
+
+<%= render "home/footer" %>
+
+<script>
+
+  setTimeout("$('.error-msg').fadeOut('slow')", 3000);
+
+  setTimeout("$('.ok-msg').fadeOut('slow')", 3000);
+
+  $(".move-icon2").click(function(){
+
+    $('.error-msg').hide();
+
+  });
+
+  $(".move-icon2").click(function(){
+
+    $('.ok-msg').hide();
+
+  });
+
+</script>

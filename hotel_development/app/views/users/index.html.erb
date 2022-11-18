@@ -1,0 +1,93 @@
+<%= render 'admins/adminnav' %>
+
+<div class="home-content user-reserve-sec">
+
+  <h1 class="title">Users</h1>
+
+  <table id="example" class="cell-border compact stripe ">
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>User Type</th>
+        <th>Profile Image</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <%= render 'user_row' , user: user %>
+      <% end %>
+    </tbody>
+
+  </table>
+
+  <div class="sh-u-wrapper">
+    <div class="sh-u-box">
+      <div class="sh-u-bg-shadow"></div>
+        <div class="sh-u-box-wrap">
+          <div class="sh-u-close"></div>
+          <div class="sh-u-header">
+            View User 
+          </div>
+          <div class="sh-u-body">
+          <div id="showUser">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<script>
+
+  $(".sh-u-btn").click(function(){
+
+  $(".sh-u-box").addClass("sh-u-box-active");
+
+  });
+
+  $(".sh-u-close").click(function(){
+
+  $(".sh-u-box").removeClass("sh-u-box-active");
+
+  });
+
+  $(document).ready(function() {
+
+    $("#example").dataTable( 
+
+      {
+        "pagingType": "full_numbers",
+        
+      columnDefs: [
+
+        {
+          targets: -4,
+          className: 'dt-body-center'
+        },
+        {
+            targets: -3,
+            className: 'dt-body-center'
+        },
+        {
+          targets: -2,
+          className: 'dt-body-center'
+        },
+        {
+        targets: -1,
+        className: 'dt-body-center'
+        }
+
+      ]
+
+    }
+    
+    );
+    
+  });
+
+</script>

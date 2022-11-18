@@ -1,0 +1,42 @@
+<section class="sec-menupage">
+
+  <header>
+    <%= render "home/nav" %>
+  </header>
+
+  <header>
+    <h2 class="menu-h-tit">Our Speciality Menu</h2>
+  </header>
+  <!--menu header-->
+
+  <ul class="menu-list clearfix">
+
+  <% @food_type.foods.each do |food| %>
+
+    <li>
+
+      <%= image_tag(food.food_img, :alt => "img" , class: 'menu-lf-img'  ) %>
+      <!--menu image-->
+
+      <div class="menu-rt">
+        <header class="menu-rt-h">
+          <h3><%= food.name %><span class="food-price"><%= food.price %>$</span></h3>
+          <!--menu title-->
+        </header>
+        <p class="menu-rt-p"><%= food.description %>
+        </p>
+        <!--menu paragraph-->
+      </div>
+
+    </li>
+
+    <% end %>
+
+  </ul>
+  <!--menu list-->
+
+</div>
+
+</section><!-- /.sec-each-menu -->
+
+<%= render "home/footer" %>

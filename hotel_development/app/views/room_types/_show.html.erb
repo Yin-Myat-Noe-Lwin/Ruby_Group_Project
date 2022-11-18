@@ -1,0 +1,10 @@
+<%= image_tag(room_type.room_type_img, :alt => "img" , class: 'show-room-type' ) %><br>
+<div class="show-room-type-data">
+Room Type:<%= room_type.name %><br>
+<% if room_type.max_capacity < 2 %>
+Maximum Capacity:<%= room_type.max_capacity %> person
+<% else %>
+Maximum Capacity:<%= room_type.max_capacity %> people
+<% end %>
+</div>
+</div>

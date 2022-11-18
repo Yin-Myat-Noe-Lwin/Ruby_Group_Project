@@ -1,0 +1,15 @@
+<% if @food_type.errors.any? %>
+
+  $(".notice").remove();
+
+  $("#ft-name-block").append('<div class="notice"><%= escape_javascript(@errorName[0])%></div>');
+
+  $("#ft-img-block").append('<div class="notice"><%= escape_javascript(@errorImg[0])%></div>');
+
+<% else %>
+
+  $('#foodTypeBody').append("<%= escape_javascript render('food_type_row', food_type: @food_type) %>");
+
+  $('.nw-ft-close').click();
+
+<% end %>

@@ -1,0 +1,30 @@
+<tr id="reservationRow<%= reservation.id %>" >
+
+  <td><%= reservation.user.name %></td>
+  <td><%= reservation.room.room_num %></td>
+  <td><%= reservation.room.room_type.name %></td>
+  <td><%= reservation.check_in %></td>
+  <td><%= reservation.check_out %></td>
+  <td>
+  <p onclick="confirmDeleteBooking(<%= reservation.id %>)" ><i class='bx bx-trash delete-res-btn' ></i></p>
+  <div class="dt-rea-wrapper">
+    <div class="dt-rea-box" id="dt-rea-modal<%=reservation.id%>" >
+		  <div class="dt-rea-bg-shadow"></div>
+		    <div class="dt-rea-box-wrap">
+			    <div class="dt-rea-close"></div>
+			      <div class="dt-rea-header">
+				      Delete Confirm
+			      </div>
+			      <div class="dt-rea-body">
+              Are you sure want to delete?
+            </div>
+			      <div class="dt-rea-footer">
+				      <div class="dt-rea-btn-grp">
+                <%= button_to 'Delete', reservation_path(reservation),  method: 'delete' ,  remote: true , onclick:"stopDeleteREBox(#{reservation.id})" , class: 'btn btn_confirm'  %>
+              </div>
+			      </div>
+		      </div>
+	      </div>
+      </div>
+    </td>
+</tr>

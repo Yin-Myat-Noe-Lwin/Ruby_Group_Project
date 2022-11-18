@@ -1,0 +1,37 @@
+<%= form_with  model: @food , local: false  do |form| %>
+
+  <div class="form-gp">
+    <%= form.label :query, "Food Name"  %><br>
+    <%= form.text_field :name   %><br>
+    <span id = "f-name-block"></span>
+  </div>
+
+  <div class="form-gp">
+    <%= form.label :query, "Food Price"    %><br>
+    <%= form.text_field :price  %><br>
+    <span id = "f-pr-block"></span>
+  </div>
+
+  <div class="form-gp">
+    <%= form.label :query, "Description"  %><br>
+    <%= form.text_field :description  %><br>
+    <span id = "f-des-block"></span>
+  </div>
+
+  <div class="form-gp">
+    <%= form.label :query, "Food Type"  %><br>
+    <%= form.collection_select(:food_type_id, FoodType.all, :id, :name) %><br>
+  </div>
+
+  <%= form.label :query, "Food Image"  %><br>
+  <%= form.file_field :food_img , accept:'image/*'  %><br><br>
+  <span id = "f-img-block"></span>
+
+  </div>
+  <div class="nw-f-footer">
+    <div class="nw-f-btn-grp">
+      <%= form.submit "Create" , class: 'btn btn_confirm'   %>
+    </div>
+  </div>
+ 
+<% end %>

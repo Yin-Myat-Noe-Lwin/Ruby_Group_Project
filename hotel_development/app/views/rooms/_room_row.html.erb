@@ -1,0 +1,63 @@
+<tr id="roomRow<%= room.id %>">
+<td><%= link_to room.room_num,  room , class:'sh-r-btn' ,  remote: true %></td>
+<td>
+<% if room.status == '0' %>
+<%= 'Available' %>
+<% else %>
+<%= 'Booked' %>
+<% end %>
+</td>
+<td><%= image_tag(room.room_img, :alt => "img" , class: 'profile' ) %></td>
+<td><%= room.size %></td>
+<td>
+<% if room.service1 %>
+<%= room.service1 %>
+<% else %>
+<%= "" %>
+<% end %>
+</td>
+<td>
+<% if room.service2 %>
+<%= room.service2 %>
+<% else %>
+<%= "" %>
+<% end %>
+</td>
+<td>
+<% if room.service3 %>
+<%= room.service3 %>
+<% else %>
+<%= "" %>
+<% end %>
+</td>
+<td>
+<% if room.status == '1' %>
+<%= %>
+<% else %>
+<%= link_to "<i class='bx bx-edit-alt edit-room-btn' ></i> <span class='links_name'></span>".html_safe, edit_room_path(room) , class:'et-r-btn' , remote: true  %>
+<p onclick="confirmDeleteRoom(<%=  room.id %>)" ><i class='bx bx-trash delete-room-btn' ></i></p>
+
+<div class="dt-r-wrapper">
+
+<div class="dt-r-box" id="dt-r-modal<%=room.id%>" >
+		<div class="dt-r-bg-shadow"></div>
+		<div class="dt-r-box-wrap">
+			<div class="dt-r-close"></div>
+			<div class="dt-r-header">
+				Delete Confirm
+			</div>
+			<div class="dt-r-body">
+     Are you sure want to delete?
+      </div>
+			<div class="dt-r-footer">
+				<div class="dt-r-btn-grp">
+        <%= button_to 'Delete', room_path(room),  method: 'delete' ,  remote: true , onclick:"stopDeleteRBox(#{room.id})" , class: 'btn btn_confirm'  %>
+          </div>
+			</div>
+ 
+		</div>
+	</div>
+  </div>
+<% end %>
+</td>
+</tr>

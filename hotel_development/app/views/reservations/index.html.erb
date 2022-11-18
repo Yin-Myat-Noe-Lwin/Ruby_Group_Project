@@ -1,0 +1,100 @@
+<%= render 'admins/adminnav' %>
+
+<div class="home-content">
+
+  <h1 class="title">Reservations</h1>
+
+  <table id="reserve" class="cell-border compact stripe ">
+  
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Room Number</th>
+        <th>Room Type</th>
+        <th>CheckIn</th>
+        <th>CheckOut</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reservations.each do |reservation| %>
+       <%= render 'reservation_row' , reservation: reservation  %>
+      <% end %>
+    </tbody>
+
+  </table>
+
+</div>
+</section>
+
+<script>
+
+$(".sh-re-btn").click(function(){
+
+  $(".sh-re-box").addClass("sh-re-box-active");
+
+});
+
+$(".sh-re-close").click(function(){
+
+  $(".sh-re-box").removeClass("sh-re-box-active");
+
+});
+
+$(".dt-rea-close").click(function(){
+
+  $(".dt-rea-box").removeClass("dt-rea-box-active");
+
+ });
+
+
+ function confirmDeleteBooking(id){
+
+   $("#dt-rea-modal"+id).addClass("dt-rea-box-active");
+
+ } 
+
+ function stopDeleteREBox(id){
+
+   $('#dt-rea-modal'+id).removeClass("dt-rea-box-active");
+
+ }
+  
+$(document).ready(function() {
+
+  $("#reserve").dataTable(
+    {
+      columnDefs: [
+        {
+          targets: -6,
+          className: 'dt-body-center'
+        },
+        {
+          targets: -5,
+          className: 'dt-body-center'
+        },
+        {
+          targets: -4,
+          className: 'dt-body-center'
+        },
+        {
+            targets: -3,
+            className: 'dt-body-center'
+        },
+        {
+          targets: -2,
+          className: 'dt-body-center'
+        },
+        { 
+        targets: -1,
+        className: 'dt-body-center'
+        }
+      ]
+    }
+    
+  );
+  
+});
+
+</script>

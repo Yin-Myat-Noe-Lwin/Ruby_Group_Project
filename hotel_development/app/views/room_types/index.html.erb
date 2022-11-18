@@ -1,0 +1,153 @@
+<%= render 'admins/adminnav' %>
+<div class="home-content">
+<h1 class="title">Room Types</h1>
+<div class="wrapper">
+
+<%= link_to '<button class="nw-room-type">New Room Type</button>'.html_safe, new_room_type_path  , class: 'modal_btn',
+remote: true %>
+	
+<table id="room-type" class="cell-border compact stripe ">
+    <thead>
+       <tr>
+          <th>Name</th>
+          <th>Maximum Capacity</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="roomTypeBody">
+         <% @room_types.each do |room_type| %>
+          <%= render 'room_type_row' , room_type: room_type %>
+         <% end %>
+       </tbody>
+</table>
+<div class="modal_box">
+		<div class="modal_bg_shadow"></div>
+		<div class="modal_box_wrap">
+			<div class="modal_close"></div>
+			<div class="modal_header">
+				Create New Room Type
+			</div>
+			<div class="modal_body">
+      <div id="newRoomTypeForm">
+			</div>
+		</div>
+	</div>
+  </div>
+
+  <div class="sh-rt-wrapper">
+
+<div class="sh-rt-box"  >
+		<div class="sh-rt-bg-shadow"></div>
+		<div class="sh-rt-box-wrap">
+			<div class="sh-rt-close"></div>
+			<div class="sh-rt-header">
+			View Room Type
+			</div>
+      <div class="sh-rt-body">
+        <div id="showRoomType">
+        </div>
+		</div>
+	</div>
+  </div>
+
+
+<div class="et-rt-wrapper">
+
+<div class="et-rt-box"  >
+		<div class="et-rt-bg-shadow"></div>
+		<div class="et-rt-box-wrap">
+			<div class="et-rt-close"></div>
+			<div class="et-rt-header">
+			Edit Room Type
+			</div>
+      <div class="et-rt-body">
+        <div id="editRoomTypeForm">
+        </div>
+        
+		</div>
+	</div>
+  </div>
+
+
+
+</div>
+</section>
+
+<script>
+
+$(".modal_btn").click(function(){
+$(".modal_box").addClass("modal-active");
+
+});
+
+$(".modal_close").click(function(){
+$(".modal_box").removeClass("modal-active");
+});
+
+$(".btn_cancel").click(function(){
+$(".modal_box").removeClass("modal-active");
+});
+ 
+function confirmDelete(id){
+
+  $("#dt-rt-modal"+id).addClass("dt-rt-box-active");
+
+} 
+
+function stopDeleteRTBox(id){
+		
+		$('#dt-rt-modal'+id).removeClass("dt-rt-box-active");
+		
+	} 
+
+$(".dt-rt-close").click(function(){
+$(".dt-rt-box").removeClass("dt-rt-box-active");
+});
+
+$(".sh-rt-btn").click(function(){
+$(".sh-rt-box").addClass("sh-rt-box-active");
+});
+
+$(".sh-rt-close").click(function(){
+$(".sh-rt-box").removeClass("sh-rt-box-active");
+});
+
+
+$(".et-rt-btn").click(function(){
+$(".et-rt-box").addClass("et-rt-box-active");
+});
+
+$(".et-rt-close").click(function(){
+$(".et-rt-box").removeClass("et-rt-box-active");
+});
+
+$(document).ready(function() {
+
+  $("#room-type").dataTable( 
+    {
+      "pagingType": "full_numbers",
+      pageLength : 5,
+    lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 25]],
+    columnDefs: [
+
+      {
+          targets: -4,
+          className: 'dt-body-center'
+      },
+      {
+        targets: -3,
+        className: 'dt-body-center'
+    },
+    {
+      targets: -2,
+      className: 'dt-body-center'
+  }
+    ]
+  }
+  
+  );
+  
+});
+
+</script>

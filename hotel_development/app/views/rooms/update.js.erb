@@ -1,0 +1,21 @@
+<% if @room.errors.any? %>
+
+$(".notice").remove();
+
+$("#r-et-num-block").append('<div class="notice"><%= escape_javascript(@errorNum[0])%></div>');
+
+$("#r-et-sz-block").append('<div class="notice"><%= escape_javascript(@errorSize[0])%></div>');
+
+$("#r-et-sv1-block").append('<div class="notice"><%= escape_javascript(@errorService1[0])%></div>');
+
+$("#r-et-sv2-block").append('<div class="notice"><%= escape_javascript(@errorService2[0])%></div>');
+
+$("#r-et-sv3-block").append('<div class="notice"><%= escape_javascript(@errorService3[0])%></div>');
+
+<% else %>
+
+  $('#roomRow<%= room.id %>').replacewith("<%= escape_javascript render('room_row', room: @room) %>");
+
+  $('.et-r-close').click();
+
+<% end %>

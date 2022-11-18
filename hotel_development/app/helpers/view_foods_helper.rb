@@ -1,0 +1,2 @@
+module ViewFoodsHelper
+end

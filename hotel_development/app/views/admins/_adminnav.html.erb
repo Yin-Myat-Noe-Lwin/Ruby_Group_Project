@@ -1,0 +1,100 @@
+<div class="sidebar">
+
+  <div class="logo-details">
+
+    <i class='bx bx-buildings'></i>
+    <span class="logo_name">RHotel</span>
+
+  </div>
+
+  <ul class="nav-links">
+
+    <li>
+      <%= link_to "<i class='bx bx-grid-alt' ></i> <span class='links_name'>Dashboard</span>".html_safe, dashboard_path , class: current_class?(dashboard_path)%>
+    </li>
+    <li>
+      <%= link_to "<i class='bx bx-user' ></i> <span class='links_name'>Users</span>".html_safe, users_path , class: current_class?(users_path) %>
+    </li>
+    <li>
+      <%= link_to "<i class='bx bx-bookmark' ></i> <span class='links_name'>Reservations</span>".html_safe, reservations_path , class: current_class?(reservations_path) %>
+    </li>
+    <li>
+      <%= link_to "<i class='bx bx-door-open' ></i> <span class='links_name'>Room Types</span>".html_safe, room_types_path , class: current_class?(room_types_path)%>
+    </li>
+    <li>
+      <%= link_to "<i class='bx bx-door-open' ></i> <span class='links_name'>Rooms</span>".html_safe, rooms_path  , class: current_class?(rooms_path)%>
+    </li>
+    <li>
+      <%= link_to "<i class='bx bx-food-menu' ></i> <span class='links_name'>Food Types</span>".html_safe, food_types_path , class: current_class?(food_types_path) %>
+    </li>
+    <li>
+      <%= link_to "<i class='bx bx-food-tag' ></i> <span class='links_name'>Foods</span>".html_safe, foods_path , class: current_class?(foods_path) %>
+    </li>
+
+  </ul>
+
+</div>
+
+<section class="top-section">
+
+  <nav>
+
+    <div class="sidebar-button">
+      <i onclick="sidebar()" class='bx bx-menu sidebarBtn'></i>
+    </div>
+
+    <div class="profile-details">
+    <% if logged_in? %>
+      <%= image_tag(current_user.profile, :alt => "img"  ) %>	
+      <span class="admin_name"><%= current_user.name %></span>
+      <i  onclick="dropContent()"  class="bx bx-chevron-down" id="dropbtn" ></i>
+      <div id="drop" class="drop-cnt">
+      <%= link_to "Profile", profilePage_path %>
+      <%= link_to "Logout" , logout_path , method: :delete  %>
+      <% end %>
+      </div>
+    </div>
+
+  </nav>
+
+<script>
+
+  function dropContent() {
+
+    let myDropDown = document.getElementById("drop");
+
+    myDropDown.classList.toggle("show-admin");
+
+    let dropbtn = document.getElementById("dropbtn");
+
+    if(myDropDown.classList.contains("show-admin")) {
+
+      dropbtn.classList.replace("bx-chevron-down" ,"bx-chevron-up");
+
+    }
+    else  
+
+      dropbtn.classList.replace("bx-chevron-up", "bx-chevron-down");
+
+  }
+
+  function sidebar(){
+
+    let sidebar = document.querySelector(".sidebar");
+
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+
+    sidebar.classList.toggle("active");
+
+    if(sidebar.classList.contains("active")) {
+
+      sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+
+    }
+    else
+
+      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+
+  }
+  
+ </script>

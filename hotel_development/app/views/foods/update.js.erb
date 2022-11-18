@@ -1,0 +1,17 @@
+<% if @food.errors.any? %>
+
+  $(".notice").remove();
+
+  $("#f-et-name-block").append('<div class="notice"><%= escape_javascript(@errorName[0])%></div>');
+
+  $("#f-et-pr-block").append('<div class="notice"><%= escape_javascript(@errorPrice[0])%></div>');
+
+  $("#f-et-des-block").append('<div class="notice"><%= escape_javascript(@errorDes[0])%></div>');
+
+<% else %>
+
+  $('#foodRow<%= food.id %>').replacewith("<%= escape_javascript render('foo_row', food: @food) %>");
+
+  $('.et-f-close').click();
+
+<% end %>

@@ -1,0 +1,79 @@
+<section class="sec-room-mv sec-singleroom-bg">
+
+  <header>
+      <%= render "nav" %>
+  </header>
+
+  <div class="mv-blk">
+
+    <div class="l-inner">
+
+      <h2 class="cmn-ttl room-ttl"> Available Rooms</h2>
+
+    </div>
+    
+  </div>
+
+</section><!-- /.sec-mv -->
+    
+<section class= "sec-room">
+
+  <div class = "l-inner clearfix">
+
+  <% if @avails.count == 0 %>
+
+  <div class="no-room"></div>
+
+  <% else %>
+
+    <ul class="room-list clearfix">
+  
+    <% @avails.each do |avail| %>
+      
+      <li>
+
+        <div class="card">
+            
+          <%= image_tag(avail.room_img, :alt => "img" , class: ' fth-img pc' ) %>
+            <!--image-->
+            
+          <div class="fth-txt">
+            <p>
+              <span id="room-num-span"><i class="bx bx-key room-pg-icon"></i><%= avail.room_num %></span>
+              <span id="room-cap-span"><i class="bx bx-user room-pg-icon"></i><%= avail.room_type.max_capacity %></span>
+              <span><i class="bx bx-map-alt room-pg-icon"></i><%= avail.size %></span>
+            </p>  
+
+            <% if avail.service1 %> 
+              <p class="room-service"><%= avail.service1 %></p>
+            <% end %>
+
+            <% if avail.service2 %> 
+              <p class="room-service"><%= avail.service2 %></p>
+            <% end %>
+
+            <% if avail.service3 %> 
+              <p class="room-service"><%= avail.service3 %></p>
+            <% end %>
+
+            <%= link_to 'Book now' , new_booking_path(:room_id=>avail.id,:check_in=>@input_check_in, :check_out=>@input_check_out, :num_of_ppl=>@input_num_of_ppl), class: 'common-btn room-book-btn'  %></br>
+          </div>
+          <!--text-->
+
+        </div>
+        <!--card-->
+
+      </li>
+
+      <% end %>
+
+    </ul>
+    <!--list-->
+
+  <% end %>
+  
+  </div>
+
+</section><!-- /.sec-room -->
+
+<%= render "home/footer" %>

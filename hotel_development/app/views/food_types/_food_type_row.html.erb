@@ -1,0 +1,36 @@
+<tr id="foodTypeRow<%= food_type.id %>">
+
+	<td><%= link_to food_type.name,  food_type , class:'sh-ft-btn' ,  remote: true %></td>
+	
+	<td><%= image_tag(food_type.food_type_img, :alt => "img" , class: 'profile' ) %></td>
+	
+	<td>
+
+		<%= link_to "<i class='bx bx-edit-alt edit-food-type-btn' ></i> <span class='links_name'></span>".html_safe, edit_food_type_path(food_type) , class: 'et-ft-btn' , remote: true %>
+
+		<p onclick="confirmDeleteFoodType(<%=  food_type.id %>)" ><i class='bx bx-trash delete-food-type-btn' ></i></p>
+
+		<div class="dt-ft-wrapper">
+
+			<div class="dt-ft-box" id="dt-ft-modal<%=food_type.id%>" >
+					<div class="dt-ft-bg-shadow"></div>
+					<div class="dt-ft-box-wrap">
+						<div class="dt-ft-close"></div>
+						<div class="dt-ft-header">
+							Delete Confirm
+						</div>
+						<div class="dt-ft-body">
+					Are you sure want to delete?
+						</div>
+						<div class="dt-ft-footer">
+							<div class="dt-ft-btn-grp">
+							<%= button_to 'Delete', food_type_path(food_type),  method: 'delete' ,  remote: true , onclick:"stopDeleteFTBox(#{food_type.id})" , class: 'btn btn_confirm' %>
+								</div>
+						</div>
+					</div>
+				</div>
+				</div>
+
+	</td>
+
+</tr>

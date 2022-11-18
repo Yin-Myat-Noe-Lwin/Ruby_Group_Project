@@ -1,0 +1,65 @@
+<div class="l-container clearfix">
+
+  <h1 class="header-logo">
+    <%= link_to ' <i class="bx bx-buildings"></i>
+    <span class="logo_name">RHotel</span>'.html_safe, root_path  %></p>
+  </h1>
+
+  <nav class="gnav clearfix">
+
+    <ul class="clearfix">
+
+      <li><%=  link_to 'Home', root_path , class: active_class?(root_path) %></li>
+      <li class="nav-item"><%= link_to 'Review' , reviews_path , class: active_class?(reviews_path)  %></li>
+      <% if logged_in? %>
+        <li><%= link_to "Contact us",  new_contact_path , class: active_class?(new_contact_path) %></li>
+        
+        <li>
+          <div class="user-pf-details">
+            <%= image_tag(current_user.profile, :alt => "img"  ) %>	
+            <span class="user_name"><%= current_user.name %></span>
+            <i  onclick="dropData()"  class="bx bx-chevron-down" id="drop-btn" ></i>
+            <div id="drop-user-data" class="user-drop-cnt">
+              <%= link_to "Profile", userProfile_path %>
+              <%= link_to "My Reservations", myReservations_path  %>
+              <%= link_to "Logout" , logout_path , method: :delete  %>
+            </div>
+          </div>
+        </li> 
+
+      <% else %>
+
+        <li><%= link_to "Signup", new_user_path , class: active_class?(new_user_path) %></li>
+        <li><%= link_to 'LogIn' , login_path , class: active_class?(login_path)   %></li>
+
+      <% end %>
+
+    </ul>
+
+  </nav>
+
+</div>
+
+<script>
+  
+  function dropData() {
+
+    let myDropDown = document.getElementById("drop-user-data");
+
+    myDropDown.classList.toggle("show");
+
+    let dropbtn = document.getElementById("drop-btn");
+
+    if(myDropDown.classList.contains("show")) {
+
+      dropbtn.classList.replace("bx-chevron-down" ,"bx-chevron-up");
+
+    }
+
+    else  
+
+      dropbtn.classList.replace("bx-chevron-up", "bx-chevron-down");
+
+    }
+
+</script>

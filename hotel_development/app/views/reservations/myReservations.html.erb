@@ -1,0 +1,87 @@
+<% if @myReservations.count == 0 %>
+
+  <div class="no-reserve">
+
+    <header>
+        <%= render "home/nav" %>
+    </header>
+
+    <div class = "l-inner">
+
+      <h3 class= 'cmn-ttl'>Your Reservations</h3>
+
+    </div>
+
+  </div>
+
+<% else %>
+
+  <section class = "sec-reserve">
+
+    <header>
+      <%= render "home/nav" %>
+    </header>
+
+  <div class = "l-inner">
+    <div class = "average">
+      <h3 class= 'cmn-ttl'>Your Reservations</h3>
+    <div class = "clearfix">
+      <% @myReservations.each do |myReservation| %>
+        <div class = 'each-reserve'>
+          <%= image_tag(myReservation.room.room_img, :alt => "img" , class: 'myreserve-img'  ) %>
+          <p><i class="bx bx-calendar rs-icon-space"></i>Start Date:<%= myReservation.check_in %></p>
+          <p id="end-date-txt"><i class="bx bx-calendar rs-icon-space"></i>End Date:<%= myReservation.check_out %></p>
+          <p  id="ppl-txt"><i class="bx bx-user rs-icon-space"></i>Number of People:<%= myReservation.num_of_ppl %></p>
+          <p  id="roo-num-txt"><i class="bx bx-key rs-icon-space"></i>Room Number:<%= myReservation.room.room_num %></p>
+          <button class="bk-cancel-btn" onclick="confirmDeleteBooking(<%=  myReservation.id %>)" >Cancel Booking</button>
+        </div>
+        <div class="dt-re-wrapper">
+          <div class="dt-re-box" id="dt-re-modal<%= myReservation.id %>" >
+          <div class="dt-re-bg-shadow"></div>
+          <div class="dt-re-box-wrap">
+            <div class="dt-re-header">
+              Confirm Delete Reservation<i class='bx bx-x dt-re-close' ></i>
+            </div>
+            <div class="dt-re-body">
+              Are you sure want to delete booking?
+            </div>
+            <div class="dt-re-footer">
+              <div class="dt-re-btn-grp">
+                <%= button_to 'Delete', reservation_path(myReservation),  method: 'delete'  , onclick:"stopDeleteREBox(#{myReservation.id})"  , class: 'common-btn' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  </div>
+  </section>
+
+<% end %>
+
+<%= render "home/footer" %>
+
+<script>
+
+  $(".dt-re-close").click(function(){
+
+   $(".dt-re-box").removeClass("dt-re-box-active");
+
+  });
+
+
+  function confirmDeleteBooking(id){
+
+    $("#dt-re-modal"+id).addClass("dt-re-box-active");
+
+  } 
+
+  function stopDeleteREBox(id){
+
+    $('#dt-re-modal'+id).removeClass("dt-re-box-active");
+
+  }
+
+</script>

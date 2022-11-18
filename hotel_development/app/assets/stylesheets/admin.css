@@ -1,0 +1,537 @@
+.sidebar {
+
+  position: fixed;
+  width: 240px;
+  height: 100%;
+  background: #0A2558;
+  transition: all 0.5s ease;
+
+}
+
+.sidebar.active {
+
+  width: 60px;
+
+}
+
+.sidebar .logo-details {
+
+  display: flex;
+  align-items: center;
+  height: 80px;
+
+}
+
+.sidebar .logo-details i {
+
+  color: #fff;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  min-width: 60px;
+
+}
+
+.sidebar .logo-details .logo_name {
+
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+
+}
+
+.sidebar .nav-links {
+
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+.sidebar .nav-links li {
+
+  position: relative;
+  height: 50px;
+  list-style: none;
+
+}
+
+.sidebar .nav-links li a {
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  transition: all 0.4s ease;
+
+}
+
+.sidebar .nav-links li a.active {
+
+  background: #081D45;
+
+}
+
+.sidebar .nav-links li a:hover {
+
+  background: #081D45;
+
+}
+
+.sidebar .nav-links li i {
+
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  min-width: 60px;
+
+}
+
+.sidebar .nav-links li a .links_name {
+
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+
+}
+
+.sidebar .nav-links .log_out {
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+}
+
+.top-section {
+
+  position: relative;
+  left: 240px;
+  width: calc(100% - 240px);
+  background: #f5f5f5;
+  transition: all 0.5s ease;
+  min-height: 100vh;
+
+}
+
+.sidebar.active~.top-section {
+
+  left: 60px;
+  width: calc(100% - 60px);
+
+}
+
+.top-section nav {
+
+  display: flex;
+  position: fixed;
+  left: 240px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  width: calc(100% - 240px);
+  height: 80px;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  transition: all 0.5s ease;
+
+}
+
+.sidebar.active~.top-section nav {
+
+  left: 60px;
+  width: calc(100% - 60px);
+
+}
+
+.top-section nav .sidebar-button {
+
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+
+}
+
+nav .sidebar-button i {
+
+  margin-right: 10px;
+  font-size: 35px;
+
+}
+
+.top-section nav .profile-details {
+
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 15px 0 2px;
+  min-width: 190px;
+
+}
+
+nav .profile-details img {
+
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+nav .profile-details .admin_name {
+
+  margin: 0 10px;
+  color: #333;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+
+}
+
+nav .profile-details i {
+
+  color: #333;
+  font-size: 25px;
+
+}
+
+.top-section .home-content {
+
+  position: relative;
+  padding-top: 70px;
+  padding-right: 30px;
+  padding-left: 30px;
+
+}
+
+.top-section #food-type-content{
+  position: relative;
+  padding-top: 104px;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+#food-type-table{
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+.drop-cnt {
+
+  display: none;
+  position: absolute;
+  z-index: 1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background: #0A2558;
+  min-width: 160px;
+
+}
+
+.drop-cnt a {
+
+  display: block;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+
+}
+
+.drop-cnt a i{
+
+  color: #FFF;
+
+}
+
+.drop-cnt a:hover {
+
+  background: #081D45;
+
+}
+
+.show {
+
+  display: block;
+  margin-top: 30px;
+
+}
+
+.show-admin {
+
+  display: block;
+  margin-top: 130px;
+
+}
+
+.sidebarActive {
+
+  background-color: #081D45 ;
+  font-weight: 600;
+  opacity: 1;
+
+}
+
+.title{
+
+  margin-bottom: 20px;
+  
+}
+
+.profile{
+
+  width: 30px;
+  height: 30px;
+
+}
+
+.new-btn {
+  margin-bottom: 30px;
+}
+
+.edit-btn {
+  
+  float: left;
+  margin-left: 50px;
+
+}
+
+.delete-btn{
+
+  float: right;
+  margin-right: 50px;
+
+}
+
+.adminProfile{
+
+ width: 40%;
+ margin-top: 50px;
+ margin-bottom: 50px;
+ margin-left: 300px;
+ border: 2px solid rgba(255,255,255,0.1);
+ /*padding: 0 50px;*/
+ /*background: rgb(222, 222, 230);
+ border: 1px solid #fff;*/
+ background-color: rgba(135, 127, 127, 0.13);
+ border-radius: 10px;
+ backdrop-filter: blur(20px);
+
+}
+
+.profilePage{
+
+  width: 100px;
+  height: 100px;
+  margin-top:30px;
+  margin-left: 40%;
+  border-radius: 50%;
+
+}
+
+.profile-data{
+
+  margin-top: 50px;
+  text-align: center;
+  
+}
+
+.profile-back-btn{
+
+  margin-top: -10px;
+  margin-left: 47%;
+  padding: 10px;
+	background: #0A2558;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.profile-back-btn:hover{
+
+	background: #fff;
+	color: #0A2558;
+}
+
+.form-gp input{
+
+  width: 500px;
+  margin-bottom: 10px;
+  padding: 10px 30px;
+  border: 1px solid #363d4e;
+  border-radius: 5px;   
+
+}
+
+.form-rm-size input{
+
+  width: 300px;
+  margin-bottom: 10px;
+  padding: 10px 30px;
+  border: 1px solid #363d4e;
+  border-radius: 5px;   
+
+}
+
+.form-rm-size select{
+
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+
+}
+
+.rt-span{
+
+  margin-right: 25px;
+
+}
+
+.rs-span{
+
+  margin-right: 28px;
+
+}
+
+.img-span{
+
+  margin-right: 20px;
+
+}
+
+.rm-num-span{
+
+  margin-right: 8px;
+
+}
+
+.form-gp input[type=file] {
+
+  margin-bottom: 10px;
+  padding: 10px 30px;
+  border: 1px solid #363d4e;
+  border-radius: 5px;
+
+}
+
+.form-gp select {
+
+  width: 500px;
+  height: 40px;
+  border-radius: 5px;
+
+}
+
+div.dataTables_length select {
+
+  height: 40px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  border: 1px solid #363d4e;
+  border-radius: 5px;
+
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+  
+  width: 70%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #363d4e;
+  border-radius: 5px;
+
+}
+
+.edit {
+  float: left;
+  margin-top: -10px;
+  margin-left: 25px;
+  font-size: 25px;
+  
+}
+
+.delete {
+  float: right;
+  margin-top: -10px;
+  margin-right: 25px;
+  font-size: 25px;
+}
+
+/*for food delete  and edit*/
+
+.edit-food-type-btn {
+
+  float: left;
+  margin-left: 45px;
+  font-size: 25px;
+
+}
+
+.delete-food-type-btn {
+
+  float: right;
+  margin-top: -15px;
+  margin-right: 45px;
+  font-size: 25px;
+
+}
+
+/*for food type delete  and edit*/
+
+.edit-room-btn{
+
+  float: left;
+  margin-top: 8px;
+  margin-left: 30%;
+  font-size: 25px;
+
+}
+
+.delete-room-btn{
+
+  float: right;
+  margin-top: -10px;
+  margin-right: 30%;
+  font-size: 25px;
+
+}
+
+/*for room delete  and edit*/
+
+.edit-room-type-btn {
+
+  float: left;
+  margin-top: 8px;
+  margin-left: 30%;
+  font-size: 25px;
+
+}
+
+.delete-room-type-btn {
+
+  float: right;
+  margin-top: -10px;
+  margin-right: 30%;
+  font-size: 25px;
+
+}
+/*for room type delete  and edit*/
+
+.delete-res-btn{
+
+  float: left;
+  margin-top: -10px;
+  margin-left: 40%;
+  font-size: 25px;
+  
+}
+
+/*for delete reservation*/

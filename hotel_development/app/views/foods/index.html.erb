@@ -1,0 +1,177 @@
+<%= render 'admins/adminnav' %>
+
+  <div class="home-content">
+
+    <h1 class="title">Foods</h1>
+
+    <div class="nw-f-wrapper">
+
+      <%= link_to '<button class="nw-food-btn">New Food</button>'.html_safe, new_food_path, class: 'nw-f-btn' , remote: true %>
+      
+      <table id="food" class="cell-border compact stripe ">
+      
+        <thead>
+
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Food Type</th>
+            <th>Food Image</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody id="foodBody">
+          <% @foods.each do |food| %>
+            <%= render 'food_row' , food: food %>
+          <% end %>
+        </tbody>
+
+      </table>
+
+  <div class="nw-f-box">
+    <div class="nw-f-bg-shadow"></div>
+      <div class="nw-f-box-wrap">
+        <div class="nw-f-close"></div>
+        <div class="nw-f-header">
+          Create New Food 
+        </div>
+        <div class="nw-f-body">
+        <div id="newFoodForm">
+        </div>
+      </div>
+    </div>
+    </div>
+
+  <div class="sh-f-wrapper">
+    <div class="sh-f-box">
+      <div class="sh-f-bg-shadow"></div>
+      <div class="sh-f-box-wrap">
+        <div class="sh-f-close"></div>
+        <div class="sh-f-header">
+          View Food 
+        </div>
+        <div class="sh-f-body">
+        <div id="showFood">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="et-f-wrapper">
+  <div class="et-f-box">
+    <div class="et-f-bg-shadow"></div>
+    <div class="et-f-box-wrap">
+      <div class="et-f-close"></div>
+      <div class="et-f-header">
+        Edit Food 
+      </div>
+      <div class="et-f-body">
+      <div id="editFoodForm">
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+</section>
+
+<script>
+
+  $(".nw-f-btn").click(function(){
+
+  $(".nw-f-box").addClass("nw-f-box-active");
+
+  });
+
+  $(".nw-f-close").click(function(){
+
+  $(".nw-f-box").removeClass("nw-f-box-active");
+
+  });
+
+  $(".sh-f-btn").click(function(){
+
+  $(".sh-f-box").addClass("sh-f-box-active");
+
+  });
+
+  $(".sh-f-close").click(function(){
+
+  $(".sh-f-box").removeClass("sh-f-box-active");
+
+  });
+
+  $(".et-f-btn").click(function(){
+
+  $(".et-f-box").addClass("et-f-box-active");
+
+  });
+
+  $(".et-f-close").click(function(){
+
+  $(".et-f-box").removeClass("et-f-box-active");
+
+  });
+
+
+  $(".dt-f-close").click(function(){
+
+  $(".dt-f-box").removeClass("dt-f-box-active");
+
+  });
+
+
+  function confirmDeleteFood(id){
+
+    $("#dt-f-modal"+id).addClass("dt-f-box-active");
+
+  } 
+
+  function stopDeleteFBox(id){
+      
+      $('#dt-f-modal'+id).removeClass("dt-f-box-active");
+      
+    } 
+
+  $(document).ready(function() {
+
+    $("#food").dataTable( 
+      {
+        "pagingType": "full_numbers",
+        pageLength : 5,
+        lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 25]],
+        columnDefs: [
+          { "width": "40%", "targets": -4 },
+          {
+            targets: -6,
+            className: 'dt-body-center'
+          },
+          {
+              targets: -5,
+              className: 'dt-body-center'
+          },
+          {
+              targets: -4,
+              className: 'dt-body-center'
+          },
+          {
+            targets: -3,
+            className: 'dt-body-center'
+          },
+          {
+          targets: -2,
+          className: 'dt-body-center'
+          }
+      ]
+    }
+    
+    );
+    
+  });
+
+</script>

@@ -1,0 +1,165 @@
+<%= render 'admins/adminnav' %>
+
+<div id="food-type-content">
+
+  <h1 class="title">Food Types</h1>
+
+  <div class="nw-ft-wrapper">
+    <%= link_to '<button class="nw-food-type">New Food Type</button>'.html_safe, new_food_type_path , class: 'nw-ft-btn' , remote: true %>
+    
+    <div id="food-type-table">
+
+      <table id="food-type" class="cell-border compact stripe ">
+
+        <thead>
+
+          <tr>
+            <th>Name</th>
+            <th>Food Type Img</th>
+            <th>Actions</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="foodTypeBody">
+          <% @food_types.each do |food_type| %>
+            <%= render 'food_type_row' , food_type: food_type %>
+          <% end %>
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <div class="nw-ft-box">
+      <div class="nw-ft-bg-shadow"></div>
+      <div class="nw-ft-box-wrap">
+        <div class="nw-ft-close"></div>
+        <div class="nw-ft-header">
+          Create New Food Type
+        </div>
+        <div class="nw-ft-body">
+        <div id="newFoodTypeForm">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sh-ft-wrapper">
+  <div class="sh-ft-box">
+		<div class="sh-ft-bg-shadow"></div>
+		<div class="sh-ft-box-wrap">
+			<div class="sh-ft-close"></div>
+			<div class="sh-ft-header">
+				View Food Type 
+			</div>
+			<div class="sh-ft-body">
+      <div id="showFoodType">
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+<div class="et-ft-wrapper">
+<div class="et-ft-box">
+  <div class="et-ft-bg-shadow"></div>
+  <div class="et-ft-box-wrap">
+    <div class="et-ft-close"></div>
+    <div class="et-ft-header">
+      Edit Food Type 
+        </div>
+          <div class="et-ft-body">
+            <div id="editFoodTypeForm">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+
+  $(".nw-ft-btn").click(function(){
+
+  $(".nw-ft-box").addClass("nw-ft-box-active");
+
+  });
+
+  $(".nw-ft-close").click(function(){
+
+  $(".nw-ft-box").removeClass("nw-ft-box-active");
+
+  });
+
+  $(".sh-ft-btn").click(function(){
+
+  $(".sh-ft-box").addClass("sh-ft-box-active");
+
+  });
+
+  $(".sh-ft-close").click(function(){
+
+  $(".sh-ft-box").removeClass("sh-ft-box-active");
+
+  });
+
+  $(".et-ft-btn").click(function(){
+
+  $(".et-ft-box").addClass("et-ft-box-active");
+
+  });
+
+  $(".et-ft-close").click(function(){
+
+  $(".et-ft-box").removeClass("et-ft-box-active");
+
+  });
+
+
+  $(".dt-ft-close").click(function(){
+
+  $(".dt-ft-box").removeClass("dt-ft-box-active");
+
+  });
+
+
+  function confirmDeleteFoodType(id){
+
+    $("#dt-ft-modal"+id).addClass("dt-ft-box-active");
+
+  } 
+
+  function stopDeleteFTBox(id){
+      
+      $('#dt-ft-modal'+id).removeClass("dt-ft-box-active");
+      
+    } 
+
+
+  $(document).ready(function() {
+
+    $("#food-type").dataTable( 
+      {
+        "pagingType": "full_numbers",
+        pageLength : 5,
+      lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 25]],
+      columnDefs: [
+        {
+        targets: -3,
+        className: 'dt-body-center'
+        },
+        {
+        targets: -2,
+        className: 'dt-body-center'
+        }
+      ]
+      }
+    
+    );
+    
+  });
+
+</script>

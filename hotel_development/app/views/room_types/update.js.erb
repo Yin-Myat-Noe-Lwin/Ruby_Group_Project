@@ -1,0 +1,17 @@
+<% if @room_type.errors.any? %>
+
+$(".notice").remove();
+
+$("#rt-et-name-block").append('<div class="notice"><%= escape_javascript(@errorName[0])%></div>');
+
+$("#rt-et-cap-block").append('<div class="notice"><%= escape_javascript(@errorCapacity[0])%></div>');
+
+$("#rt-et-img-block").append('<div class="notice"><%= escape_javascript(@errorImg[0])%></div>');
+
+<% else %>
+
+  $('#roomTypeRow<%= room_type.id %>').replacewith("<%= escape_javascript render('room_type_row', room_type: @room_type) %>");
+
+  $('.et-rt-close').click();
+
+<% end %>
