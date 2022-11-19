@@ -52,12 +52,9 @@
               <p class="room-service"><%= avail.service2 %></p>
             <% end %>
 
-            <% if avail.service3 %> 
-              <p class="room-service"><%= avail.service3 %></p>
-            <% end %>
-
-            <%= link_to 'Book now' , new_booking_path(:room_id=>avail.id,:check_in=>@input_check_in, :check_out=>@input_check_out, :num_of_ppl=>@input_num_of_ppl), class: 'common-btn room-book-btn'  %></br>
-          </div>
+            <%= link_to 'Book now(' + avail.service3 + ')', new_booking_path(:room_id=>avail.id,:check_in=>@input_check_in, :check_out=>@input_check_out, :num_of_ppl=>@input_num_of_ppl), class: 'common-btn room-book-btn' %></br>
+          
+            </div>
           <!--text-->
 
         </div>
