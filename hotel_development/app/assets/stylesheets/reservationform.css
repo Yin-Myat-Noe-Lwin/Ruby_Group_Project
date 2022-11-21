@@ -1,12 +1,14 @@
 .sec-reservation {
 
-  padding: 10px 0 100px;
+  padding: 0px 0 100px;
   background-image: url('myreserve_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-
+  
 }
-
+.sec-reservation .blk{
+  padding-top: 50px;
+}
 .sec-reservation .blk-form {
 
   margin: 0 20%;

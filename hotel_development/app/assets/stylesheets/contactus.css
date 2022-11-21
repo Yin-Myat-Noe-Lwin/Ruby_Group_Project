@@ -1,10 +1,13 @@
 .sec-contact {
 
-  padding: 10px 0 100px;
+  padding: 0px 0 100px;
   background-image: url('contact_bg.png');
   background-size: cover;
   background-repeat: no-repeat;
 
+}
+.sec-contact .blk{
+  padding-top: 80px;
 }
 
 .sec-contact .blk-txt {

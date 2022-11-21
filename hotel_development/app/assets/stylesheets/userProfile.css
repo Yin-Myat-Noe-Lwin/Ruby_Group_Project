@@ -2,7 +2,7 @@
 
   /*background-color: #e1e7ed;*/
   height: 100vh;
-  padding: 10px 0 100px;
+  padding: 0px 0 100px;
   background-image: url('myreserve_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -14,7 +14,7 @@
   float: left;
   width: 30%;
   height: 400px;
-  margin-top: 4%;
+  margin-top: 10%;
   margin-left: 33%;
   padding-bottom: 20px;
   border: 2px solid rgba(255, 255, 255, 0.1);
