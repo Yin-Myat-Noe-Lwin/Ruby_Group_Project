@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
       #raise ActionController::RoutingError, 'Not Found'
 
-      render 'admins/strict'
+      render 'home/logout_Page'
 
     end
 

@@ -45,6 +45,16 @@
 
 }
 
+.login-alert2 {
+
+  position: fixed;
+  top: 20%;
+  z-index: 999;
+  width: 660px;
+  margin-left: 9%;
+
+}
+
 .reset-move-icon {
 
   margin-left: 50%;

@@ -13,8 +13,6 @@ class AdminsController < ApplicationController
   end
 
   def dashboard
-
-    @reservations = Reservation.all
     
   end
 

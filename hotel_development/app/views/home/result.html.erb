@@ -52,8 +52,8 @@
               <p class="room-service"><%= avail.service2 %></p>
             <% end %>
 
-            <%= link_to 'Book now(' + avail.service3 + ')', new_booking_path(:room_id=>avail.id,:check_in=>@input_check_in, :check_out=>@input_check_out, :num_of_ppl=>@input_num_of_ppl), class: 'common-btn room-book-btn' %></br>
-          
+            <%= link_to 'Book now(' + avail.service3 + ')', new_booking_path(:room_id=> Base64.encode64(avail.id.to_s),:check_in=>Base64.encode64(@input_check_in.to_s), :check_out=>Base64.encode64(@input_check_out.to_s), :num_of_ppl=>Base64.encode64(@input_num_of_ppl.to_s)), class: 'common-btn room-book-btn' %></br>
+
             </div>
           <!--text-->
 
@@ -74,3 +74,4 @@
 </section><!-- /.sec-room -->
 
 <%= render "home/footer" %>
+

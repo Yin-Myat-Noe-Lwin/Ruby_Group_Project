@@ -6,14 +6,11 @@
   </h1>
 
   <nav class="gnav clearfix">
-
     <ul class="clearfix">
-
       <li><%=  link_to 'Home', root_path , class: active_class?(root_path) %></li>
       <li class="nav-item"><%= link_to 'Review' , reviews_path , class: active_class?(reviews_path)  %></li>
       <% if logged_in? %>
         <li><%= link_to "Contact us",  new_contact_path , class: active_class?(new_contact_path) %></li>
-        
         <li>
           <div class="user-pf-details">
             <%= image_tag(current_user.profile, :alt => "img"  ) %>	
@@ -26,18 +23,13 @@
             </div>
           </div>
         </li> 
-
       <% else %>
-
-        <li><%= link_to "Signup", new_user_path , class: active_class?(new_user_path) %></li>
+        <li> <%= link_to "Signup", new_user_path, class: (controller?("users") ? 'nav-active' : nil) %></li>
         <li><%= link_to 'LogIn' , login_path , class: active_class?(login_path)   %></li>
-
       <% end %>
-
     </ul>
-
   </nav>
-
+  
 </div>
 
 <script>

@@ -1,4 +1,6 @@
 class ViewRoomsController < ApplicationController
+
+  require 'base64'
   
   def show
 

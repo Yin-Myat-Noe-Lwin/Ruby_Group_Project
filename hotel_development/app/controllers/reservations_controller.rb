@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
 
+  require 'base64'
+
   before_action :check, :except => [:index, :destroy]
 
   def check
@@ -20,7 +22,7 @@ class ReservationsController < ApplicationController
 
   end
 
-  before_action :user_access, :except => [:new, :create, :myReservations, :destroy]
+  before_action :user_access, :except => [:new, :create, :myReservations, :destroy ]
 
   def user_access
 
@@ -237,7 +239,7 @@ class ReservationsController < ApplicationController
     @myReservations = Reservation.where(user_id: current_user.id)
   
   end
-  
+
   private 
 
   def reservation_params

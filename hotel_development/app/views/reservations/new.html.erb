@@ -44,7 +44,7 @@
           <%= form.select(:num_of_ppl,  [ ['1', 1], ['2', 2] ,  ['3', 3 ] , ['4', 4]   , ['5', 5] ] , prompt: 'Number of People' ) %>
         </div>
 
-        <%= form.hidden_field :room_id, :value => params[:room_id] %>
+        <%= form.text_field :room_id, :value => Base64.decode64( params[:room_id]) %>
 
         <%= form.submit "Book now!!" , id: 'book-btn' , class: 'common-btn'  %>
   
@@ -59,8 +59,6 @@
 <%= render "home/footer" %>
 
 <script>
-
- 
 
   setTimeout("$('.error-msg').fadeOut('slow')", 3000);
 
@@ -77,6 +75,5 @@
     $('.ok-msg').hide();
 
   });
-
 
 </script>

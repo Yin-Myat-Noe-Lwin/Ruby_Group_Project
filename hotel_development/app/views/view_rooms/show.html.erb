@@ -56,7 +56,7 @@
               <% end %>
 
               <% if room.status == '0' %>
-                <%= link_to 'Book now(' + room.service3 + ')', new_reservation_path(:room_id=>room.id), class: 'common-btn room-book-btn'  %><br>
+                <%= link_to 'Book now(' + room.service3 + ')', new_reservation_path(:room_id=> Base64.encode64(room.id.to_s)), class: 'common-btn room-book-btn'  %><br>
               <% else %>
                   <h3 class= "common-btn booked room-book-btn"><%= 'Booked' %></h3>
               <% end %> 

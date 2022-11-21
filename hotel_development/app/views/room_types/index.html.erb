@@ -76,6 +76,34 @@ remote: true %>
 
 <script>
 
+$(document).ready(function() {
+
+  $("#room-type").dataTable( 
+    {
+      "pagingType": "full_numbers",
+      pageLength : 5,
+    lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 25]],
+    columnDefs: [
+
+      {
+          targets: -4,
+          className: 'dt-body-center'
+      },
+      {
+        targets: -3,
+        className: 'dt-body-center'
+    },
+    {
+      targets: -2,
+      className: 'dt-body-center'
+  }
+    ]
+  }
+  
+  );
+  
+});
+
 $(".modal_btn").click(function(){
 $(".modal_box").addClass("modal-active");
 
@@ -122,32 +150,5 @@ $(".et-rt-close").click(function(){
 $(".et-rt-box").removeClass("et-rt-box-active");
 });
 
-$(document).ready(function() {
-
-  $("#room-type").dataTable( 
-    {
-      "pagingType": "full_numbers",
-      pageLength : 5,
-    lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 25]],
-    columnDefs: [
-
-      {
-          targets: -4,
-          className: 'dt-body-center'
-      },
-      {
-        targets: -3,
-        className: 'dt-body-center'
-    },
-    {
-      targets: -2,
-      className: 'dt-body-center'
-  }
-    ]
-  }
-  
-  );
-  
-});
 
 </script>

@@ -12,16 +12,16 @@
 
       <%= form_with  model: @reservation do |form| %>
 
-        <h3> <i class="bx bx-calendar rs-icon-space"></i>CheckIn</h3><%=  params[:check_in] %>
-        <%= form.hidden_field:check_in , :value => params[:check_in]  %><br>
+        <h3> <i class="bx bx-calendar rs-icon-space"></i>CheckIn</h3><%=  Base64.decode64( params[:check_in]) %>
+        <%= form.hidden_field:check_in , :value =>  Base64.decode64( params[:check_in])  %><br>
 
-        <h3> <i class="bx bx-calendar rs-icon-space"></i>CheckOut</h3><%=  params[:check_out] %><br>
-        <%= form.hidden_field:check_out , :value => params[:check_out] %><br>
+        <h3> <i class="bx bx-calendar rs-icon-space"></i>CheckOut</h3><%= Base64.decode64( params[:check_out])  %><br>
+        <%= form.hidden_field:check_out , :value => Base64.decode64( params[:check_out]) %><br>
 
-        <h3> <i class="bx bx-user rs-icon-space"></i>Number of People</h3><%=  params[:num_of_ppl] %><br>
-        <%= form.hidden_field :num_of_ppl, min:1, max:10 , :value => params[:num_of_ppl] %><br>
+        <h3> <i class="bx bx-user rs-icon-space"></i>Number of People</h3><%= Base64.decode64( params[:num_of_ppl])  %><br>
+        <%= form.hidden_field :num_of_ppl, min:1, max:10 , :value => Base64.decode64( params[:num_of_ppl]) %><br>
 
-        <%= form.hidden_field :room_id, :value => params[:room_id] %><br><br>
+        <%= form.text_field :room_id, :value => Base64.decode64( params[:room_id]) %>
 
         <%= form.submit "Book now!!" , class: 'common-btn booking-btn' %>
       
@@ -34,9 +34,3 @@
 </section>
 
 <%= render "home/footer" %>
-
-<script>
-
-  history.pushState({},null,'/bookings/new');
-
-</script>

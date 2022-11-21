@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
 
     else
 
-      flash.alert = "Invalid Email or Password"
+      flash.now[:alert] = "Invalid Email or Password"
 
       render 'loginForm'
 
