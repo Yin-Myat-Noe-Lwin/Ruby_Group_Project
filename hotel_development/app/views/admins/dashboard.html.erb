@@ -4,6 +4,218 @@
     
 <h1>Admin Dashboard</h1>
 
+<div class="overview-boxes">
+<div class="box">
+  <div class="right-side">
+    <div class="box-topic">Total Users</div>
+    <div class="number"><%= @users.count %></div>
+  </div>
+  <i class='bx bx-user cart'></i>
+</div>
+<div class="box">
+  <div class="right-side">
+    <div class="box-topic">Room Types</div>
+    <div class="number"><%= @room_types.count %></div>
+  </div>
+  <i class='bx bx-door-open cart two' ></i>
+</div>
+<div class="box">
+  <div class="right-side">
+    <div class="box-topic">Total Rooms</div>
+    <div class="number"><%= @rooms.count %></div>
+  </div>
+  <i class='bx bx-door-open cart three' ></i>
+</div>
+<div class="box">
+  <div class="right-side">
+    <div class="box-topic">Reservations</div>
+    <div class="number"><%= @reservations.count %></div>
+  </div>
+  <i class='bx bx-bookmark cart four' ></i>
+</div>
 </div>
 
+  <div class="clearfix">
+
+    <div id="container2"></div>
+    <div id="container3"></div>
+    
+  </div>
+
+</div>
+
+<table id="admin-room" class="cell-border compact stripe ">
+    <thead>
+       <tr>
+          <th>Room Number</th>
+          <th>Status</th>
+          <th>Image</th>
+          <th>Size</th>
+          <th>Room Type</th>
+          <th>Service1</th>
+          <th>Service2</th>
+          <th>Service3</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="roomBody">
+         <% @rooms.each do |room| %>
+          <tr id="roomRow<%= room.id %>">
+          <td><%= link_to room.room_num,  room , class:'sh-r-btn' ,  remote: true %></td>
+          <td>
+          <% if room.status == '0' %>
+          <%= 'Available' %>
+          <% else %>
+          <%= 'Booked' %>
+          <% end %>
+          </td>
+          <td><%= image_tag(room.room_img, :alt => "img" , class: 'profile' ) %></td>
+          <td><%= room.size %></td>
+          <td><%= room.room_type.name %></td>
+          <td>
+          <% if room.service1 %>
+          <%= room.service1 %>
+          <% else %>
+          <%= "" %>
+          <% end %>
+          </td>
+          <td>
+          <% if room.service2 %>
+          <%= room.service2 %>
+          <% else %>
+          <%= "" %>
+          <% end %>
+          </td>
+          <td>
+          <% if room.service3 %>
+          <%= room.service3 %>
+          <% else %>
+          <%= "" %>
+          <% end %>
+          </td>
+          <td>
+          <% if room.status == '1' %>
+          <%= %>
+          <% else %>
+          <%= link_to "<i class='bx bx-edit-alt edit-room-btn' ></i> <span class='links_name'></span>".html_safe, edit_room_path(room) , class:'et-r-btn' , remote: true  %>
+          <p onclick="confirmDeleteRoom(<%=  room.id %>)" ><i class='bx bx-trash delete-room-btn' ></i></p>
+          <% end %>
+          </td>
+          </tr>
+         <% end %>
+       </tbody>
+</table>
+
+<table id="admin-reserve" class="cell-border compact stripe ">
+  
+    <thead>
+      <tr>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr id="reservationRow<%= reservation.id %>" >
+        <td><%= reservation.created_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+
 </section>
+
+<script>
+
+var table = $('#admin-room').DataTable( );
+
+  var chart = Highcharts.chart(container2, {
+      chart: {
+          type: 'pie',
+
+      },
+      title: {
+          text: 'Reservations',
+      },
+      series: [
+          {
+            type: 'pie',
+            innerSize: '60%',
+              data: chartData(table),
+          },
+      ],
+  });
+
+  table.on('draw', function () {
+      chart.series[0].setData(chartData(table));
+  });
+
+  var chart2 = Highcharts.chart(container3, {
+    chart: {
+        type: 'pie',
+    },
+    title: {
+        text: 'Room Types',
+    },
+    series: [
+        {
+          type: 'pie',
+          innerSize: '60%',
+            data: chartData2(table),
+        },
+    ],
+});
+
+table.on('draw', function () {
+    chart.series[0].setData(chartData(table));
+});
+
+function chartData(table) {
+  var counts = {};
+
+  table
+      .column(1, { search: 'applied' })
+      .data()
+      .each(function (val) {
+          if (counts[val]) {
+              counts[val] += 1;
+          } else {
+              counts[val] = 1;
+          }
+      });
+
+  return $.map(counts, function (val, key) {
+      return {
+          name: key,
+          y: val,
+      };
+  });
+}
+
+function chartData2(table) {
+  var counts = {};
+
+  table
+      .column(4, { search: 'applied' })
+      .data()
+      .each(function (val) {
+          if (counts[val]) {
+              counts[val] += 1;
+          } else {
+              counts[val] = 1;
+          }
+      });
+
+  return $.map(counts, function (val, key) {
+      return {
+          name: key,
+          y: val,
+      };
+  });
+}
+
+$('#admin-room').parents('div.dataTables_wrapper').first().hide();
+
+</script>

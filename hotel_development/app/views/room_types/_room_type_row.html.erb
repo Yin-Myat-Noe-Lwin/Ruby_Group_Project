@@ -8,6 +8,7 @@
 <% end %>
 </td>
 <td><%= image_tag(room_type.room_type_img, :alt => "img" , class: 'profile' ) %></td>
+<td><%= room_type.rooms.count %></td>
 <td>
 <%= link_to "<i class='bx bx-edit-alt edit-room-type-btn' ></i> <span class='links_name'></span>".html_safe, edit_room_type_path(room_type) , class:'et-rt-btn' , remote: true %>
 <p onclick="confirmDelete(<%=  room_type.id %>)" ><i class='bx bx-trash delete-room-type-btn' ></i></p>

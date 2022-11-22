@@ -10,6 +10,7 @@
           <th>Status</th>
           <th>Image</th>
           <th>Size</th>
+          <th>Room Type</th>
           <th>Service1</th>
           <th>Service2</th>
           <th>Service3</th>
@@ -136,11 +137,9 @@ function stopDeleteRBox(id){
   $('#dt-r-modal'+id).removeClass("dt-r-box-active");
 
 }
-
-
-$(document).ready(function() {
-
-  $("#room").dataTable( 
+    
+  $('#room').DataTable(
+   
     {
       "pagingType": "full_numbers",
       pageLength : 5,
@@ -183,9 +182,7 @@ $(document).ready(function() {
     ]
  
   }
-  
   );
-  
-});
+
 
 </script>

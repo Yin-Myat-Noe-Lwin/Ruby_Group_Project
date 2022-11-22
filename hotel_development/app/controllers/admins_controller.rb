@@ -13,6 +13,14 @@ class AdminsController < ApplicationController
   end
 
   def dashboard
+
+    @users = User.all
+
+    @room_types = RoomType.all
+
+    @rooms = Room.all
+
+    @reservations = Reservation.all
     
   end
 
@@ -25,5 +33,6 @@ class AdminsController < ApplicationController
   def profilePage
 
   end
+
 
 end

@@ -88,6 +88,4 @@ gem 'turbolinks', '~> 2.5', '>= 2.5.3'
 
 gem 'client_side_validations'
 
-gem "groupdate"
-
 gem "chartkick"

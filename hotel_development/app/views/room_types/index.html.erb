@@ -2,7 +2,6 @@
 <div class="home-content">
 <h1 class="title">Room Types</h1>
 <div class="wrapper">
-
 <%= link_to '<button class="nw-room-type">New Room Type</button>'.html_safe, new_room_type_path  , class: 'modal_btn',
 remote: true %>
 	
@@ -12,6 +11,7 @@ remote: true %>
           <th>Name</th>
           <th>Maximum Capacity</th>
           <th>Image</th>
+          <th>Number of Rooms</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -103,6 +103,8 @@ $(document).ready(function() {
   );
   
 });
+
+
 
 $(".modal_btn").click(function(){
 $(".modal_box").addClass("modal-active");

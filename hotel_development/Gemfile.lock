@@ -105,8 +105,6 @@ GEM
     ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    groupdate (6.1.0)
-      activesupport (>= 5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -261,7 +259,6 @@ DEPENDENCIES
   chartkick
   client_side_validations
   debug
-  groupdate
   importmap-rails
   jbuilder
   jquery-datatables

@@ -9,6 +9,7 @@
 </td>
 <td><%= image_tag(room.room_img, :alt => "img" , class: 'profile' ) %></td>
 <td><%= room.size %></td>
+<td><%= room.room_type.name %></td>
 <td>
 <% if room.service1 %>
 <%= room.service1 %>
