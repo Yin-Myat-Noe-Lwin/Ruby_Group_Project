@@ -47,19 +47,21 @@
                 <span><i class="bx bx-map-alt room-pg-icon"></i><%= room.size %></span>
               </p> 
 
-              <% if room.service1 %> 
-                <p class="room-service"><%= room.service1 %></p>
-              <% end %>
-
-              <% if room.service2 %> 
-                <p class="room-service"><%= room.service2 %></p>
-              <% end %>
-
+              <div class="clearfix">
+              <div class="room-service">
+              <p><%= room.service1 %></p>
+              <p><%= room.service2 %></p>
+              </div>
+              <div class="room-price">
+              <p><%= room.service3 %></p>
               <% if room.status == '0' %>
-                <%= link_to 'Book now(' + room.service3 + ')', new_reservation_path(:room_id=> Base64.encode64(room.id.to_s)), class: 'common-btn room-book-btn'  %><br>
+              <%= link_to 'Book Now', new_reservation_path(:r=> Base64.encode64(room.id.to_s)), class: 'common-btn room-book-btn'  %><br>
               <% else %>
                   <h3 class= "common-btn booked room-book-btn"><%= 'Booked' %></h3>
               <% end %> 
+              </div>
+              </div>
+              
             </div>
             <!--text-->
             

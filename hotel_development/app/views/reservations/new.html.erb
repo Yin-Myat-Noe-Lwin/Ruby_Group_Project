@@ -44,10 +44,10 @@
           <%= form.select(:num_of_ppl,  [ ['1', 1], ['2', 2] ,  ['3', 3 ] , ['4', 4]   , ['5', 5] ] , prompt: 'Number of People' ) %>
         </div>
 
-        <%= form.text_field :room_id, :value => Base64.decode64( params[:room_id]) %>
+        <%= form.text_field :room_id, :value => Base64.decode64( params[:r]) %>
 
         <%= form.submit "Book now!!" , id: 'book-btn' , class: 'common-btn'  %>
-  
+        <%= link_to 'Back', 'javascript:history.back()' %>
       <% end %>
 
     </div>

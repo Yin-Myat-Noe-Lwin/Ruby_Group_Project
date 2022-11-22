@@ -38,21 +38,28 @@
             <!--image-->
             
           <div class="fth-txt">
+
             <p>
               <span id="room-num-span"><i class="bx bx-key room-pg-icon"></i><%= avail.room_num %></span>
               <span id="room-cap-span"><i class="bx bx-user room-pg-icon"></i><%= avail.room_type.max_capacity %></span>
               <span><i class="bx bx-map-alt room-pg-icon"></i><%= avail.size %></span>
             </p>  
 
-            <% if avail.service1 %> 
-              <p class="room-service"><%= avail.service1 %></p>
-            <% end %>
+            <div class="clearfix">
+              <div class="room-service">
+              <p><%= avail.service1 %></p>
+              <p><%= avail.service2 %></p>
+              </div>
+              <div class="room-price">
+              <p><%= avail.service3 %></p>
+            
+              <%= link_to 'Book now', new_booking_path(:r=> Base64.encode64(avail.id.to_s),:ci=>Base64.encode64(@input_check_in.to_s), :co=>Base64.encode64(@input_check_out.to_s), :np=>Base64.encode64(@input_num_of_ppl.to_s)), class: 'common-btn room-book-btn' %></br>
+              
+              </div>
+              </div>
 
-            <% if avail.service2 %> 
-              <p class="room-service"><%= avail.service2 %></p>
-            <% end %>
-
-            <%= link_to 'Book now(' + avail.service3 + ')', new_booking_path(:room_id=> Base64.encode64(avail.id.to_s),:check_in=>Base64.encode64(@input_check_in.to_s), :check_out=>Base64.encode64(@input_check_out.to_s), :num_of_ppl=>Base64.encode64(@input_num_of_ppl.to_s)), class: 'common-btn room-book-btn' %></br>
+           
+       
 
             </div>
           <!--text-->

@@ -1,26 +1,22 @@
 <% if @myReservations.count == 0 %>
-
-  <div class="no-reserve">
-
-    <header>
+<header>
         <%= render "home/nav" %>
     </header>
+  <div class="no-reserve">
 
     <div class = "l-inner">
 
-      <h3 class= 'cmn-ttl'>Your Reservations</h3>
+      <h3 class= 'cmn-ttl reserve-ttl'>Your Reservations</h3>
 
     </div>
 
   </div>
 
 <% else %>
-
+<header>
+<%= render "home/nav" %>
+</header>
   <section class = "sec-reserve">
-
-    <header>
-      <%= render "home/nav" %>
-    </header>
 
   <div class = "l-inner">
     <div class = "average">
