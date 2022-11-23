@@ -22,14 +22,14 @@ class Room < ApplicationRecord
 
   validates_presence_of :service1
 
-  validates :service1, :length => { :in => 0..60}
+  validates :service1, :length => { :in => 0..20}
 
   validates_presence_of :service2
 
-  validates :service2, :length => { :in => 0..60}
+  validates :service2, :length => { :in => 0..20}
 
   validates_presence_of :service3
 
-  validates :service3, :length => { :in => 0..30}
+  validates :service3, :length => { :in => 0..10}
 
 end
