@@ -104,10 +104,20 @@
 }
 
 .no-reserve {
+
   height: 100vh;
   padding: 10px 0 50px;
-  background-image: url('myreserve_bg.jpg');
+  background-image: url('img_review_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   
+}
+
+.no-reserve .cmn-ttl {
+
+  margin: 0;
+  padding-top : 120px;
+  padding-bottom: 30px;
+  font-size: 30px;
+
 }

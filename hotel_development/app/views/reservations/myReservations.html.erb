@@ -1,7 +1,8 @@
-<% if @myReservations.count == 0 %>
 <header>
         <%= render "home/nav" %>
     </header>
+<% if @myReservations.count == 0 %>
+
   <div class="no-reserve">
 
     <div class = "l-inner">
@@ -13,9 +14,6 @@
   </div>
 
 <% else %>
-<header>
-<%= render "home/nav" %>
-</header>
   <section class = "sec-reserve">
 
   <div class = "l-inner">
