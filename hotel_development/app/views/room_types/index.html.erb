@@ -81,10 +81,14 @@ $(document).ready(function() {
   $("#room-type").dataTable( 
     {
       "pagingType": "full_numbers",
-      pageLength : 5,
-    lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 25]],
+      pageLength : 4,
+        lengthMenu: [[4, 8, 12, -1], [4, 8, 12, 16]],
     columnDefs: [
-
+      { "width": "10%", "targets": -2 },
+      {
+          targets: -5,
+          className: 'dt-body-center'
+      },
       {
           targets: -4,
           className: 'dt-body-center'
@@ -95,6 +99,7 @@ $(document).ready(function() {
     },
     {
       targets: -2,
+     
       className: 'dt-body-center'
   }
     ]

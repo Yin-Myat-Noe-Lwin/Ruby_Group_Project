@@ -20,11 +20,11 @@
 
   <div class="form-gp">
     <%= form.label :query, "Food Type"  %><br>
-    <%= form.collection_select(:food_type_id, FoodType.all, :id, :name) %><br>
+    <%= form.collection_select(:food_type_id, FoodType.all, :id, :name) %><br><br>
   </div>
 
   <%= form.label :query, "Food Image"  %><br>
-  <%= form.file_field :food_img , accept:'image/*'  %><br><br>
+  <%= form.file_field :food_img , accept:'image/*'  %><br>
   <span id = "f-img-block"></span>
 
   </div>

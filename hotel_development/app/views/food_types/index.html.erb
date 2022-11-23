@@ -6,8 +6,6 @@
 
   <div class="nw-ft-wrapper">
     <%= link_to '<button class="nw-food-type">New Food Type</button>'.html_safe, new_food_type_path , class: 'nw-ft-btn' , remote: true %>
-    
-    <div id="food-type-table">
 
       <table id="food-type" class="cell-border compact stripe ">
 
@@ -28,8 +26,6 @@
         </tbody>
 
       </table>
-
-    </div>
 
     <div class="nw-ft-box">
       <div class="nw-ft-bg-shadow"></div>
@@ -144,9 +140,12 @@
     $("#food-type").dataTable( 
       {
         "pagingType": "full_numbers",
-        pageLength : 5,
-      lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 25]],
+        pageLength : 4,
+        lengthMenu: [[4, 8, 12, -1], [4, 8, 12, 16]],
       columnDefs: [
+        { "width": "25%", "targets": -2 },
+        { "width": "30%", "targets": -3 },
+        { "width": "12%", "targets": -1 },
         {
         targets: -3,
         className: 'dt-body-center'

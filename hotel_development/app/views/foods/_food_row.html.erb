@@ -1,7 +1,7 @@
 <tr>
 
 	<td><%= link_to food.name,  food , class:'sh-f-btn' ,  remote: true %></td>
-	<td><%= food.price %></td>
+	<td><%= food.price %>$</td>
 	<td><%= food.description %></td>
 	<td><%= food.food_type.name %></td>
 	<td><%= image_tag(food.food_img, :alt => "img" , class: 'profile' ) %></td>
