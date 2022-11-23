@@ -1,10 +1,9 @@
+<header>
+<%= render "home/nav" %>
+</header>
 <% if @reviews.count == 0 %>
 
   <section class = "no-review">
-
-    <header>
-        <%= render "home/nav" %>
-    </header>
 
     <div class = "l-inner">
 
@@ -21,10 +20,6 @@
 <% else %>
 
   <section class = "sec-review">
-
-    <header>
-        <%= render "home/nav" %>
-    </header>
 
     <% flash.each do |type, msg| %>
 

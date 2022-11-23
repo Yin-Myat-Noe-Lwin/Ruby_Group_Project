@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in? , :user_bookings
 
 #  def current_user
 #
@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
 #    end
 #
 #  end
+
+  def user_bookings
+
+   Reservation.where(user_id: current_user.id)
+
+  end
 
   def current_user
 
@@ -58,18 +64,6 @@ class ApplicationController < ActionController::Base
 
     cookies.delete(:remember_token)
 
-  end
-
-  before_action :set_cache_buster
-
-  protected
-
-  def set_cache_buster
-
-    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "#{1.year.ago}"
-    
   end
 
 end

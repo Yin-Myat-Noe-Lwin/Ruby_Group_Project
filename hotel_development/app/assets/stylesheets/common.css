@@ -147,6 +147,7 @@ header .header-logo {
   border-bottom: 1px solid transparent;
   float: left;
   font-family: 'MyriadPro-Regular';
+  font-size: 22px;
   padding-top:25px;
   margin: 0;
 
@@ -173,7 +174,7 @@ header .gnav ul {
 header .gnav ul li {
 
   float: left;
-  margin: 18px 90px 5px 0;
+  margin: 18px 50px 5px 0;
   font-family: 'MyriadPro-Regular';
   letter-spacing: -0.1px;
   text-transform: uppercase;
@@ -310,6 +311,7 @@ header .menu-toggle {
 
   color: #fff;
   font-size: 30px;
+  font-family: 'MyriadPro-Regular';
 
 }
 
@@ -637,3 +639,8 @@ div.field_with_errors div.ui-effects-wrapper {
 }
 
 /*for access denied*/
+
+#booking-noti {
+
+  color: #FF8364;
+}

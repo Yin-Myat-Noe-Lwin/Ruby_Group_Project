@@ -14,7 +14,7 @@
   float: left;
   width: 30%;
   height: 400px;
-  margin-top: 10%;
+  margin-top: 15%;
   margin-left: 33%;
   padding-bottom: 20px;
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -49,7 +49,6 @@
 
   margin-top: -5px;
   margin-bottom: 20px;
-  color: #33363b;
   font-size: 14px;
 
 }
@@ -57,12 +56,10 @@
 .current-user-data h3 {
 
   margin-top: 10px;
-  color: #33363b;
   font-size: 18px;
   font-weight: 700;
 
 }
-
 
 .pf-card {
 

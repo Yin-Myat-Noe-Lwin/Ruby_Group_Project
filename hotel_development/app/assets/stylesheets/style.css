@@ -15,13 +15,14 @@
 
 .sec-mv .mv-blk {
 
-  padding-top: 12%;
+  padding-top: 10%;
 
 }
 
 .mv-txt {
 
   line-height: 22px;
+  color: #111111;
 
 }
 
@@ -169,7 +170,7 @@
   right: 20%;
   width: 180px;
   height: 170px;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   border-radius: 50%;
 
 }
