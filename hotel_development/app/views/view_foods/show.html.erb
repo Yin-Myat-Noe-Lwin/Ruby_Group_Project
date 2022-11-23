@@ -1,19 +1,16 @@
+<header>
+<%= render "home/nav" %>
+</header>
+
 <section class="sec-menupage">
-
-  <header>
-    <%= render "home/nav" %>
-  </header>
-
  
-    <h2 class="menu-h-tit">Our Speciality Menu</h2>
+    <h2 class="menu-h-tit">Our <%= @food_type.name %> Menu</h2>
   
-
   <ul class="menu-list clearfix">
 
   <% @food_type.foods.each do |food| %>
 
     <li>
-
       <%= image_tag(food.food_img, :alt => "img" , class: 'menu-lf-img'  ) %>
       <!--menu image-->
 

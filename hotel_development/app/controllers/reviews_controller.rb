@@ -82,6 +82,8 @@ class ReviewsController < ApplicationController
 
     if @is_review_update
 
+      flash.notice="Your review was successfully updated"
+
       redirect_to reviews_path
 
     else

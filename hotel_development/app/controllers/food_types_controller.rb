@@ -72,7 +72,9 @@ end
 end
 
 def index
+
   @food_types = FoodTypeService.getAllFoodTypes
+  
 end
 
 def show
