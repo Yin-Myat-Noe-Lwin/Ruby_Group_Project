@@ -28,6 +28,10 @@ class HomeController < ApplicationController
 
   def search
 
+    @dates = []
+
+    @input_dates= []
+
     @input_check_in = params[:check_in]
 
     @input_check_out = params[:check_out]
@@ -68,7 +72,7 @@ class HomeController < ApplicationController
 
       redirect_to(request.env['HTTP_REFERER'])
 
-    elsif @input_check_in.present? &&  @input_check_out.present? &&  @input_check_out.to_datetime - @input_check_in.to_datetime >= 30
+    elsif @input_check_in.present? &&  @input_check_out.present? &&  @input_check_out.to_datetime - @input_check_in.to_datetime > 30
 
       flash.alert = "Sorry, you can't book a room for more than 30 days"
 
@@ -83,9 +87,23 @@ class HomeController < ApplicationController
 
       @rooms = Room.where(room_type_id: @chosen_room_type.id)
 
-      @avails = @rooms.where(status: '0')
+      @booked_rooms =  @rooms.where(status: '1')
 
-      render 'result'
+      if @booked_rooms
+
+        @reservations = Reservation.all
+
+        @avails = @rooms.where(status: '0')
+
+        render 'result'
+
+      else
+
+        @avails = @rooms
+
+        render 'result'
+
+      end
 
     else
 

@@ -89,7 +89,7 @@ class ReservationsController < ApplicationController
       redirect_to(request.env['HTTP_REFERER'])
 
     elsif params[:reservation][:check_in].present? &&  params[:reservation][:check_out].present? &&
-      params[:reservation][:check_out ].to_datetime - params[:reservation][:check_in ].to_datetime >= 30
+      params[:reservation][:check_out ].to_datetime - params[:reservation][:check_in ].to_datetime > 30
 
         flash.alert = "Sorry, you can't book a room for more than 30 days."
 
@@ -114,7 +114,7 @@ class ReservationsController < ApplicationController
       
             @room.status = '1'
       
-            @room.reservation_id = @reservation.id
+            #@room.reservation_id = @reservation.id
       
             @room.save
       
@@ -214,7 +214,7 @@ class ReservationsController < ApplicationController
 
     @room.status = '0'
 
-    @room.reservation_id = nil
+    #@room.reservation_id = nil
 
     @room.save
 

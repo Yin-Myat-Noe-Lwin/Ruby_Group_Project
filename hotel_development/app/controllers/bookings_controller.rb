@@ -74,7 +74,7 @@ class BookingsController < ApplicationController
   
         @room.status = '1'
   
-        @room.reservation_id = @reservation.id
+        #@room.reservation_id = @reservation.id
   
         @room.save
   

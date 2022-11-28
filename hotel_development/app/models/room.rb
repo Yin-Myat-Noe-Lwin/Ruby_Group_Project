@@ -2,7 +2,7 @@ class Room < ApplicationRecord
 
   belongs_to :room_type
 
-  has_one :reservation , dependent: :destroy
+  has_many :reservations , dependent: :destroy
 
   validates_presence_of :room_num
 
