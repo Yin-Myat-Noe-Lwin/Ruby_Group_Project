@@ -196,9 +196,15 @@ class ReservationsController < ApplicationController
 
     @room = Room.find_by_id(@reservation.room_id)
 
+    @reserved_rooms = Reservation.where(room_id: @room.id)
+
+    if @reserved_rooms.count <= 1
+
     @room.status = '0'
 
-    @room.reservation_id = nil
+    end
+
+    #@room.reservation_id = nil
 
     @room.save
 
@@ -212,7 +218,13 @@ class ReservationsController < ApplicationController
 
     @room = Room.find_by_id(@reservation.room_id)
 
-    @room.status = '0'
+    @reserved_rooms = Reservation.where(room_id: @room.id)
+
+    if @reserved_rooms.count <= 1
+
+      @room.status = '0'
+  
+    end
 
     #@room.reservation_id = nil
 
