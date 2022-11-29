@@ -6,15 +6,13 @@ class HomeController < ApplicationController
 
     if logged_in?
 
-    if current_user.user_type == '0' 
+      if current_user.user_type == '0' 
 
-      #raise ActionController::RoutingError, 'Not Found'
+        render 'home/logout_Page'
 
-      render 'home/logout_Page'
+      end
 
     end
-
-  end
 
   end
 
@@ -78,12 +76,7 @@ class HomeController < ApplicationController
 
       redirect_to(request.env['HTTP_REFERER'])
 
-    elsif @input_check_in.present? &&  @input_check_out.present? &&
-          @input_num_of_ppl.present? &&  @input_room_type_id.present?
-          #@input_check_in >= @input_check_out && 
-          #@input_check_in.to_datetime >= Date.today &&
-          #@input_check_out.to_datetime >= Date.today && 
-          #@input_num_of_ppl.to_i <= @chosen_room_type.max_capacity
+    elsif @input_check_in.present? &&  @input_check_out.present? && @input_num_of_ppl.present? &&  @input_room_type_id.present?
 
       @rooms = Room.where(room_type_id: @chosen_room_type.id)
 

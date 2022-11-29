@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
       render 'admins/strict'
 
-  end
+    end
 
   end
 

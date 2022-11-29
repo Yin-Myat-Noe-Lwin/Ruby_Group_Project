@@ -10,7 +10,7 @@ class RoomTypeService
 
     def createRoomType(room_type)
 
-     @is_room_type_create = RoomTypeRepository.createRoomType(room_type)
+      @is_room_type_create = RoomTypeRepository.createRoomType(room_type)
 
     end
 

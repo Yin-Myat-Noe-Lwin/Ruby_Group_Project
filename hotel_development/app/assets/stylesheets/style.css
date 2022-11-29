@@ -484,24 +484,27 @@
 
 }
 
-.fth-txt-lft{
+.fth-txt-lft {
+
   float: left;
   margin-left: 5%;
+
 }
 
+.fth-txt-rt {
 
-.fth-txt-rt{
   float: right;
   margin-right: 5%;
+
 }
 
 
 .room-book-btn {
 
-  margin-top: -10px;
-  margin-left: -5%;
   /*margin-left: 15px;*/
   width: 100px;
+  margin-top: -10px;
+  margin-left: -5%;
 
 }
 
@@ -515,8 +518,8 @@
 .room-price {
 
   float: right;
-  margin-right: 15px;
   margin-top: -10px;
+  margin-right: 15px;
   color: #c0392b;
   font-size: 18px;
   font-weight: 800;
@@ -524,28 +527,29 @@
   
 }
 
-.owl-carousel .nav-btn{
+.owl-carousel .nav-btn {
 
-  height: 47px;
   position: absolute;
-  width: 26px;
-  cursor: pointer;
   top: 90px !important;
+  width: 26px;
+  height: 47px;
+  cursor: pointer;
 
 }
 
-.owl-carousel .prev-slide{
-  
+.owl-carousel .prev-slide {
+
   left: -80px;
-  font-size: 70px;
   color: #777777;
+  font-size: 70px;
 
 }
-.owl-carousel .next-slide{
-  
+
+.owl-carousel .next-slide {
+
   right: -30px;
-  font-size: 70px;
   color: #777777;
+  font-size: 70px;
 
 }
 
@@ -578,56 +582,57 @@ background: white;
 
 .owl-dots {
 
-  text-align: center;
   padding-top: 15px;
+  text-align: center;
 
 }
 
 .owl-dots button.owl-dot {
 
+  display: inline-block;
   width: 10px;
   height: 10px;
-  border-radius: 50%;
-  display: inline-block;
+  margin: 0 3px;
   border: 1px solid gray;
   background: white;
-  margin: 0 3px;
+  border-radius: 50%;
 
 }
+
 .owl-dots button.owl-dot.active {
 
   background-color:  #FEAE00 ;
 
 }
+
 .owl-dots button.owl-dot:focus {
 
   outline: none;
   
 }
 
-#carousel .nav-btn2{
+#carousel .nav-btn2 {
 
-  height: 47px;
   position: absolute;
-  width: 26px;
-  cursor: pointer;
   top: 150px !important;
+  width: 26px;
+  height: 47px;
+  cursor: pointer;
 
 }
 
-#carousel .prev-slide2{
-  
+#carousel .prev-slide2 {
+
   left: -80px;
+  color: #FFFFFF;
   font-size: 70px;
-  color: #FFFFFF
 
 }
 
-#carousel .next-slide2{
-  
+#carousel .next-slide2 {
+
   right: -30px;
+  color: #FFFFFF;
   font-size: 70px;
-  color: #FFFFFF
 
 }
-

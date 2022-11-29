@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
   def ensure_admin
 
     if !logged_in? || current_user.user_type == '1'
-      #raise ActionController::RoutingError, 'Not Found'
+     
       render 'strict'
       
     end
@@ -33,6 +33,5 @@ class AdminsController < ApplicationController
   def profilePage
 
   end
-
 
 end

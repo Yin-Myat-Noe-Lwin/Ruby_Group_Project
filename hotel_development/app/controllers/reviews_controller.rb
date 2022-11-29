@@ -53,7 +53,9 @@ class ReviewsController < ApplicationController
     @reviews = ReviewService.getAllReviews
 
     if @reviews.count > 0
+
       @average_review = @reviews.sum('rating') / @reviews.count
+
     end
 
   end
@@ -94,19 +96,19 @@ class ReviewsController < ApplicationController
 
     end
 
-end
+  end
 
-def destroy
+  def destroy
   
-  @review = ReviewService.getReviewByID(params[:id])
+    @review = ReviewService.getReviewByID(params[:id])
 
-  ReviewService.destroyReview(@review)
+    ReviewService.destroyReview(@review)
 
-  flash.alert="Your review was successfully deleted"
+    flash.alert="Your review was successfully deleted"
 
-  redirect_to reviews_path
+    redirect_to reviews_path
     
-end
+  end
 
   private 
 

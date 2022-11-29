@@ -10,7 +10,7 @@ class RoomService
 
     def createRoom(room)
 
-     @is_room_create = RoomRepository.createRoom(room)
+      @is_room_create = RoomRepository.createRoom(room)
 
     end
 

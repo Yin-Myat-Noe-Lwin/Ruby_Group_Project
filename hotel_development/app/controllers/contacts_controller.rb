@@ -55,4 +55,5 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:name, :email, :message)
 
   end
+
 end

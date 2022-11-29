@@ -10,7 +10,7 @@ class ReservationService
 
     def createReservation(reservation)
 
-     @is_reservation_create = ReservationRepository.createReservation(reservation)
+      @is_reservation_create = ReservationRepository.createReservation(reservation)
 
     end
 

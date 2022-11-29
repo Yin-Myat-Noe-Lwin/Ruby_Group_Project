@@ -2,19 +2,9 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user, :logged_in? , :user_bookings
 
-#  def current_user
-#
-#    if (user_id = session[:user_id])
-#
-#      @current_user ||= User.find_by(id: user_id)
-#
-#    end
-#
-#  end
-
   def user_bookings
 
-   Reservation.where(user_id: current_user.id)
+    Reservation.where(user_id: current_user.id)
 
   end
 

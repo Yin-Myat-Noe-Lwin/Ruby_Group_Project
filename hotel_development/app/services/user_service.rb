@@ -10,7 +10,7 @@ class UserService
 
     def createUser(user)
 
-     @is_user_create = UserRepository.createUser(user)
+      @is_user_create = UserRepository.createUser(user)
 
     end
 

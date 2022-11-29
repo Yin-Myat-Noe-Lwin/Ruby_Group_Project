@@ -10,7 +10,7 @@ class FoodTypeService
 
     def createFoodType(food_type)
 
-     @is_food_type_create = FoodTypeRepository.createFoodType(food_type)
+      @is_food_type_create = FoodTypeRepository.createFoodType(food_type)
 
     end
 

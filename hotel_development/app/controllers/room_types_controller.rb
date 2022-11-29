@@ -5,7 +5,7 @@ class RoomTypesController < ApplicationController
   def ensure_admin
 
     if !logged_in? || current_user.user_type == '1'
-      #raise ActionController::RoutingError, 'Not Found'
+  
       render 'admins/strict'
       
     end
@@ -14,7 +14,7 @@ class RoomTypesController < ApplicationController
 
   def new
 
-      @room_type = RoomType.new
+    @room_type = RoomType.new
 
   end
 
@@ -78,8 +78,6 @@ class RoomTypesController < ApplicationController
 
   end
 
-  end
-
   def index
 
     @room_types = RoomTypeService.getAllRoomTypes
@@ -92,25 +90,25 @@ class RoomTypesController < ApplicationController
     
   end
 
-    def edit
+  def edit
 
-      @room_type = RoomTypeService.getRoomTypeByID(params[:id])
+    @room_type = RoomTypeService.getRoomTypeByID(params[:id])
 
-    end
+  end
 
-    def update
+  def update
 
-      @room_type = RoomTypeService.getRoomTypeByID(params[:id])
+    @room_type = RoomTypeService.getRoomTypeByID(params[:id])
       
-      @is_room_type_update = RoomTypeService.updateRoomType(@room_type, update_room_type_params )
+    @is_room_type_update = RoomTypeService.updateRoomType(@room_type, update_room_type_params )
 
-      respond_to do |format|
+    respond_to do |format|
 
-        @errorName      = []
+      @errorName      = []
 
-        @errorCapacity  = []
+      @errorCapacity  = []
   
-        @errorImg       = []
+      @errorImg       = []
       
       if @is_room_type_update
 

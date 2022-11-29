@@ -1,17 +1,5 @@
 class BookingsController < ApplicationController
 
-  #  before_action :check
-  #
-  #  def check
-  #
-  #    if logged_in? && current_user.user_type == '0'
-  #    
-  #      render 'sessions/loginForm'
-  #      
-  #    end
-  #
-  #  end
-
   before_action :check
 
   def check
@@ -32,65 +20,65 @@ class BookingsController < ApplicationController
 
   end
     
-    def new
+  def new
   
-      if logged_in?
+    if logged_in?
   
       @reservation = Reservation.new
   
-      else
+    else
   
-        render 'sessions/loginForm'
-  
-      end
+      render 'sessions/loginForm'
   
     end
   
-    def create
+  end
   
-      @reservation = Reservation.new(booking_params)
+  def create
   
-      @room = Room.find_by_id(params[:reservation][:room_id])
+    @reservation = Reservation.new(booking_params)
   
-      @capacity = @room.room_type.max_capacity
+    @room = Room.find_by_id(params[:reservation][:room_id])
   
-      @input_capacity = params[:reservation][:num_of_ppl]
+    @capacity = @room.room_type.max_capacity
   
-      @is_reservation_create = ReservationService.createReservation(@reservation)
+    @input_capacity = params[:reservation][:num_of_ppl]
   
-     if params[:reservation][:check_out] < params[:reservation][:check_in]
+    @is_reservation_create = ReservationService.createReservation(@reservation)
+  
+    if params[:reservation][:check_out] < params[:reservation][:check_in]
   
       flash.alert = "Please choose valid date"
   
       render 'new'
   
-      elsif @input_capacity.to_i > @capacity.to_i
+    elsif @input_capacity.to_i > @capacity.to_i
   
-        flash.alert = "Insufficient space"
+      flash.alert = "Insufficient space"
   
-        render 'new'
+      render 'new'
       
-     elsif @is_reservation_create 
+    elsif @is_reservation_create 
   
-        @room.status = '1'
+      @room.status = '1'
   
-        #@room.reservation_id = @reservation.id
+      #@room.reservation_id = @reservation.id
   
-        @room.save
+      @room.save
   
-        flash.notice="Booked successful"
+      flash.notice="Booked successful"
   
-        redirect_to root_path
+      redirect_to root_path
         
-      else
+    else
   
-        render 'new'
-  
-      end
+      render 'new'
   
     end
+  
+  end
 
-    private 
+  private 
 
   def booking_params
 

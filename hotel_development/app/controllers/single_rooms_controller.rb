@@ -1,3 +1,0 @@
-class SingleRoomsController < ApplicationController
-
-end

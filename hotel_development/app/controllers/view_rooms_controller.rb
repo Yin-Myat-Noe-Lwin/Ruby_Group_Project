@@ -10,7 +10,7 @@ class ViewRoomsController < ApplicationController
 
     else
 
-    @room_type = RoomTypeService.getRoomTypeByID(params[:id])
+      @room_type = RoomTypeService.getRoomTypeByID(params[:id])
 
     end
     

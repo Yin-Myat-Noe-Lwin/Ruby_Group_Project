@@ -190,9 +190,9 @@
   margin-left: 5%;
   /*padding: 50px 20px;*/
   padding-top: 20px;
-  padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 18px;
+  padding-left: 20px;
   background-image: linear-gradient(#ffffffb9, #f994c1a5);
   text-align: center;
   border-radius: 2%;
@@ -351,13 +351,13 @@
   
 }
 
-.no-review{
+.no-review {
 
+  height: 100vh;
   padding: 10px 0 50px;
   background-image: url('img_review_bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
 
 }
 
@@ -374,7 +374,6 @@
   text-align: center;
 
 }
-
 
 /*.sec-review{
   padding: 10px 0 50px;
@@ -421,7 +420,6 @@
   margin-right: auto;
   background-color: #fb8fc5f0;
 }
-
 
 .sec-review .average .form label{
   display: block;
@@ -478,7 +476,6 @@
   width:50px;
   margin-bottom: 10px;
 }
-
 
  .text {
  width: 660px; 

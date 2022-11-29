@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
   def ensure_admin
 
     if !logged_in? || current_user.user_type == '1'
-      #raise ActionController::RoutingError, 'Not Found'
+      
       render 'admins/strict'
       
     end
@@ -84,14 +84,16 @@ class FoodsController < ApplicationController
 
   end
 
-  end
-
   def index
+
     @foods = FoodService.getAllFoods
+
   end
 
   def show
+
     @food = FoodService.getFoodByID(params[:id])
+
   end
 
   def edit
@@ -144,19 +146,19 @@ class FoodsController < ApplicationController
 
   end
 
-end
+  def destroy
+    
+    @food = FoodService.getFoodByID(params[:id])
 
-def destroy
-  
-  @food = FoodService.getFoodByID(params[:id])
+    FoodService.destroyFood(@food)
 
-  FoodService.destroyFood(@food)
+    respond_to do |format|
 
-  respond_to do |format|
+      format.js{render :js => "window.location.href='"+foods_path+"'"}
+    
+    end
 
-    format.js{render :js => "window.location.href='"+foods_path+"'"}
   end
-end
 
   private 
 
@@ -176,7 +178,7 @@ end
                 
       file.write( @upload.read )
 
-     params[:food][:food_img]=  "foods/" + @upload.original_filename
+      params[:food][:food_img]=  "foods/" + @upload.original_filename
         
       end
 

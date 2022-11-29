@@ -8,7 +8,7 @@ class ViewFoodsController < ApplicationController
 
     else
 
-    @food_type = FoodTypeService.getFoodTypeByID(params[:id])
+      @food_type = FoodTypeService.getFoodTypeByID(params[:id])
 
     end
     

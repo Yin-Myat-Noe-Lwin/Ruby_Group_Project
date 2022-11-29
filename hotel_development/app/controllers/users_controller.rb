@@ -8,11 +8,11 @@ class UsersController < ApplicationController
 
     else
 
-    @user = User.new
+      @user = User.new
 
-  end
+    end
   
-end
+  end
 
   def create
 
@@ -58,9 +58,9 @@ end
 
       render 'admins/strict'
    
-  end
+    end
 
-end
+  end
 
   def index
 
@@ -76,12 +76,6 @@ end
     
   end
   
-#
-#  def destroy
-#    @user = User.find_by_id(params[:id])
-#    @user.destroy
-#  end
-
   private 
 
   def user_params

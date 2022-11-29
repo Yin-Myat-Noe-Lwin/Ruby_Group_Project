@@ -38,9 +38,7 @@ class ReservationsController < ApplicationController
 
     if logged_in? && current_user.user_type == '1' 
 
-    @reservation = Reservation.new
-
-    @url_params = request.original_fullpath 
+      @reservation = Reservation.new
 
     else
 
@@ -60,36 +58,31 @@ class ReservationsController < ApplicationController
 
     @input_capacity = params[:reservation][:num_of_ppl]
 
-    if params[:reservation][:check_in].blank? &&  params[:reservation][:check_out].blank? &&
-       params[:reservation][:num_of_ppl].blank?
+    if params[:reservation][:check_in].blank? &&  params[:reservation][:check_out].blank? && params[:reservation][:num_of_ppl].blank?
 
       flash.alert = "Data can't be blank"
 
       redirect_to(request.env['HTTP_REFERER'])
 
-    elsif params[:reservation][:check_in].present? &&
-          params[:reservation][:check_in ].to_datetime  < Date.today
+    elsif params[:reservation][:check_in].present? && params[:reservation][:check_in ].to_datetime  < Date.today
 
           flash.alert = "You can't choose the previous dates"
 
           redirect_to(request.env['HTTP_REFERER'])
 
-    elsif params[:reservation][:check_out].present? &&
-          params[:reservation][:check_out ].to_datetime  < Date.today
+    elsif params[:reservation][:check_out].present? && params[:reservation][:check_out ].to_datetime  < Date.today
 
           flash.alert = "You can't choose the previous dates"
 
           redirect_to(request.env['HTTP_REFERER'])
 
-    elsif params[:reservation][:check_in].present? &&  params[:reservation][:check_out].present? &&
-          params[:reservation][:check_out ] < params[:reservation][:check_in ]
+    elsif params[:reservation][:check_in].present? &&  params[:reservation][:check_out].present? && params[:reservation][:check_out ] < params[:reservation][:check_in ]
 
       flash.alert = "Invalid checkin date"
 
       redirect_to(request.env['HTTP_REFERER'])
 
-    elsif params[:reservation][:check_in].present? &&  params[:reservation][:check_out].present? &&
-      params[:reservation][:check_out ].to_datetime - params[:reservation][:check_in ].to_datetime > 30
+    elsif params[:reservation][:check_in].present? &&  params[:reservation][:check_out].present? && params[:reservation][:check_out ].to_datetime - params[:reservation][:check_in ].to_datetime > 30
 
         flash.alert = "Sorry, you can't book a room for more than 30 days."
 
@@ -101,26 +94,17 @@ class ReservationsController < ApplicationController
 
       redirect_to(request.env['HTTP_REFERER'])
 
-    elsif params[:reservation][:check_in].present? &&  params[:reservation][:check_out].present? &&
-      params[:reservation][:num_of_ppl].present? 
-      #@input_capacity.to_i <= @capacity.to_i &&
-      #params[:reservation][:check_in].to_datetime >= Date.today &&
-      #params[:reservation][:check_out].to_datetime >= Date.today &&
-      #params[:reservation][:check_in ] >= params[:reservation][:check_out ]
-
+    elsif params[:reservation][:check_in].present? &&  params[:reservation][:check_out].present? && params[:reservation][:num_of_ppl].present? 
+      
       @is_reservation_create = ReservationService.createReservation(@reservation)
       
-          @new_url_params = request.original_fullpath 
+      @room.status = '1'
       
-            @room.status = '1'
+      @room.save
       
-            #@room.reservation_id = @reservation.id
+      redirect_to myReservations_path
       
-            @room.save
-      
-            redirect_to myReservations_path
-      
-            ReserveMailer.reservation_confirmation(@reservation).deliver
+      ReserveMailer.reservation_confirmation(@reservation).deliver
 
     else
 
@@ -129,56 +113,6 @@ class ReservationsController < ApplicationController
       redirect_to(request.env['HTTP_REFERER'])
 
     end
-
-#    if params[:reservation][:check_out] < params[:reservation][:check_in]
-#
-#    flash.alert = "Please choose valid date"
-#
-#    redirect_to(request.env['HTTP_REFERER'])
-#
-#    elsif @input_capacity.to_i > @capacity.to_i
-#
-#    flash.alert = "Insufficient space"
-#
-#    redirect_to(request.env['HTTP_REFERER'])
-#
-#    elsif params[:reservation][:check_in].blank? && params[:reservation][:check_out].blank? && params[:reservation][:max_capacity].blank?
-#
-#    flash.alert =  "Data can't be blank"
-#
-#    redirect_to(request.env['HTTP_REFERER'])
-#
-#    elsif params[:reservation][:check_in].to_datetime  < Date.today 
-#
-#      flash.alert = "You can't choose previous dates"
-#
-#    redirect_to(request.env['HTTP_REFERER'])
-#
-#    elsif  params[:reservation][:check_out].to_datetime  < Date.today
-#
-#      flash.alert = "You can't choose previous dates"
-#
-#      redirect_to(request.env['HTTP_REFERER'])
-#    
-#    else
-#
-#    @is_reservation_create = ReservationService.createReservation(@reservation)
-#
-#    @new_url_params = request.original_fullpath 
-#
-#      @room.status = '1'
-#
-#      @room.reservation_id = @reservation.id
-#
-#      @room.save
-#
-#      flash.notice = "Booked successful"
-#
-#      redirect_to myReservations_path
-#
-#      ReserveMailer.reservation_confirmation(@reservation).deliver
-#
-#    end
 
   end
 
@@ -192,19 +126,17 @@ class ReservationsController < ApplicationController
 
     if logged_in? && current_user.user_type == '1' 
 
-    @reservation = Reservation.find_by_id(params[:id])
+      @reservation = Reservation.find_by_id(params[:id])
 
-    @room = Room.find_by_id(@reservation.room_id)
+      @room = Room.find_by_id(@reservation.room_id)
 
-    @reserved_rooms = Reservation.where(room_id: @room.id)
+      @reserved_rooms = Reservation.where(room_id: @room.id)
 
-    if @reserved_rooms.count <= 1
+      if @reserved_rooms.count <= 1
 
-    @room.status = '0'
+        @room.status = '0'
 
-    end
-
-    #@room.reservation_id = nil
+      end
 
     @room.save
 
@@ -212,37 +144,35 @@ class ReservationsController < ApplicationController
 
     redirect_to(request.env['HTTP_REFERER'])
 
-   elsif logged_in? && current_user.user_type == '0' 
+    elsif logged_in? && current_user.user_type == '0' 
 
-    @reservation = Reservation.find_by_id(params[:id])
+      @reservation = Reservation.find_by_id(params[:id])
 
-    @room = Room.find_by_id(@reservation.room_id)
+      @room = Room.find_by_id(@reservation.room_id)
 
-    @reserved_rooms = Reservation.where(room_id: @room.id)
+      @reserved_rooms = Reservation.where(room_id: @room.id)
 
-    if @reserved_rooms.count <= 1
+      if @reserved_rooms.count <= 1
 
-      @room.status = '0'
+        @room.status = '0'
   
-    end
+      end
 
-    #@room.reservation_id = nil
+      @room.save
 
-    @room.save
+      @reservation.destroy
 
-    @reservation.destroy
+      respond_to do |format|
 
-    respond_to do |format|
-
-      format.js{render :js => "window.location.href='"+reservations_path+"'"}  
+        format.js{render :js => "window.location.href='"+reservations_path+"'"}  
       
+      end
+
+    else
+
+      render 'sessions/loginForm'
+
     end
-
-   else
-
-    render 'sessions/loginForm'
-
-   end
 
   end
 
