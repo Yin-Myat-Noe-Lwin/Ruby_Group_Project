@@ -1,0 +1,92 @@
+<header>
+
+<%= render "home/nav" %>
+
+</header>
+
+<section class = "sec-sign clearfix">
+
+  <div class = 'blk-right'>
+
+    <div class = 'l-inner clearfix'>
+
+      <div class = "form">
+
+        <% flash.each do |type, msg| %>
+
+          <% if type= alert %>
+
+            <div class="login-alert error-msg">
+              <strong><%= msg %> <i class='bx bx-x login-move-icon' ></i> </strong>
+            </div>
+
+          <% else %>
+
+            <div class="login-alert ok-msg">
+              <strong><%= msg %><i class='bx bx-x login-move-icon' ></i> </strong>
+            </div>
+        
+          <% end %>
+
+        <% end %><br>
+
+        <div class = "align">
+
+          <div class="login-form">
+
+            <%= form_with scope:"session", url: "/login", method: 'post'  do |form| %>
+      
+              <div class="form-div">
+                <%= form.label :query, "E-Mail Address:"   %>
+                <%= form.email_field :email  %><br>
+              </div>
+
+              <div class="form-div">
+                <%= form.label :query, "Password:" , id: 'pw-space' %>
+                <%= form.password_field :password  %><br>
+              </div>
+
+              <div class="fg-and-re">
+                <%= link_to "forgotten password?", new_token_path, class: 'btn-pwd'  %>
+                <%= form.check_box :remember_me %> Remember me<br>
+              </div>
+
+              <%= form.submit "Login" , class: 'lg-btn'  %>
+        
+              <%= link_to 'Create an account' , new_user_path , class: 'sg-btn'%>
+
+            <% end %>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<%= render "home/footer" %>
+
+<script>
+
+  setTimeout("$('.error-msg').fadeOut('fast')", 3000);
+
+  setTimeout("$('.ok-msg').fadeOut('fast')", 3000);
+
+  $(".login-move-icon").click(function(){
+
+    $('.error-msg').hide();
+
+  });
+
+  $(".login-move-icon").click(function(){
+
+    $('.ok-msg').hide();
+    
+  });
+
+</script>

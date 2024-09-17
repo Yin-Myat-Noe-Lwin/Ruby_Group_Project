@@ -1,0 +1,193 @@
+<%= render 'admins/adminnav' %>
+<div class="home-content">
+<h1 class="title">Rooms</h1>
+<div class="nw-r-wrapper">
+<%= link_to '<button class="nw-room">New Room </button>'.html_safe, new_room_path , remote: true , class: 'nw-r-btn' %>
+<table id="room" class="cell-border compact stripe ">
+    <thead>
+       <tr>
+          <th>Room Number</th>
+          <th>Status</th>
+          <th>Image</th>
+          <th>Size</th>
+          <th>Room Type</th>
+          <th>Service1</th>
+          <th>Service2</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="roomBody">
+         <% @rooms.each do |room| %>
+          <%= render 'room_row' , room: room %>
+         <% end %>
+       </tbody>
+</table>
+
+<div class="nw-r-box">
+		<div class="nw-r-bg-shadow"></div>
+		<div class="nw-r-box-wrap">
+			<div class="nw-r-close"></div>
+			<div class="nw-r-header">
+				Create New Room 
+			</div>
+			<div class="nw-r-body">
+      <div id="newRoomForm">
+			</div>
+		</div>
+	</div>
+  </div>
+
+  
+<div class="sh-r-wrapper">
+  <div class="sh-r-box">
+		<div class="sh-r-bg-shadow"></div>
+		<div class="sh-r-box-wrap">
+			<div class="sh-r-close"></div>
+			<div class="sh-r-header">
+				View Room 
+			</div>
+			<div class="sh-r-body">
+      <div id="showRoom">
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+<div class="et-r-wrapper">
+<div class="et-r-box"  >
+		<div class="et-r-bg-shadow"></div>
+		<div class="et-r-box-wrap">
+			<div class="et-r-close"></div>
+			<div class="et-r-header">
+			Edit Room Type
+			</div>
+      <div class="et-r-body">
+        <div id="editRoomForm">
+        </div>
+        
+		</div>
+	</div>
+  </div>
+</div>
+
+
+</div>
+</section>
+
+<script>
+
+$(".nw-r-btn").click(function(){
+
+$(".nw-r-box").addClass("nw-r-box-active");
+
+});
+
+$(".nw-r-close").click(function(){
+
+$(".nw-r-box").removeClass("nw-r-box-active");
+
+});
+
+$(".sh-r-btn").click(function(){
+
+$(".sh-r-box").addClass("sh-r-box-active");
+
+});
+
+$(".sh-r-close").click(function(){
+
+$(".sh-r-box").removeClass("sh-r-box-active");
+
+});
+
+$(".et-r-btn").click(function(){
+
+$(".et-r-box").addClass("et-r-box-active");
+
+});
+
+$(".et-r-close").click(function(){
+
+$(".et-r-box").removeClass("et-r-box-active");
+
+});
+
+$(".dt-r-btn").click(function(){
+
+$(".dt-r-box").addClass("dt-r-box-active");
+
+});
+
+$(".dt-r-close").click(function(){
+
+$(".dt-r-box").removeClass("dt-r-box-active");
+
+});
+
+function confirmDeleteRoom(id){
+
+  $("#dt-r-modal"+id).addClass("dt-r-box-active");
+
+} 
+
+function stopDeleteRBox(id){
+
+  $('#dt-r-modal'+id).removeClass("dt-r-box-active");
+
+}
+    
+  $('#room').DataTable(
+   
+    {
+      "pagingType": "full_numbers",
+      pageLength : 4,
+      lengthMenu: [[4, 8, 12, -1], [4, 8, 12, 16]],
+    columnDefs: [
+      { "width": "5%", "targets": -9 },
+      { "width": "5%", "targets": -8 },
+      { "width": "10%", "targets": -2 },
+      { "width": "15%", "targets": -3 },
+      { "width": "15%", "targets": -4 },
+      { "width": "10%", "targets": -5 },
+      { "width": "14%", "targets": -1 },
+      {
+        targets: -9,
+        className: 'dt-body-center'
+    },
+      {
+        targets: -8,
+        className: 'dt-body-center'
+    },
+      {
+          targets: -7,
+          className: 'dt-body-center'
+      },
+      {
+          targets: -6,
+          className: 'dt-body-center'
+      },
+      {
+          targets: -5,
+          className: 'dt-body-center'
+      },
+      {
+          targets: -4,
+          className: 'dt-body-center'
+      },
+      {
+        targets: -3,
+        className: 'dt-body-center'
+    },
+    {
+      targets: -2,
+      className: 'dt-body-center'
+  }
+    ]
+ 
+  }
+  );
+
+
+</script>

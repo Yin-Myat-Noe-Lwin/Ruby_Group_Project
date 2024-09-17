@@ -1,0 +1,23 @@
+<p>Dear <%= @reservation.user.name %>,</p>
+
+<p>
+
+  This letter is to confirm your reservation made at RHotel. <br>
+  The total no. of guests
+  <% if @reservation.num_of_ppl == 1 %>
+  is
+  <% else %>
+  are 
+  <% end %>
+  <%= @reservation.num_of_ppl %>. <br>
+  Room Number is <%= @reservation.room.room_num %>.<br>
+  Please note, the check-in time will be <%= @reservation.check_in %> and <br>
+  check out time will be <%= @reservation.check_out %>.<br>
+  In case of any issues, modification, support, do feel free to contact us.<br><br>
+
+  Regards,<br>
+  The RHotel Team<br>
+  +95 123456789<br>
+  supportus@gmail.com<br>
+  
+</p>

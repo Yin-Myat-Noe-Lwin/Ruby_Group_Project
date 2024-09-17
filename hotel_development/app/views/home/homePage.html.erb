@@ -1,0 +1,227 @@
+<header>
+<%= render "nav" %>
+</header>
+<section class="sec-mv">
+
+  <% flash.each do |type, msg| %>
+
+    <% if type= alert %>
+  
+    <div class="myAlert-top2 error-msg">
+      <strong><%= msg %> <i class='bx bx-x move-icon2' ></i> </strong>
+    </div>
+  
+    <% else %>
+  
+    <div class="myAlert-top2 ok-msg">
+      <strong><%= msg %><i class='bx bx-x move-icon2' ></i></strong>
+    </div>
+      
+    <% end %>
+  
+  <% end %><br>
+
+  <div class="mv-blk">
+    <div class="l-inner">
+      <h2 class="mv-ttl">Hotel life is the simplest, <br class="pc" /> yet the best.</h2>
+      <p class="mv-txt">So when its time to finally get your children that very first <br class="pc" /> telescope, you want to make sure it’s just the right thing.</p>
+    </div>
+  </div>
+  <div class = "mv-alert">
+  
+  </div>
+  <div class = "mv-form-blk">
+    <div class="l-inner">
+      <%= render "search" %>
+    </div>
+  </div>
+</section><!-- /.sec-mv -->
+
+<section class = "sec-blog">
+  <div class="l-inner clearfix">
+    <div class = "txt-blk">
+      <h2 class = "cmn-ttl">Welcome!</h2>
+      <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+    </div>
+    <div class = "img-blk">
+      <%= image_tag "img_blog01.jpg"  %>
+      <%= image_tag "img_blog02.jpg",class: 'img02' %>
+    </div>
+  </div>
+</section><!-- /.sec-welcome-blog -->
+
+<section class = "sec-room" id="rooms">
+  <div class = "l-inner">
+    <div class = "txt-blk">
+      <h3 class = "cmn-ttl"> Rooms & Suites </h3>
+      <p>
+      RHotel provides a comprehensive range of spaces to satisfy the various needs of<br> all of our guests.
+      Discover rooms with fantastic views of Kawthaung.
+      </p>
+    </div>
+    <% if @room_types.count > 2 %>
+      <div id ="owl-one" class =  "owl-carousel room-blk">
+        <% @room_types.each do |room_type| %>
+        <div class="item">
+          <%= image_tag(room_type.room_type_img, :alt => "img" , class: 'img-blk' ) %>
+          <h4><%= room_type.name %></h4>
+          <%= link_to 'View Details', view_room_path(room_type) , class: 'common-btn' %>
+         </div>
+        <% end %>
+      </div>
+      <div class="owl-dots">
+     
+      </div>
+      <% elsif @room_types.count == 0 %>
+        <h1 class="unavail-rt">No available room type</h1>
+      <% else %>
+        <div class="clearfix">
+          <div class="room-blk">
+            <% @room_types.each do |room_type| %>
+              <div class="each-item item">
+                <%= image_tag(room_type.room_type_img, :alt => "img" , class: 'img-blk' ) %>
+                <h4><%= room_type.name %></h4>
+                <%= link_to 'View Details', view_room_path(room_type) , class: 'common-btn' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+</div>
+</section><!-- /.sec-room -->
+
+<section class = "sec-menu" id="menus">
+  <div class = "l-inner">
+    <div class = "txt-blk">
+      <h3 class = "cmn-ttl"> Restaurant Menus </h3>
+      <p>
+      Bambou Restaurant is situated on the ground floor of the Hotel. It is <br> open daily from 6:30 a.m. to 10:00 p.m.
+      </p>
+    </div>
+    <% if @food_types.count > 2 %>
+    <div class="owl-slider">
+    <div id="carousel" class="owl-carousel menu-blk">
+      <% @food_types.each do |food_type| %>
+        <div class="item">
+          <%= link_to(image_tag(food_type.food_type_img, :alt => "img" , class: 'img-blk'), view_food_path(food_type)) %>
+          <h4><%= food_type.name %></h4>
+        </div>
+      <% end %>
+    </div>
+    </div>
+    </div>
+    </div>
+    <% elsif @food_types.count == 0 %>
+      <h1 class="unavail-rt">No available food type</h1>
+    <% else %>
+      <div class="clearfix">
+        <div class="menu-blk">
+          <% @food_types.each do |food_type| %>
+            <div class="each-item item">
+              <%= image_tag(food_type.food_type_img, :alt => "img" , class: 'img-blk' ) %>
+              <h4><%= food_type.name %>
+              <%= link_to 'View Details', view_food_path(food_type) , class: 'common-btn' %></h4>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  <% end %> 
+  
+</section><!-- /.sec-menu -->
+
+<%= render "footer" %>
+
+<script>
+
+  setTimeout("$('.error-msg').fadeOut('slow')", 3000);
+  setTimeout("$('.ok-msg').fadeOut('slow')", 3000);
+
+  $(".move-icon2").click(function(){
+
+    $('.error-msg').hide();
+
+  });
+
+  $(".move-icon2").click(function(){
+
+    $('.ok-msg').hide();
+
+  });
+
+  $('#owl-one').owlCarousel({
+
+    center: true,
+    items: 3,
+    loop: true,
+    margin: 50,
+    autoplay: true,
+    nav    : true,
+    navText : ["<i class='bx bx-chevron-left nav-btn prev-slide'></i>","<i class='bx bx-chevron-right nav-btn next-slide'></i>"],
+    responsive: {
+      0: {
+        items: 1
+      },
+      600: {
+        items: 2
+      },
+      1000: {
+        items: 3,
+      }
+    }
+
+  });
+
+  jQuery("#carousel").owlCarousel({
+    autoplay: true,
+    loop: true, 
+    margin: 50,
+    nav: true,
+    items: 3,
+    navText : ["<i class='bx bx-chevron-left nav-btn2 prev-slide2'></i>","<i class='bx bx-chevron-right nav-btn2 next-slide2'></i>"],
+    responsive: {
+      0: {
+        items: 1
+      },
+  
+      600: {
+        items: 2
+      },
+  
+      1024: {
+        items: 3
+      },
+  
+      1366: {
+        items: 3
+      }
+    }
+  });
+
+  function openMenu(evt, menuName) {
+
+    var i, tabcontent, tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+
+    for (i = 0; i < tabcontent.length; i++) {
+
+      tabcontent[i].style.display = "none";
+
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+
+    for (i = 0; i < tablinks.length; i++) {
+
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    
+    }
+    document.getElementById(menuName).style.display = "block";
+
+    evt.currentTarget.className += " active";
+
+  }
+
+  document.getElementById("defaultOpen").click();
+
+</script>

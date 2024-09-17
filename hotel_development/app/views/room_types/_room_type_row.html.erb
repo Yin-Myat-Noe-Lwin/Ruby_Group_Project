@@ -1,0 +1,40 @@
+<tr id="roomTypeRow<%= room_type.id %>">
+<td><%= link_to room_type.name,  room_type , class:'sh-rt-btn' ,  remote: true %></td>
+<td>
+<% if room_type.max_capacity < 2 %>
+<%= room_type.max_capacity %> person
+<% else %>
+<%= room_type.max_capacity %> people
+<% end %>
+</td>
+<td><%= image_tag(room_type.room_type_img, :alt => "img" , class: 'profile' ) %></td>
+<td><%= room_type.rooms.count %></td>
+<td>
+<% if  room_type.rooms.where(status: '1').count > 0 %>
+<% %>
+<% else %>
+<%= link_to "<i class='bx bx-edit-alt edit-room-type-btn' ></i> <span class='links_name'></span>".html_safe, edit_room_type_path(room_type) , class:'et-rt-btn' , remote: true %>
+<p onclick="confirmDelete(<%=  room_type.id %>)" ><i class='bx bx-trash delete-room-type-btn' ></i></p>
+<div class="dt-rt-wrapper">
+
+<div class="dt-rt-box" id="dt-rt-modal<%=room_type.id%>" >
+		<div class="dt-rt-bg-shadow"></div>
+		<div class="dt-rt-box-wrap">
+			<div class="dt-rt-close"></div>
+			<div class="dt-rt-header">
+				 Confirm Delete
+			</div>
+			<div class="dt-rt-body">
+     Are you sure want to delete?
+      </div>
+			<div class="dt-rt-footer">
+				<div class="dt-rt-btn-grp">
+        <%= button_to 'Delete', room_type_path(room_type),  method: 'delete' ,  remote: true , onclick:"stopDeleteRTBox(#{room_type.id})" ,class: 'btn btn_confirm' %>
+          </div>
+			</div>
+		</div>
+	</div>
+  </div>
+	<% end %>
+</td>
+</tr>

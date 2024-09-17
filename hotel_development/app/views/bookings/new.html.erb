@@ -1,0 +1,34 @@
+<header>
+<%= render "home/nav" %>
+</header>
+<section class = 'sec-reservation'>
+
+  <div class = 'l-inner'>
+  <div class = 'blk'>
+    <h2 class = 'cmn-ttl'>Booking Form</h2>
+
+    <div class = 'blk-form '>
+
+      <%= form_with  model: @reservation  do |form| %>
+
+        <h3> <i class="bx bx-calendar rs-icon-space"></i>CheckIn</h3><%=  Base64.decode64( params[:ci]) %>
+        <%= form.hidden_field:check_in , :value =>  Base64.decode64( params[:ci])  %><br>
+
+        <h3> <i class="bx bx-calendar rs-icon-space"></i>CheckOut</h3><%= Base64.decode64( params[:co])  %><br>
+        <%= form.hidden_field:check_out , :value => Base64.decode64( params[:co]) %><br>
+
+        <h3> <i class="bx bx-user rs-icon-space"></i>Number of People</h3><%= Base64.decode64( params[:np])  %><br>
+        <%= form.hidden_field :num_of_ppl, min:1, max:10 , :value => Base64.decode64( params[:np]) %><br>
+
+        <%= form.hidden_field :room_id, :value => Base64.decode64( params[:r]) %>
+
+        <%= form.submit "Book now!!" , class: 'common-btn booking-btn' %>
+      <% end %>
+
+    </div>
+  </div>
+  </div>
+
+</section>
+
+<%= render "home/footer" %>

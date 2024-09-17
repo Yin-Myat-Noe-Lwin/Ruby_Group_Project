@@ -1,0 +1,100 @@
+<section class="sec-room-mv sec-singleroom-bg">
+
+  <header>
+    <%= render "home/nav" %>
+  </header>
+
+  <div class="mv-blk">
+
+    <div class="l-inner">
+
+    <h2 class="cmn-ttl room-ttl"><%= @room_type.name %></h2>
+
+    </div>
+
+  </div>
+
+</section><!-- /.sec-mv -->
+
+<section class= "sec-room">
+
+  <div class = "l-inner clearfix">
+
+    <ul class="room-list clearfix">
+
+      <% @room_type.rooms.each do |room| %>
+
+        <li>
+
+          <div class="card">
+
+            <% if room.status == '1' %>
+
+              <%= image_tag(room.room_img, :alt => "img" , class: 'booked fth-img pc'  ) %>
+            
+            <% else %>	
+
+              <%= image_tag(room.room_img, :alt => "img" , class: ' fth-img pc' ) %>
+            
+            <% end %>
+            <!--image-->
+
+            <div class="fth-txt">
+
+              <p>
+                <span id="room-num-span"><i class="bx bx-key room-pg-icon"></i><%= room.room_num %></span>
+                <span id="room-cap-span"><i class="bx bx-user room-pg-icon"></i><%= @room_type.max_capacity %></span>
+                <span><i class="bx bx-map-alt room-pg-icon"></i><%= room.size %></span>
+              </p> 
+
+              <div class="clearfix">
+              <div class="room-service">
+              <p><%= room.service1 %></p>
+              <p><%= room.service2 %></p>
+              </div>
+              <div class="room-price">
+              <p><%= room.service3 %></p>
+              <% if room.status == '0' %>
+              <%= link_to 'Book Now', new_reservation_path(:r=> Base64.encode64(room.id.to_s)), class: 'common-btn room-book-btn'  %><br>
+              <% else %>
+                  <h3 class= "common-btn booked room-book-btn"><%= 'Booked' %></h3>
+              <% end %> 
+              </div>
+              </div>
+              
+            </div>
+            <!--text-->
+            
+          </div>
+          <!--card-->
+
+        </li>
+
+        <% end %>
+
+    </ul>
+    <!--list-->
+
+  </div>
+
+</section><!-- /.sec-room -->
+
+<%= render "home/footer" %>
+
+<script>
+
+$(document).ready(function() { 
+  
+  $(".owl-carousel").owlCarousel({
+    autoplay: true,
+    autoplayTimeout: 2000,
+    autoplayHoverPause: true,
+    items: 1,
+    navigation : true,
+    loop: true,
+
+  });
+ 
+});
+
+</script>

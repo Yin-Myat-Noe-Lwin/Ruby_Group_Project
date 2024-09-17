@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <title>HotelBooking</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%= csrf_meta_tags %>
+
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <%= stylesheet_link_tag    'common' %>
+
+    <%= stylesheet_link_tag    'style' %>
+
+    <%= stylesheet_link_tag    'form' %>
+
+    <%= stylesheet_link_tag    'validation' %>
+
+    <%= stylesheet_link_tag    'alert' %>
+    
+    <%= stylesheet_link_tag    'room' %>
+
+    <%= stylesheet_link_tag    'review' %>
+
+    <%= stylesheet_link_tag    'signup' %>
+
+    <%= stylesheet_link_tag    'email' %>
+
+    <%= stylesheet_link_tag    'contactus' %>
+
+    <%= stylesheet_link_tag    'reservationform' %>
+
+    <%= stylesheet_link_tag    'userProfile' %>
+
+    <%= stylesheet_link_tag    'myReservation' %>
+
+    <%= stylesheet_link_tag    'admin' %>
+
+    <%= stylesheet_link_tag    'custom-modal' %>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+
+    <%= javascript_importmap_tags %>
+
+    <%= javascript_include_tag 'jquery.raty', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag "rails.validations",'data-turbolinks-track': 'reload' %>
+    
+    </head>
+
+  <body>
+  
+    <%= yield %>
+
+  </body>
+
+</html>

@@ -1,0 +1,55 @@
+<%= form_with  model: @room  , local: false do |form| %>
+
+  <div class="form-rm-size">
+  <%= form.label :query, "Room Number" , class: 'rm-num-span'  %>
+  <%= form.text_field :room_num   %><br>
+  <span id = "r-et-num-block"></span>
+  </div>
+
+  <div class="form-gp">
+  <%= form.hidden_field :status  %><br>
+  </div>
+
+  <%= form.label :query, "Old Photo"    %>
+  <%= image_tag(@room.room_img, :alt => "img" , class: 'et-room-img' ) %>
+
+  <%= form.label :query, "New Room Image?"  %>
+  <%= form.file_field :room_img , accept:'image/*'  %><br><br>
+
+  <div class="form-rm-size">
+  <%= form.label :query, "Room Size" , class: 'rs-span'  %>
+  <%= form.text_field :size   %><br>
+  <span id = "r-et-sz-block"></span>
+  </div>
+
+  <div class="form-rm-size">
+  <%= form.label :query, "Room Service1"  %>
+  <%= form.text_field :service1   %><br>
+  <span id = "r-et-sv1-block"></span>
+  </div>
+
+  <div class="form-rm-size">
+  <%= form.label :query, "Room Service2"  %>
+  <%= form.text_field :service2   %><br>
+  <span id = "r-et-sv2-block"></span>
+  </div>
+
+  <div class="form-rm-size">
+  <%= form.label :query, "Room Price" , class: 'rt-span'   %>
+  <%= form.text_field :service3   %><br>
+  <span id = "r-et-sv3-block"></span>
+  </div>
+
+  <div class="form-rm-size">
+  <%= form.label :query, "Room Type" , class: 'rt-span' %>
+  <%= form.collection_select(:room_type_id, RoomType.all, :id, :name) %><br>
+  </div>
+
+  </div>
+  <div class="et-r-footer">
+    <div class="et-r-btn-grp">
+    <%= form.submit "Update" , class: 'btn btn_confirm'  %>
+
+      </div>
+  </div>
+  <% end %>

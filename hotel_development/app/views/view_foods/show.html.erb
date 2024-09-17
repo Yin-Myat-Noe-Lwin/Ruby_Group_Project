@@ -1,0 +1,38 @@
+<header>
+<%= render "home/nav" %>
+</header>
+
+<section class="sec-menupage">
+ 
+    <h2 class="menu-h-tit">Our <%= @food_type.name %> Menu</h2>
+  
+  <ul class="menu-list clearfix">
+
+  <% @food_type.foods.each do |food| %>
+
+    <li>
+      <%= image_tag(food.food_img, :alt => "img" , class: 'menu-lf-img'  ) %>
+      <!--menu image-->
+
+      <div class="menu-rt">
+        <div class="menu-rt-h">
+          <h3><%= food.name %><span class="food-price"><%= food.price %>$</span></h3>
+          <!--menu title-->
+        </div>
+        <p class="menu-rt-p"><%= food.description %>
+        </p>
+        <!--menu paragraph-->
+      </div>
+
+    </li>
+
+    <% end %>
+
+  </ul>
+  <!--menu list-->
+
+</div>
+
+</section><!-- /.sec-each-menu -->
+
+<%= render "home/footer" %>

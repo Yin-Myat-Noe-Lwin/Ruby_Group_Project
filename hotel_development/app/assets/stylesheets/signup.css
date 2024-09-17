@@ -1,0 +1,98 @@
+.sec-sign {
+
+  height: 130vh;
+  padding: 100px 0 100px;
+  box-shadow: 10px solid #000;
+  background-image: url('hotel3.jpg');
+  background-size: 50%;
+  background-repeat: no-repeat;
+
+}
+
+.sec-sign .txt-blk {
+
+  float: left;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 300px;
+  text-shadow: 2px 2px #000;
+
+}
+
+.sec-sign .txt-blk .button {
+
+  width: fit-content;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
+  color: #fff;
+  font-weight: 300px;
+  text-shadow: 2px 2px #000;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+
+}
+
+.sec-sign .form {
+
+  float: right;
+  width: 60%;
+  height: 520px;
+  /*background-color: rgba(255,255,255,0.13);
+  top: 50%;
+  right:10%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 20px rgba(8,7,16,0.6);
+  padding: 50px 35px;*/
+
+}
+
+.sec-sign .form .align {
+
+  margin-left: 30%;
+
+}
+
+/*.sec-sign .form label{
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.sec-sign .form input,select{
+ 
+  height: 25px;
+  width: 50%;
+  background-color: #fbfafa12;
+  border-radius: 2px;
+  padding: 0 10px;
+  margin-top: 2px;
+  font-size: 14px;
+  font-weight: 100;
+}
+*/
+
+::placeholder {
+
+  color: #e5e5e5;
+
+}
+
+.sec-sign .form .btn-pwd {
+
+  /*margin-top: 5%;*/
+  float: left;
+  margin-right: 30px;
+  margin-left: 110px;
+  color: #00000088;
+  text-decoration: underline;
+
+}
+
+.sec-sign .form .btn-pwd {
+
+  color: #1779dd;
+  
+}

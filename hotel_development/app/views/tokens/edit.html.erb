@@ -1,0 +1,83 @@
+<header>
+<%= render "home/nav" %>
+</header>
+<section class = "sec-sign clearfix">
+
+  <div class = 'blk-right'>
+
+
+    <div class = 'l-inner clearfix'>
+
+      <div class = "form">
+
+        <% flash.each do |type, msg| %>
+
+          <% if type= alert %>
+
+            <div class="login-alert error-msg">
+              <strong><%= msg %> <i class='bx bx-x login-move-icon ></i> </strong>
+            </div>
+
+          <% else %>
+
+            <div class="login-alert ok-msg">
+              <strong><%= msg %><i class='bx bx-x login-move-icon' ></i> </strong>
+            </div>
+            
+          <% end %>
+
+        <% end %><br>
+
+        <div class = "align">
+
+        <div class="login-form">
+
+          <%= form_with  model: @token do |form| %>
+          
+            <div class="form-div">
+              <%= form.label :query, "Password" , id: 'reset-psw' %>
+              <%= form.password_field :password  %><br>
+            </div>
+
+            <div class="form-div">
+              <%= form.label :query, "Password Confirm"  %>
+              <%= form.password_field :password_confirmation  %><br>
+            </div>
+
+            <%= form.submit "Update Password" , class: 'lg-btn' , id:'update-psw-btn' %>
+          
+          <% end %>
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<%= render "home/footer" %>
+
+<script>
+
+  setTimeout("$('.error-msg').fadeOut('slow')", 3000);
+
+  setTimeout("$('.ok-msg').fadeOut('slow')", 3000);
+
+  $(".login-move-icon").click(function(){
+
+    $('.error-msg').hide();
+
+  });
+
+  $(".login-move-icon").click(function(){
+
+    $('.ok-msg').hide();
+    
+  });
+
+</script>

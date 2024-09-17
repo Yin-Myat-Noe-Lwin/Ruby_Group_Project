@@ -1,0 +1,21 @@
+<%= image_tag(room.room_img, :alt => "img" , class: 'show-room-type' ) %><br>
+<div class="show-room-type-data">
+Room Number:<%= room.room_num %><br>
+<% if room.status == '0' %>
+Room Status:<%= 'Available' %><br>
+<% else %>
+Room Status:<%= 'Booked' %><br>
+<% end %>
+Room Size:<%= room.size %><br>
+<% if room.service1 %>
+Room Service1:<%= room.service1 %><br>
+<% end %>
+<% if room.service2 %>
+Room Service2:<%= room.service2 %><br>
+<% end %>
+<% if room.service3 %>
+Room Price:<%= room.service3 %><br>
+<% end %>
+</div>
+</div>
+</div>

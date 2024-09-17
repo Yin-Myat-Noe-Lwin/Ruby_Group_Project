@@ -1,0 +1,194 @@
+.sign-up-form {
+
+  padding-top: 40px;
+
+}
+
+.form-div input {
+
+  width: 300px;
+  margin-bottom: 10px;
+  padding: 10px 30px;
+  border: 1px solid #363d4e;
+  border-radius: 5px;
+
+}
+
+.form-div select {
+
+  width: 300px;
+  height: 40px;
+  border-radius: 5px;
+
+}
+
+.form-div-file input {
+
+  width: 300px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-radius: 5px;
+  border-style: none;
+
+}
+
+.register-btn {
+
+  width: 300px;
+  margin-top: -10px;
+  margin-left: 30%;
+  padding: 10px;
+  border: 1px solid transparent;
+  background: #FF8364;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+.register-btn:hover {
+
+  border: 1px solid #FF8364;
+  background: #fff;
+  color: #FF8364;
+
+}
+
+.login-btn {
+
+  margin-top: 20px;
+  margin-left: 65%;
+  text-decoration: underline;
+
+}
+
+.login-btn:hover {
+
+  color: #1779dd;
+
+}
+
+/*.cancel-btn{
+  
+	width: 150px;
+	padding: 10px;
+	border-radius: 5px;
+	text-align: center;
+	cursor: pointer;
+  margin-top: 5px;
+	background: #0A2558;;
+	color: #fff;
+  border: 1px solid #363d4e;
+  margin-left: 30%;
+
+}*/
+
+#name-space {
+
+  margin-left: 86px;
+
+}
+
+#email-space {
+
+  margin-left: 20px;
+
+}
+
+#psw-space {
+
+  margin-left: 58px;
+
+}
+
+#type-space {
+
+  margin-left: 94px;
+
+}
+
+#pf-space {
+
+  margin-left: 90px;
+
+}
+
+/*for signup*/
+
+.login-form {
+
+  padding-top: 100px;
+
+}
+
+#pw-space {
+
+  margin-left: 40px;
+
+}
+
+.fg-and-re {
+
+  margin-top: 5%;
+
+}
+
+.lg-btn {
+
+  width: 300px;
+  margin-top: 15px;
+  margin-left: 25%;
+  padding: 10px;
+  border: 1px solid transparent;
+  background: #FF8364;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+.lg-btn:hover {
+
+  border: 1px solid #FF8364;
+  background: #fff;
+  color: #FF8364;
+
+}
+
+.sg-btn {
+
+  margin-top: 20px;
+  margin-left: 45%;
+  text-decoration: underline;
+
+}
+
+.sg-btn:hover {
+
+  color: #1779dd;
+
+}
+
+/*for login*/
+
+#reset-email {
+
+  margin-left: 70px;
+
+}
+
+#reset-psw {
+
+  margin-left: 62px;
+
+}
+
+#update-psw-btn {
+
+  margin-left: 28%;
+  
+}

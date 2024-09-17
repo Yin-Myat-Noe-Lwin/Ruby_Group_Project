@@ -1,0 +1,17 @@
+<%= image_tag(user.profile, :alt => "img" , class: 'show-user' ) %><br>
+
+<div class="show-user-data">
+
+  Username:<%= user.name %><br>
+
+  Email:<%= user.email %><br>
+  
+  <% if user.user_type == '0' %>
+    User Type:<%= 'Admin' %>
+  <% else %>
+    User Type:<%= 'User' %>
+  <% end %>
+
+</div>
+
+</div>

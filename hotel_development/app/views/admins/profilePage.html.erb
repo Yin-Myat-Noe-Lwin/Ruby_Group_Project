@@ -1,0 +1,23 @@
+<%= render 'adminnav' %>
+
+<div class="home-content ">
+
+  <h1 class="title">Profile</h1>
+
+  <div class="adminProfile">
+
+    <div class="card_background_img"></div>
+
+    <%= image_tag(current_user.profile, :alt => "img" , class: 'current-user-pf'  ) %>	
+      <div class="current-user-data">
+
+        <h3><%= current_user.name %></h3>
+        <p><%= current_user.email %></p>
+
+    </div>  
+
+  </div>
+
+</div>
+
+</section>

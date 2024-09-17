@@ -1,0 +1,93 @@
+<header>
+<%= render "nav" %>
+</header>
+<section class="sec-room-mv sec-singleroom-bg">
+  <div class="mv-blk">
+    <div class="l-inner">
+      <h2 class="cmn-ttl room-ttl"> Available Rooms</h2>
+    </div>
+  </div>
+</section><!-- /.sec-mv -->
+<section class= "sec-room">
+  <div class = "l-inner clearfix">
+  <% if @avails.count == 0 %>
+  <div class="no-room"></div>
+  <% else %>
+    <ul class="room-list clearfix">
+      <% @avails.each do |avail| %>
+      <li>
+        <div class="card">
+          <%= image_tag(avail.room_img, :alt => "img" , class: ' fth-img pc' ) %>
+            <!--image-->
+          <div class="fth-txt">
+            <p>
+              <span id="room-num-span"><i class="bx bx-key room-pg-icon"></i><%= avail.room_num %></span>
+              <span id="room-cap-span"><i class="bx bx-user room-pg-icon"></i><%= avail.room_type.max_capacity %></span>
+              <span><i class="bx bx-map-alt room-pg-icon"></i><%= avail.size %></span>
+            </p>  
+            <div class="clearfix">
+              <div class="room-service">
+              <p><%= avail.service1 %></p>
+              <p><%= avail.service2 %></p>
+              </div>
+              <div class="room-price">
+              <p><%= avail.service3 %></p>
+              <%= link_to 'Book now', new_booking_path(:r=> Base64.encode64(avail.id.to_s),:ci=>Base64.encode64(@input_check_in.to_s), :co=>Base64.encode64(@input_check_out.to_s), :np=>Base64.encode64(@input_num_of_ppl.to_s)), class: 'common-btn room-book-btn' %></br>
+              </div>
+              </div>
+            </div>
+          <!--text-->
+        </div>
+        <!--card-->
+      </li>
+      <% end %>
+      <% if @booked_rooms %>
+      <% @booked_rooms.each do |booked_room| %>
+        <% @reserved_rooms = @reservations.where(room_id: booked_room.id) %>
+        <% if @reserved_rooms %>
+        <% @reserved_rooms.each do |reserved_room| %>
+        <% (reserved_room.check_in..reserved_room.check_out).each do |date| %>
+          <p class="hide"><%= @dates.push(date.strftime("%Y-%m-%d")) %></p>
+          <% end %>
+          <% (@input_check_in.to_date..@input_check_out.to_date).each do |input| %>
+            <p class="hide"><%= @input_dates.push(input.strftime("%Y-%m-%d")) %></p>
+            <% end %>
+          <% end %>
+          <% if !@dates.include?(@input_check_in) && !@dates.include?(@input_check_out) && !(@input_dates - @dates).empty? %>
+        <li>
+        <div class="card">
+        <%= image_tag(booked_room.room_img, :alt => "img" , class: ' fth-img pc' ) %>
+          <!--image-->
+        <div class="fth-txt">
+          <p>
+            <span id="room-num-span"><i class="bx bx-key room-pg-icon"></i><%= booked_room.room_num %></span>
+            <span id="room-cap-span"><i class="bx bx-user room-pg-icon"></i><%= booked_room.room_type.max_capacity %></span>
+            <span><i class="bx bx-map-alt room-pg-icon"></i><%= booked_room.size %></span>
+          </p>  
+          <div class="clearfix">
+            <div class="room-service">
+            <p><%= booked_room.service1 %></p>
+            <p><%= booked_room.service2 %></p>
+            </div>
+            <div class="room-price">
+            <p><%= booked_room.service3 %></p>
+            <%= link_to 'Book now', new_booking_path(:r=> Base64.encode64(booked_room.id.to_s),:ci=>Base64.encode64(@input_check_in.to_s), :co=>Base64.encode64(@input_check_out.to_s), :np=>Base64.encode64(@input_num_of_ppl.to_s)), class: 'common-btn room-book-btn' %></br>
+            </div>
+            </div>
+          </div>
+        <!--text-->
+      </div>
+      <!--card-->
+        </li>
+        <p class="hide"><%= @dates.clear %></p>
+        <p class="hide"><%= @input_dates.clear %></p>
+        <% end %>
+        <% end %>
+      <% end %>
+      <% end %>
+    </ul>
+    <!--list-->
+  <% end %>
+  </div>
+</section><!-- /.sec-room -->
+<%= render "home/footer" %>

@@ -1,0 +1,17 @@
+<tr id="userRow<%= user.id %>">
+
+  <td><%= link_to user.name,  user , class:'sh-u-btn' ,  remote: true %></td>
+  
+  <td><%= user.email %></td>
+  
+  <td>
+    <% if user.user_type == '0' %>
+      <%= 'Admin' %>
+    <% else %>
+      <%= 'User' %>
+    <% end %>
+  </td>
+
+  <td><%= image_tag(user.profile, :alt => "img" , class: 'profile' ) %></td>
+
+</tr>

@@ -1,0 +1,28 @@
+<%= form_with  model: @room_type , local: false do |form| %>
+
+  <div class="form-gp">
+  <%= form.label :query, "Room Type Name"  %><br>
+  <%= form.text_field :name   %><br>
+  <span id = "rt-et-name-block"></span>
+  </div>
+
+  <div class="form-gp">
+  <%= form.label :query, "Maximum Capacity"    %><br>
+  <%= form.number_field :max_capacity  %><br>
+  <span id = "rt-et-cap-block"></span>
+  </div>
+
+  <%= form.label :query, "Old Room Type Image"    %><br>
+  <%= image_tag(@room_type.room_type_img, :alt => "img" , class:'et-room-type-img' ) %><br>
+
+  <%= form.label :query, "Choose New Room Type Image?"  %><br>
+  <%= form.file_field :room_type_img , accept:'image/*'  %><br><br>
+
+  </div>
+			<div class="et-rt-footer">
+				<div class="et-rt-btn-grp">
+        <%= form.submit "Update"  , class:"btn btn_confirm"  %>
+          </div>
+			</div>
+ 
+<% end %>

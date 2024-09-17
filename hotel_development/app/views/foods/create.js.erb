@@ -1,0 +1,19 @@
+<% if @food.errors.any? %>
+
+  $(".notice").remove();
+
+  $("#f-name-block").append('<div class="notice"><%= escape_javascript(@errorName[0])%></div>');
+
+  $("#f-pr-block").append('<div class="notice"><%= escape_javascript(@errorPrice[0])%></div>');
+
+  $("#f-img-block").append('<div class="notice"><%= escape_javascript(@errorImg[0])%></div>');
+
+  $("#f-des-block").append('<div class="notice"><%= escape_javascript(@errorDes[0])%></div>');
+
+<% else %>
+
+  $('#foodBody').append("<%= escape_javascript render('food__row', food: @food) %>");
+
+  $('.nw-f-close').click();
+
+<% end %>

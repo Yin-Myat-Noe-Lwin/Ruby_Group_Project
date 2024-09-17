@@ -1,0 +1,12 @@
+.notice {
+
+  color: red;
+  font-weight: bold;
+
+}
+
+.val-error {
+
+  border: 1px red solid;
+  
+}

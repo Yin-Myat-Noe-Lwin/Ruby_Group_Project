@@ -1,0 +1,44 @@
+<header>
+<%= render "home/nav" %>
+</header>
+<section class = "sec-review sec-review-edit">
+
+  <div class = "l-inner">
+
+    <div class = "average">
+
+      <h3 class= 'cmn-ttl'>Edit your Review</h3>
+
+      <div class= "form">
+
+        <%= form_with  model: @review do |form| %>
+  
+          <div class="form-review">
+            <%= form.text_field :comment   %><br>
+          </div>
+
+          <div id="rating-form"></div>
+
+          <%= form.submit "Update" , class: 'sec-rw-btn rw-write-btn'   %>
+  
+        <% end %>
+
+      </div>
+
+    </div>
+    
+  </div>
+
+</section>
+
+<%= render "home/footer" %>
+
+<!-- JS script for Raty -->
+<script>
+
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+
+</script>

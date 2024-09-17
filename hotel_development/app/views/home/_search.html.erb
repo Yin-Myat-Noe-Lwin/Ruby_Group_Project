@@ -1,0 +1,20 @@
+<%= form_with do |form|  %>
+
+  <p class="check-avail-txt">
+    <span>CheckIn</span>
+    <span id="check-out">CheckOut</span>
+    <span id="ppl">Number of People</span>
+    <span id="rm-type">Room Type</span>
+  </p>
+
+  <%= form.date_field :check_in   %>
+
+  <%= form.date_field :check_out  %>
+
+  <%= form.select(:num_of_ppl,  [ ['1', 1], ['2', 2] ,  ['3', 3 ] , ['4', 4]   , ['5', 5] ] , prompt: 'Number of People' ) %>
+
+  <%= form.collection_select(:room_type_id, RoomType.all, :id, :name ,  prompt: 'Room Type') %>
+  
+  <%= form.submit "Check Availability" , id: 'check-avail'  %>
+ 
+<% end %>

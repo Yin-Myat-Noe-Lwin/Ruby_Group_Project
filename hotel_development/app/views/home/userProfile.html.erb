@@ -1,0 +1,21 @@
+<header>
+<%= render "home/nav" %>
+</header>
+
+<section class = 'sec-profile'>
+
+  <div class = 'l-inner clearfix'>
+
+  <div class = 'blk-form'>
+    <div class="card_background_img"></div>
+      <%= image_tag(current_user.profile, :alt => "img" , class: 'current-user-pf'  ) %>	
+        <div class="current-user-data">
+            <h3><%= current_user.name %></h3>
+            <p><%= current_user.email %></p>
+        </div>      
+    </div>
+  </div>
+
+</section>
+
+<%= render "home/footer" %>

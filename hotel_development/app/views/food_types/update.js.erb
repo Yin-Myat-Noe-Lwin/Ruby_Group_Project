@@ -1,0 +1,13 @@
+<% if @food_type.errors.any? %>
+
+  $(".notice").remove();
+
+  $("#ft-et-name-block").append('<div class="notice"><%= escape_javascript(@errorName[0])%></div>');
+
+<% else %>
+
+  $('#foodTypeRow<%= food_type.id %>').replacewith("<%= escape_javascript render('food_type_row', food_type: @food_type) %>");
+
+  $('.et-ft-close').click();
+
+<% end %>
